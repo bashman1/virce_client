@@ -16,8 +16,12 @@ html{
 }
 
 body{
-    background: #1b1b1b;
-    font-family: 'Inter', sans-serif;
+    background: #ffff;
+   font-family: "Poppins", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 400;
+    color: gray;
     overflow-x: hidden;
 }
 button{
@@ -38,9 +42,12 @@ button{
     h2{
         font-weight: lighter;
         font-size: 4rem;
+        line-height: 1.5;
     }
     h3{
-        color: white;
+        line-height: 1.5;
+        font-weight: 400;
+        color: #000000;    
     }
     h4{
         font-weight: bold;
@@ -49,6 +56,8 @@ button{
     }
     a{
         font-size: 1.1rem;
+        text-decoration: none;
+        background-color: transparent;
     }
     span{
         font-weight: bold;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const About = styled(motion.div)`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -142,7 +142,7 @@ export const DescriptionProducts = styled.div`
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-margin-top: 5rem;
+  margin-top: 5rem;
 
   .subheading {
     font-size: 18px;
@@ -155,13 +155,50 @@ margin-top: 5rem;
 
   h2 {
     position: relative;
-    font-size: 50px;
+    font-size: 60px;
     font-weight: 800;
     color: #000000;
     font-family: "Poppins", Arial, sans-serif;
   }
   p{
     padding: 0 0 4rem 0;
+  }
+  @media (max-width: 1300px) {
+    padding: 0;
+    button {
+      margin: 2rem 0rem 5rem 0rem;
+    }
+  }
+`;
+
+export const DescriptionTestimonies = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  margin-top: 5rem;
+
+  .subheading {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+    font-family: "Lora", Georgia, serif;
+    font-style: italic;
+    color: #82ae46;
+  }
+
+  h2 {
+    position: relative;
+    font-size: 70px;
+    font-weight: 800;
+    color: #000000;
+    font-family: "Poppins", Arial, sans-serif;
+  }
+  p{
+    padding: 0 0 4rem 0;
+    width: 50%;
   }
   @media (max-width: 1300px) {
     padding: 0;

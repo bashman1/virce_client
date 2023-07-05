@@ -8,7 +8,7 @@ import gulapay from "../img/product-4.jpg";
 import seepug from "../img/product-3.jpg";
 import wefarm from "../img/product-2.jpg";
 //Styles
-import { About, DescriptionProducts, Image } from "../styles";
+import { About, DescriptionProducts } from "../styles";
 import styled from "styled-components";
 import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
@@ -115,7 +115,6 @@ const OurServices = () => {
 const Services = styled(About)`
   text-align: center;
   background: white;
-  min-height: 80vh;
 
   h2 {
     padding-bottom: 2.5rem;
@@ -129,6 +128,7 @@ const Cards = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   width: 80%;
   margin: 0 auto;
+  grid-gap: 1.5rem;
 
   @media (max-width: 1300px) {
     justify-content: center;
