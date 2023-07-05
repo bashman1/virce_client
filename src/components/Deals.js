@@ -8,32 +8,32 @@ import { photoAnim } from "../animation";
 import { Link } from "react-router-dom";
 
 const Deals = () => {
-    return (
-        <StyledDeals>
-            <AboutDeals>
-                <span class="subheading">Best Price For You</span>
+  return (
+    <StyledDeals>
+      <AboutDeals>
+        <span class="subheading">Best Price For You</span>
 
-                <h2>Deal of the day</h2>
+        <h2>Deal of the day</h2>
 
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
 
-                <h3><Link href="#">Spinach</Link></h3>
+        <h3><Link href="#">Spinach</Link></h3>
 
-                <span class="price">$10 <Link href="#">now $5 only</Link></span>
+        <span class="price">$10 <Link href="#">now $5 only</Link></span>
 
-                <div id="timer" class="d-flex mt-5">
-                    <div class="time" id="days">-1291<span>Days</span></div>
-                    <div class="time pl-3" id="hours">04<span>Hours</span></div>
-                    <div class="time pl-3" id="minutes">47<span>Minutes</span></div>
-                    <div class="time pl-3" id="seconds">31<span>Seconds</span></div>
-                </div>
-            </AboutDeals>
-            <Image>
-                <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
-            </Image>
+        <div id="timer" class="d-flex mt-5">
+          <div class="time" id="days">-1291<span>Days</span></div>
+          <div class="time pl-3" id="hours">04<span>Hours</span></div>
+          <div class="time pl-3" id="minutes">47<span>Minutes</span></div>
+          <div class="time pl-3" id="seconds">31<span>Seconds</span></div>
+        </div>
+      </AboutDeals>
+      <Image>
+        <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
+      </Image>
 
-        </StyledDeals>
-    );
+    </StyledDeals>
+  );
 };
 
 //Styled Components
