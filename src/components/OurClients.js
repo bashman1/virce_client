@@ -1,7 +1,7 @@
 import React from "react";
 //Import Icons
 import serviceCops from "../img/truck.gif";
-import neptune from "../img/neptune.png";
+import neptune from "../img/truck.png";
 
 import schoolpay from "../img/schoolpay.png";
 import gulapay from "../img/gulapay.png";
@@ -51,7 +51,9 @@ const OurClients = () => {
           <Card>
             <div className="icon">
               <div className="inner_circle">
-                <i class="uil uil-truck"></i>
+                <Image>
+                  <img src={neptune} alt="guy with a camera" />
+                </Image>
               </div>
             </div>
             <div class="media-body">

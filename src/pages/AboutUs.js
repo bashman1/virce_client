@@ -4,6 +4,8 @@ import AboutSection from "../components/AboutSection";
 import OurClients from "../components/OurClients";
 import Vegetables from "../components/Vegetables";
 import OurServices from "../components/OurServices";
+import Deals from "../components/Deals";
+import Testimonies from "../components/Testimonies"
 //Animations
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
@@ -20,6 +22,8 @@ const AboutUs = () => {
       <OurClients />
       <Vegetables />
       <OurServices />
+      <Deals />
+      <Testimonies />
     </motion.div>
   );
 };
