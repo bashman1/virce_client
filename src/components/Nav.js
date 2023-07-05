@@ -26,7 +26,7 @@ const Nav = () => {
       <StyledNav>
         <LogoContainer>
           <Link id="logo" to="/">
-            Vegefoods
+          TAMBISA
           </Link>
         </LogoContainer>
         <ul>
