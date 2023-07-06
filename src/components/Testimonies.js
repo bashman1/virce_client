@@ -4,9 +4,6 @@ import brandDesign from "../img/person_1.jpg";
 import productDesign from "../img/person_2.jpg";
 
 import digitalMarketing from "../img/person_1.jpg";
-import gulapay from "../img/product-4.jpg";
-import seepug from "../img/product-3.jpg";
-import wefarm from "../img/product-2.jpg";
 //Styles
 import { About, DescriptionTestimonies } from "../styles";
 import styled from "styled-components";
