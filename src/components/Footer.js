@@ -88,8 +88,7 @@ const Footer = () => {
         </Cards>
         <div className="copy_right">
           <p>
-            Copyright ©<script>document.write(new Date().getFullYear());</script>2023 All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" >Colorlib</a>
-
+            Copyright ©{(new Date().getFullYear())} All rights Reserved. Powered by Virce Corporation through Virce Core. 
           </p>
         </div>
       </StyledFooter>

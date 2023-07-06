@@ -13,7 +13,8 @@ const AboutSection = () => {
         <motion.div>
           <Hide>
             <motion.h2 variants={titleAnim}>
-              We serve Fresh Vegestables & Fruits
+            VANILLA INNOVATION AND EXPANSION FUND(VIEF) 
+              {/* We serve Fresh Vegestables & Fruits */}
             </motion.h2>
             <motion.h3 variants={titleAnim}>
               We deliver organic vegetables & fruits
