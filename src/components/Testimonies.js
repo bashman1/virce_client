@@ -144,6 +144,9 @@ const Card = styled.div`
             border-left: 1px solid #e6e6e6;
             color: rgba(0, 0, 0, 0.8);
         }
+        .name{
+            padding-bottom: .5rem;
+        }
     }
 `;
 
