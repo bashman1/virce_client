@@ -1,11 +1,10 @@
 import React from "react";
 import home1 from "../img/bg_3.jpg";
-import { About, DescriptionAbout, Image } from "../styles";
+import { DescriptionAbout, Image } from "../styles";
 import Styled from "styled-components"
 //Framer Motion
 import { motion } from "framer-motion";
 import { photoAnim } from "../animation";
-import { Link } from "react-router-dom";
 
 const PartnerShips = () => {
   return (
