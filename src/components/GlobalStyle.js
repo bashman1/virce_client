@@ -34,11 +34,14 @@ button{
     color: white;
     transition: all 0.5s ease;
     font-family: 'Inter', sans-serif;
-    &:hover{
-        background-color: #23d997;
-        color: white;
+        &:hover{
+            background-color: #23d997;
+            color: white;
+        }
     }
-}
+    h1{
+        line-height: 1.5;
+    }
     h2{
         font-weight: lighter;
         font-size: 4rem;
@@ -64,8 +67,6 @@ button{
         color:#23d997;
     }
     p{
-        padding: 3rem 0rem;
-        color: #ccc;
         font-size: 1.4rem;
         line-height: 150%;
     }

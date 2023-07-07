@@ -1,12 +1,6 @@
 import React from "react";
 //Import Icons
 import facebook from "../img/facebook.png";
-import productDesign from "../img/person_2.jpg";
-
-import digitalMarketing from "../img/person_1.jpg";
-import gulapay from "../img/product-4.jpg";
-import seepug from "../img/product-3.jpg";
-import wefarm from "../img/product-2.jpg";
 //Styles
 import { About } from "../styles";
 import styled from "styled-components";
@@ -88,7 +82,7 @@ const Footer = () => {
         </Cards>
         <div className="copy_right">
           <p>
-            Copyright ©{(new Date().getFullYear())} All rights Reserved. Powered by Virce Corporation through Virce Core. 
+            Copyright ©{(new Date().getFullYear())} All rights Reserved. Powered by Virce Corporation through Virce Core.
           </p>
         </div>
       </StyledFooter>

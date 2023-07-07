@@ -3,7 +3,6 @@ import React from "react";
 import GlobalStyle from "./components/GlobalStyle";
 //Import Pages
 import AboutUs from "./pages/AboutUs";
-import ExploreMore from "./pages/ExploreMore";
 import ContactUs from "./pages/ContactUs";
 import OurWork from "./pages/OurWork";
 import Nav from "./components/Nav";
@@ -35,9 +34,7 @@ function App() {
           <Route path="/contact">
             <ContactUs />
           </Route>
-          <Route path="/explore-more">
-            <ExploreMore />
-          </Route>
+
         </Switch>
       </AnimatePresence>
     </div>

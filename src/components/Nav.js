@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import home1 from "../img/lolog.png";
 
 const Nav = () => {
   const { pathname } = useLocation();
@@ -26,7 +25,7 @@ const Nav = () => {
       <StyledNav>
         <LogoContainer>
           <Link id="logo" to="/">
-          TAMBISA
+            TAMBISA
           </Link>
         </LogoContainer>
         <ul>
@@ -37,7 +36,14 @@ const Nav = () => {
             <Link to="/contact">Shop</Link>
           </li>
           <li>
-            <Link to="/contact">About</Link>
+            <li>
+              <Link to="/work">About Us</Link>
+              <Line
+                transition={{ duration: 0.75 }}
+                initial={{ width: "0%" }}
+                animate={{ width: pathname === "/work" ? "50%" : "0%" }}
+              />
+            </li>
           </li>
           <li>
             <Link to="/contact">Blog</Link>
@@ -164,41 +170,6 @@ const LogoContainer = styled.div`
     height: 56px;
   }
 `;
-const StyledButton = styled.button`
-  box-sizing: border-box !important;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 13px 31px;
-  gap: 10px;
-  margin-left: 2rem;
-  height: 35px;
-
-  border-radius: 100px !important;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  position: relative;
-  a {
-    white-space: nowrap;
-  }
-  &::after {
-    position: absolute;
-    top: -2%;
-    bottom: -2%;
-    left: -2%;
-    right: -2%;
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(
-      to right bottom,
-      #ff0000 #ffcc08
-    ) !important;
-  }
-`;
 
 export default Nav;

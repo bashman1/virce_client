@@ -2,11 +2,6 @@ import React from "react";
 //Import Icons
 import serviceCops from "../img/truck.gif";
 import neptune from "../img/truck.png";
-
-import schoolpay from "../img/schoolpay.png";
-import gulapay from "../img/gulapay.png";
-import seepug from "../img/seepug.png";
-import wefarm from "../img/wefarm.png";
 //Styles
 import { About, DescriptionOurClients, Image } from "../styles";
 import styled from "styled-components";

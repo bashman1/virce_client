@@ -5,8 +5,6 @@ import neptune from "../img/category-3.jpg";
 import { motion } from "framer-motion";
 import schoolpay from "../img/category-2.jpg";
 import category4 from "../img/category-4.jpg";
-import seepug from "../img/seepug.png";
-import wefarm from "../img/wefarm.png";
 //Styles
 import { About, DescriptionVegetables, Image } from "../styles";
 import styled from "styled-components";
