@@ -4,7 +4,6 @@ import { About, DescriptionAbout, Image, Hide, Ellipse } from "../styles";
 //Framer Motion
 import { motion } from "framer-motion";
 import { titleAnim, fade, photoAnim } from "../animation";
-import Wave from "./Wave";
 
 const AboutSection = () => {
   return (
@@ -13,7 +12,7 @@ const AboutSection = () => {
         <motion.div>
           <Hide>
             <motion.h2 variants={titleAnim}>
-            VANILLA INNOVATION AND EXPANSION FUND(VIEF) 
+              VANILLA INNOVATION AND EXPANSION FUND(VIEF)
               {/* We serve Fresh Vegestables & Fruits */}
             </motion.h2>
             <motion.h3 variants={titleAnim}>

@@ -26,7 +26,7 @@ const Nav = () => {
       <StyledNav>
         <LogoContainer>
           <Link id="logo" to="/">
-          TAMBISA
+            TAMBISA
           </Link>
         </LogoContainer>
         <ul>
@@ -37,7 +37,14 @@ const Nav = () => {
             <Link to="/contact">Shop</Link>
           </li>
           <li>
-            <Link to="/contact">About</Link>
+            <li>
+              <Link to="/work">About Us</Link>
+              <Line
+                transition={{ duration: 0.75 }}
+                initial={{ width: "0%" }}
+                animate={{ width: pathname === "/work" ? "50%" : "0%" }}
+              />
+            </li>
           </li>
           <li>
             <Link to="/contact">Blog</Link>
