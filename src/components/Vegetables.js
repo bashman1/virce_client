@@ -1,10 +1,10 @@
 import React from "react";
 //Import Icons
-import serviceCops from "../img/category-1.jpg";
-import neptune from "../img/category-3.jpg";
+import serviceCops from "../img/dry-vanilla.jpg";
+// import neptune from "../img/category-3.jpg";
 import { motion } from "framer-motion";
-import schoolpay from "../img/category-2.jpg";
-import category4 from "../img/category-4.jpg";
+import schoolpay from "../img/2018_11_08-Papua-New-Guinea-r3-2357.jpg";
+import category4 from "../img/ginger-plant-compressed.webp";
 //Styles
 import { About, DescriptionVegetables, Image } from "../styles";
 import styled from "styled-components";
@@ -27,43 +27,43 @@ const Vegetables = () => {
                         <Image>
                             <img src={serviceCops} alt="guy with a camera" />
                         </Image>
-                        <motion.button variants={fade}>Fruits </motion.button>
+                        <motion.button variants={fade}>Vanilla </motion.button>
                     </Card>
 
                     <Card>
                         <Image>
                             <img src={category4} alt="guy with a camera" />
                         </Image>
-                        <motion.button variants={fade}>Juices</motion.button>
+                        <motion.button variants={fade}>Ginger</motion.button>
                     </Card>
 
                     <Card>
                         <Image>
                             <img src={schoolpay} alt="guy with a camera" />
                         </Image>
-                        <motion.button variants={fade}>Vegetables</motion.button>
+                        <motion.button variants={fade}>Vanilla</motion.button>
                     </Card>
 
-                    <Card>
+                    {/* <Card>
                         <Image>
                             <img src={serviceCops} alt="guy with a camera" />
                         </Image>
                         <motion.button variants={fade}>View Details</motion.button>
-                    </Card>
+                    </Card> */}
 
-                    <Card>
+                    {/* <Card>
                         <Image>
                             <img src={serviceCops} alt="guy with a camera" />
                         </Image>
                         <motion.button variants={fade}>Dried</motion.button>
-                    </Card>
+                    </Card> */}
 
-                    <Card>
+                    {/* <Card>
                         <Image>
                             <img src={neptune} alt="guy with a camera" />
                         </Image>
                         <motion.button variants={fade}>View Details</motion.button>
-                    </Card>
+                    </Card> */}
 
 
                 </Cards>

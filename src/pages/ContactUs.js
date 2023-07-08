@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 //Images
 import athlete from "../img/bg_1.jpg";
-import nuts from "../img/Image_5dd97b0f-2cfe-425f-bce4-41eb30ba54f9.webp";
+import nuts from "../img/ginger_600x.webp";
 import Footer from "../components/Footer";
 //Animations
 import { motion } from "framer-motion";
