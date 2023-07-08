@@ -3,9 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 //Images
 import athlete from "../img/bg_1.jpg";
-import Newsletter from "../components/Newsletter"
+import nuts from "../img/Image_5dd97b0f-2cfe-425f-bce4-41eb30ba54f9.webp";
 import Footer from "../components/Footer";
-import PartnerShips from "../components/PartnerShips";
 //Animations
 import { motion } from "framer-motion";
 import {
@@ -59,34 +58,38 @@ const ContactUs = () => {
         <ContactForm ref={element} variants={fade} animate={controls} initial="hidden">
 
           <GoogleMap>
-            <div class="mouse">
-              <Link href="#" class="mouse-icon">
-                <div class="mouse-wheel"><i class="uil uil-play"></i></div>
-              </Link>
-            </div>
+            <Hide>
+              <motion.img variants={photoAnim} src={nuts} alt="Gnuts" />
+            </Hide>
           </GoogleMap>
 
           <StyledForm>
-            <div class="vegie_right_header">
-              <h2 class="mb-4">Welcome to Vegefoods an eCommerce website</h2>
-            </div>
+            <form action="#" class="bg-white p-5 contact-form">
+              <div class="form-group">
+                <h2>Talk To Us</h2>
+              </div>
 
-            <div class="vegie_right_text">
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-              <p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-              <p>
-                <Link to="/shop" class="btn btn-primary">
-                  <motion.button variants={fade}>Shop now</motion.button>
-                </Link>
-              </p>
-            </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name" />
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Email" />
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject" />
+              </div>
+              <div class="form-group">
+                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" />
+              </div>
+            </form>
           </StyledForm>
 
         </ContactForm>
       </StyledContact>
 
-      <Newsletter />
-      <PartnerShips />
       <Footer />
 
       <ScrollTop />
@@ -123,7 +126,7 @@ const StyledContact = styled(motion.div)`
   justify-content: flex-start;
   flex-direction: column;
   row-gap:5rem;
-  height:100vh;
+  min-height:100vh;
   overflow:hidden;
 
   img {
@@ -134,12 +137,12 @@ const StyledContact = styled(motion.div)`
 `;
 
 const ContactForm = styled(motion.div)`
-  padding: 0 10rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height:100vh;
   overflow:hidden;
+  width:100%;
 
   img {
     width: 100%;
@@ -153,65 +156,50 @@ const GoogleMap = styled.div`
   height: inherit;
   flex:1;
 
-  .mouse{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 99;
-    transform: translate(-50%, -50%);
-
-    .mouse-icon{
-      width: 100px;
-      height: 100px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 50%;
-      background: #82ae46;
-      cursor: pointer;
-      position: relative;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .mouse-wheel{
-        i{
-          font-size: 3rem;
-          color: white;
-        }
-      }
-    }
+  img{
+    border-radius: 1.5rem;
   }
 `;
+
 const StyledForm = styled.div`
   display: flex;
   flex-direction: column;
   flex:1;
-  padding:3rem;
+  padding:1.5rem 3rem;
+  background:white;
+  border-radius: 0rem 1rem 1rem 0rem;
 
-  .vegie_right_header{
-    margin:1.5rem 0;
-
+  .form-group {
+    margin-bottom: 1.5rem;
     h2{
-      font-size: 40px;
-      font-weight: 800;
-      color: #000000;
+       color: #000000 !important;
+       text-align:center;
+       font-weight:bolder;
     }
-  }
-  .vegie_right_text{
-    p{
-      margin-bottom: 1rem;
-
-      a{
-        button{
-          background: #82ae46;
-          border: 1px solid #82ae46;
-          color: #fff;
-          border-radius: 2rem;
-        }
-      }
+    .form-control {
+      height: 52px !important;
+      background: #fff !important;
+      color: #000000 !important;
+      display: block;
+      width: 100%;
+      padding: 0.375rem 0.75rem;
+      border-radius: 1rem;
     }
 
+    textarea.form-control {
+      height: inherit !important;
+    }
+    .btn.btn-primary {
+      background: #82ae46;
+      border: 1px solid #82ae46;
+      color: #fff;
+      border-radius: 30px;
+      box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+      padding:1rem 3rem 1rem 0rem;
+      width: 50%;
+    }
   }
+  
 `
 const ContactAddress = styled.div`
   display:flex;
@@ -255,42 +243,6 @@ const Hide = styled.div`
   overflow: hidden;
   position:relative;
 
-  .about_title{
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-
-    p{
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 3px;
-      margin-bottom: 0;
-      z-index: 99;
-      font-weight: 300;
-      color: white;
-      padding: 0;
-
-      .mr-2{        
-        margin-right: 0.5rem !important;
-        a{
-          color: white;
-        }
-      }
-      span{
-          color: white;
-      }
-    }
-
-    h1{
-      font-weight: 800;
-      color: #fff;
-      font-size: 30px;
-      font-family: "Poppins", Arial, sans-serif;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-  }
 `;
 
 //Frame Animation

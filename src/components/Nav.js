@@ -3,37 +3,44 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import tabiisaLog from "../img/Tambiisa-Logo-transformed.png"
+import { photoAnim } from "../animation";
 
 const Nav = () => {
   const { pathname } = useLocation();
   return (
     <StyledTop>
+
       <StyledTopExtra>
+
         <TopItem>
           <span><i class="uil uil-phone"></i></span>
           <span>+ 1235 2355 98</span>
         </TopItem>
+
         <TopItem>
           <span><i class="uil uil-telegram-alt"></i></span>
           <span>youremail@email.com</span>
         </TopItem>
+
         <TopItem>
           <span><i class="uil uil-clock-eight"></i></span>
           <span>3-5 Business days delivery & Free Returns</span>
         </TopItem>
+
       </StyledTopExtra>
+
       <StyledNav>
         <LogoContainer>
           <Link id="logo" to="/">
-            TAMBISA
+            <Hide>
+              <motion.img variants={photoAnim} src={tabiisaLog} alt="Gnuts" />
+            </Hide>
           </Link>
         </LogoContainer>
         <ul>
           <li>
             <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/contact">Shop</Link>
           </li>
           <li>
             <li>
@@ -45,14 +52,9 @@ const Nav = () => {
               />
             </li>
           </li>
-          <li>
-            <Link to="/contact">Blog</Link>
-          </li>
+
           <li>
             <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/contact"><i class="uil uil-shopping-cart"></i></Link>
           </li>
         </ul>
       </StyledNav>
@@ -79,9 +81,9 @@ const StyledTop = styled.div`
 
 const StyledTopExtra = styled.div`
 background: #82ae46 !important;
-padding: .5rem 0.25rem !important;
+padding: .5rem 6rem !important;
 display: flex;
-justify-content: space-around;
+justify-content: space-between;
 align-items: center;
 width: 100%;
 `
@@ -100,8 +102,11 @@ const StyledNav = styled.nav`
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 7rem;
+  padding: 0rem 7rem;
   width: 100%;
+  background: #ffffff80 !important;
+  backdrop-filter: blur(1rem);
+  box-shadow: 0px 1px 10px #0000003d;
 
   z-index: 10;
   
@@ -149,6 +154,16 @@ const StyledNav = styled.nav`
   }
 `;
 
+const Hide = styled.div`
+  overflow: hidden;
+  height: 6.4rem;
+
+  img {
+    width: 144px;
+    height: 100%;
+    object-fit:cover;
+  }
+`;
 const Line = styled(motion.div)`
   height: 0.3rem;
   background: #23d997;
@@ -165,10 +180,8 @@ const LogoContainer = styled.div`
   z-index: 2;
   flex: 1;
   overflow: hidden;
-  img {
-    width: 144px;
-    height: 56px;
-  }
+  position: relative;
+
 `;
 
 

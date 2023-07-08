@@ -34,11 +34,13 @@ button{
     color: white;
     transition: all 0.5s ease;
     font-family: 'Inter', sans-serif;
+
         &:hover{
             background-color: #23d997;
             color: white;
         }
     }
+
     h1{
         line-height: 1.5;
     }
@@ -69,6 +71,17 @@ button{
     p{
         font-size: 1.4rem;
         line-height: 150%;
+    }
+    input{
+        border: 1px solid #ced4da;
+        font-weight: 400;
+        line-height: 1.5;
+        padding: 0.375rem 0.75rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    }
+    textarea{
+        border:none;
+        border: 1px solid #ced4da;
     }
 
 `;
