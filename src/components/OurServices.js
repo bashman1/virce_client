@@ -8,10 +8,11 @@ import gulapay from "../img/product-4.jpg";
 import seepug from "../img/product-3.jpg";
 import wefarm from "../img/product-2.jpg";
 //Styles
-import { About, DescriptionProducts } from "../styles";
+import { DescriptionProducts } from "../styles";
 import styled from "styled-components";
 import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
+import { motion } from "framer-motion";
 
 const OurServices = () => {
   const [element, controls] = useScroll();
@@ -112,9 +113,16 @@ const OurServices = () => {
   );
 };
 
-const Services = styled(About)`
+const Services = styled(motion.div)`
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
   text-align: center;
   background: white;
+  padding: 0rem 0rem 5rem 0;
 
   h2 {
     padding-bottom: 2.5rem;
