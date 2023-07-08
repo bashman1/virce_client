@@ -4,7 +4,6 @@ import { CertificationData } from "../CertificationsData";
 //Import Icons
 import Wave from "../components/Wave"
 //Styles
-import { About } from "../styles";
 import styled from "styled-components";
 import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
@@ -47,9 +46,17 @@ const Certification = () => {
   );
 };
 
-const Services = styled(About)`
+const Services = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  color: white;
+  position: relative;
   text-align: center;
   background: white;
+  min-height: 100vh !important;
+  padding-top: 2rem;
 
   h2 {
     padding-bottom: 2.5rem;

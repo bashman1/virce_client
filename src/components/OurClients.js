@@ -3,10 +3,11 @@ import React from "react";
 import serviceCops from "../img/truck.gif";
 import neptune from "../img/truck.png";
 //Styles
-import { About, DescriptionOurClients, Image } from "../styles";
+import { DescriptionOurClients, Image } from "../styles";
 import styled from "styled-components";
 import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
+import { motion } from "framer-motion";
 
 const OurClients = () => {
   const [element, controls] = useScroll();
@@ -73,8 +74,16 @@ const OurClients = () => {
   );
 };
 
-const Services = styled(About)`
-height: 50vh;
+const Services = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  color: white;
+  position: relative;
+  text-align: center;
+  background: white;
+  height: 60vh;
   text-align: center;
   background: white;
 
