@@ -7,7 +7,7 @@ import OurServices from "../components/OurServices";
 import Deals from "../components/Deals";
 import Footer from "../components/Footer";
 import Testimonies from "../components/Testimonies"
-import Newsletter from "../components/Newsletter"
+// import Newsletter from "../components/Newsletter"
 
 //Animations
 import { motion } from "framer-motion";
@@ -27,7 +27,7 @@ const AboutUs = () => {
       <OurServices />
       <Deals />
       <Testimonies />
-      <Newsletter />
+      {/* <Newsletter /> */}
       <Footer />
     </motion.div>
   );

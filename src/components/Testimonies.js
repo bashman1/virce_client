@@ -20,9 +20,9 @@ const Testimonies = () => {
             ref={element}
         >
             <DescriptionTestimonies>
-                <span class="subheading">Testimony</span>
-                <h2 className="bigger">Our satisfied customer says</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+                <span class="subheading">Funding Partners</span>
+                <h2 className="bigger">Our partners</h2>
+                {/* <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p> */}
 
                 <Cards>
                     <Card>
