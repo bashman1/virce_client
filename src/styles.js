@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const About = styled(motion.div)`
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,19 +39,20 @@ export const AboutProductDesign = styled(motion.div)`
 
 export const DescriptionAbout = styled.div`
   position: absolute;
-  top: 50%;
+  top: 90%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -70%);
   z-index: 3;
   width: 70%;
   text-align: center;
+  height: 100vh;
 
   h2 {
     /* line-height: 92.2%; */
     text-align: center;
     width: 100%;
     transform: none;
-    font-size: 8vw;
+    font-size: 7vw;
     color: #fff;
     line-height: 1.3;
     font-weight: 400;

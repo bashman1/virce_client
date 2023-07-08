@@ -29,7 +29,7 @@ const AboutUs = () => {
       <Testimonies />
       {/* <Newsletter /> */}
       <Footer />
-    </motion.div>
+    </motion.div >
   );
 };
 
