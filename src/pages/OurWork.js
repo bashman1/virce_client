@@ -75,6 +75,7 @@ const OurWork = () => {
             </p>
           </div>
         </StyledVegieRight>
+
       </StyledVegie>
 
       <Newsletter />

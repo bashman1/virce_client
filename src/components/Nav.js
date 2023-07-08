@@ -33,9 +33,6 @@ const Nav = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/contact">Shop</Link>
-          </li>
-          <li>
             <li>
               <Link to="/work">About Us</Link>
               <Line
@@ -45,14 +42,9 @@ const Nav = () => {
               />
             </li>
           </li>
-          <li>
-            <Link to="/contact">Blog</Link>
-          </li>
+
           <li>
             <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/contact"><i class="uil uil-shopping-cart"></i></Link>
           </li>
         </ul>
       </StyledNav>
@@ -79,9 +71,9 @@ const StyledTop = styled.div`
 
 const StyledTopExtra = styled.div`
 background: #82ae46 !important;
-padding: .5rem 0.25rem !important;
+padding: .5rem 6rem !important;
 display: flex;
-justify-content: space-around;
+justify-content: space-between;
 align-items: center;
 width: 100%;
 `
