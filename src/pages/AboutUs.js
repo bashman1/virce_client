@@ -27,11 +27,7 @@ const AboutUs = () => {
       <OurServices />
       <Deals />
       <Testimonies />
-<<<<<<< HEAD
-      <Certification />
-=======
       {/* <Newsletter /> */}
->>>>>>> 4b1a134b557e5340a59ae8dad5feb5011a3cb271
       <Footer />
     </motion.div >
   );

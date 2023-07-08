@@ -68,9 +68,9 @@ const OurWork = () => {
           <div class="vegie_right_text">
             {/* <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p> */}
             {/* <p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p> */}
-            <p>Tambiisa (U) Ltd is a leading vanilla processing and export company in Uganda, which has been operating for more than a decade. Since its inception, the company has helped many farmers to uplift their standard of living through providing a sustained market for their green vanilla. The company has a state-of-the-art processing facility located in Makindye Ssabagabo, Kampala, with a current handling capacity of over 100+ MT of fresh vanilla beans. With an established international market for both organic and conventional cured vanilla beans, mostly in USA, EU and South Africa, Tambiisa sources quality organic vanilla beans directly from 500 organic farmers in the Rwenzori sub region (Bundibugyo district) and from 15 buying agents who are located in different vanilla-growing districts of Uganda. 
-              Almost 3,000 farmers to uplift their standard of living 
-              </p>
+            <p>Tambiisa (U) Ltd is a leading vanilla processing and export company in Uganda, which has been operating for more than a decade. Since its inception, the company has helped many farmers to uplift their standard of living through providing a sustained market for their green vanilla. The company has a state-of-the-art processing facility located in Makindye Ssabagabo, Kampala, with a current handling capacity of over 100+ MT of fresh vanilla beans. With an established international market for both organic and conventional cured vanilla beans, mostly in USA, EU and South Africa, Tambiisa sources quality organic vanilla beans directly from 500 organic farmers in the Rwenzori sub region (Bundibugyo district) and from 15 buying agents who are located in different vanilla-growing districts of Uganda.
+              Almost 3,000 farmers to uplift their standard of living
+            </p>
             <p>
               <Link to="/shop" class="btn btn-primary">
                 <motion.button variants={fade}>Shop now</motion.button>
@@ -106,7 +106,7 @@ const Work = styled(motion.div)`
 const Movie = styled(motion.div)`
   img {
     width: 100%;
-    height: 70vh;
+    height: 75vh;
     object-fit: cover;  
   }
 `;
