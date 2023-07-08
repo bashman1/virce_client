@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 //Images
 import athlete from "../img/bg_1.jpg";
 import nuts from "../img/Image_5dd97b0f-2cfe-425f-bce4-41eb30ba54f9.webp";
-import Newsletter from "../components/Newsletter"
 import Footer from "../components/Footer";
-import PartnerShips from "../components/PartnerShips";
 //Animations
 import { motion } from "framer-motion";
 import {
@@ -245,42 +243,6 @@ const Hide = styled.div`
   overflow: hidden;
   position:relative;
 
-  .about_title{
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-
-    p{
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 3px;
-      margin-bottom: 0;
-      z-index: 99;
-      font-weight: 300;
-      color: white;
-      padding: 0;
-
-      .mr-2{        
-        margin-right: 0.5rem !important;
-        a{
-          color: white;
-        }
-      }
-      span{
-          color: white;
-      }
-    }
-
-    h1{
-      font-weight: 800;
-      color: #fff;
-      font-size: 30px;
-      font-family: "Poppins", Arial, sans-serif;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-  }
 `;
 
 //Frame Animation
