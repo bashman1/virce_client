@@ -15,12 +15,12 @@ const Nav = () => {
 
         <TopItem>
           <span><i class="uil uil-phone"></i></span>
-          <span>+ 1235 2355 98</span>
+          <span>+256-786-248201</span>
         </TopItem>
 
         <TopItem>
           <span><i class="uil uil-telegram-alt"></i></span>
-          <span>youremail@email.com</span>
+          <span>info@tambisa.com</span>
         </TopItem>
 
         <TopItem>

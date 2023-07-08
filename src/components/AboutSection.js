@@ -1,5 +1,5 @@
 import React from "react";
-import home1 from "../img/getPaidStock.png";
+import home1 from "../img/cover2.png";
 import { About, DescriptionAbout, Image, Hide, Ellipse } from "../styles";
 //Framer Motion
 import { motion } from "framer-motion";
@@ -12,7 +12,7 @@ const AboutSection = () => {
         <motion.div>
           <Hide>
             <motion.h2 variants={titleAnim}>
-              VANILLA INNOVATION AND EXPANSION FUND(VIEF)
+              VANILLA INNOVATION AND EXPANSION
               {/* We serve Fresh Vegestables & Fruits */}
             </motion.h2>
             <motion.h3 variants={titleAnim}>
