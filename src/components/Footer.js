@@ -26,8 +26,8 @@ const Footer = () => {
 
         <Cards>
           <Card>
-            <h2>VEGEFOODS</h2>
-            <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+            <h2>TAMBISA UGANDA LIMITED</h2>
+            <p class="mb-5 pl-4 line">Tambiisa (U) Ltd is a leading vanilla processing and export company in Uganda.</p>
             <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
               <li class="ftco-animate fadeInUp ftco-animated"><Link href="#"><img src={facebook} alt="guy with a camera" /></Link></li>
               <li class="ftco-animate fadeInUp ftco-animated"><Link href="#"><img src={facebook} alt="guy with a camera" /></Link></li>
@@ -36,17 +36,17 @@ const Footer = () => {
           </Card>
 
           <Card>
-            <h2 className="menu_guy">Menu</h2>
+            {/* <h2 className="menu_guy">Menu</h2>
             <ul class="footer_menus">
               <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Shop</Link></li>
               <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">About</Link></li>
               <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Journal</Link></li>
               <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Contact Us</Link></li>
-            </ul>
+            </ul> */}
           </Card>
 
           <Card>
-            <h2 className="help_title">Help</h2>
+            {/* <h2 className="help_title">Help</h2>
 
             <div className="help_guys">
               <ul class="help_list">
@@ -59,7 +59,7 @@ const Footer = () => {
                 <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">FAQs</Link></li>
                 <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Contact</Link></li>
               </ul>
-            </div>
+            </div> */}
           </Card>
 
           <Card>
@@ -67,15 +67,19 @@ const Footer = () => {
             <ul className="contact_address">
               <li className="address">
                 <span><i class="uil uil-map-marker"></i></span>
-                <span>203 Fake St. Mountain View, San Francisco, California, USA</span>
+                <span>Masaka, Ibanda and Kagadi, Mukono, Fortportal, Mpigi, Mityana, Mubende,  in addition to Rwenzori subregion ie Kasese, Bundibugyo </span>
+              </li>
+              <li className="address">
+                <span><i class="uil uil-map-marker"></i></span>
+                <span>P.O BOX 276161 </span>
               </li>
               <li className="address">
                 <span><i class="uil uil-phone"></i></span>
-                <span>+2 392 3929 210</span>
+                <span>+256-786-248201</span>
               </li>
               <li className="address">
                 <span><i class="uil uil-envelope"></i></span>
-                <span>info@yourdomain.com</span>
+                <span>info@tambisa.com</span>
               </li>
             </ul>
           </Card>

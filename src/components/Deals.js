@@ -13,7 +13,7 @@ const Deals = () => {
       <AboutDeals>
         <span class="subheading">Best Price For You</span>
 
-        <h2>Deal of the day</h2>
+        <h2>Green Vanilla Production Volumes</h2>
 
         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
 

@@ -38,8 +38,8 @@ const ContactUs = () => {
           <motion.img variants={photoAnim} src={athlete} alt="athlete" />
           <div class="about_title">
             <p class="breadcrumbs">
-              <span class="mr-2"><Link to="/">Home</Link></span>
-              <span>Contact Us</span>
+              {/* <span class="mr-2"><Link to="/">Home</Link></span>
+              <span>Contact Us</span> */}
             </p>
             <h1 class="mb-0 bread">Contact Us</h1>
           </div>
@@ -48,10 +48,10 @@ const ContactUs = () => {
 
       <StyledContact ref={element} variants={fade} animate={controls} initial="hidden">
         <ContactAddress>
-          <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
-          <p><span>Phone:</span> <Link href="tel://1234567920">+ 1235 2355 98</Link></p>
-          <p><span>Email:</span> <Link href="mailto:info@yoursite.com">info@yoursite.com</Link></p>
-          <p><span>Website</span> <Link href="#">yoursite.com</Link></p>
+          <p><span>Address:</span> Masaka, Ibanda and Kagadi, Mukono</p>
+          <p><span>Phone:</span> <Link href="tel://1234567920">+256-786-248201</Link></p>
+          <p><span>P.O Box:</span> <Link href="mailto:info@yoursite.com">P.O BOX 276161</Link></p>
+          <p><span>Website</span> <Link href="#">tambisa.com</Link></p>
 
         </ContactAddress>
 
