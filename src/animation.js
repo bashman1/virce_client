@@ -47,6 +47,18 @@ export const photoAnim = {
     },
   },
 };
+
+export const photoAnim_contactUs = {
+  hidden: { y: 200, opacity: 0 },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      ease: "easeOut",
+      duration: 0.75,
+    },
+  },
+};
 export const lineAnim = {
   hidden: { width: "0%" },
   show: {
@@ -69,12 +81,13 @@ export const sliderContainer = {
 };
 
 export const scrollReveal = {
-  hidden: { opacity: 0, scale: 1.2, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: "20%", transition: { duration: 0.5 } },
   show: {
     opacity: 1,
-    scale: 1,
+    y: "0%",
     transition: {
       duration: 0.5,
+      staggerChildren: 0.7,
     },
   },
 };

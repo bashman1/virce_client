@@ -4,16 +4,26 @@ import { About, DescriptionAbout, Image } from "../styles";
 import Styled from "styled-components"
 //Framer Motion
 import { motion } from "framer-motion";
-import { photoAnim } from "../animation";
+import { photoAnim, scrollReveal } from "../animation";
 import { Link } from "react-router-dom";
 
+import { useScroll } from "./useScroll";
+
+
 const Deals = () => {
+  const [element, controls] = useScroll();
   return (
-    <StyledDeals>
+    <StyledDeals
+      variants={scrollReveal}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+
+    >
       <AboutDeals>
         <span class="subheading">Best Price For You</span>
 
-        <h2>Green Vanilla Production Volumes</h2>
+        <motion.h2>Green Vanilla Production Volumes</motion.h2>
 
         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
 
@@ -22,14 +32,14 @@ const Deals = () => {
         <span class="price">$10 <Link href="#">now $5 only</Link></span>
 
         <div id="timer" class="d-flex mt-5">
-          <div class="time" id="days">-1291<span>Days</span></div>
-          <div class="time pl-3" id="hours">04<span>Hours</span></div>
-          <div class="time pl-3" id="minutes">47<span>Minutes</span></div>
-          <div class="time pl-3" id="seconds">31<span>Seconds</span></div>
+          <motion.div class="time" id="days">-1291<span>Days</span></motion.div>
+          <motion.div class="time pl-3" id="hours">04<span>Hours</span></motion.div>
+          <motion.div class="time pl-3" id="minutes">47<span>Minutes</span></motion.div>
+          <motion.div class="time pl-3" id="seconds">31<span>Seconds</span></motion.div>
         </div>
       </AboutDeals>
       <Image>
-        <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
+        <motion.img variants={scrollReveal} src={home1} alt="guy with a camera" />
       </Image>
 
     </StyledDeals>

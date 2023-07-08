@@ -55,10 +55,12 @@ export const DescriptionAbout = styled.div`
     font-size: 7vw;
     color: #fff;
     line-height: 1.3;
-    font-weight: 400;
+    font-weight: 600;
     font-family: 'Amatic SC', cursive;
   }
-
+  h3{
+      color: #fff;
+    }
   button {
     padding: 10px 31px;
     border: none !important;

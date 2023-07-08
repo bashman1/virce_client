@@ -9,10 +9,10 @@ import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import {
   sliderContainer,
-  slider,
+  photoAnim_contactUs,
+  photoAnim,
   pageAnimation,
   fade,
-  photoAnim,
 } from "../animation";
 import { useScroll } from "../components/useScroll";
 import ScrollTop from "../components/ScrollTop";
@@ -27,15 +27,10 @@ const ContactUs = () => {
       initial="hidden"
       animate="show"
     >
-      <motion.div variants={sliderContainer}>
-        <Frame1 variants={slider}></Frame1>
-        <Frame2 variants={slider}></Frame2>
-        <Frame3 variants={slider}></Frame3>
-      </motion.div>
 
       <Movie>
         <Hide>
-          <motion.img variants={photoAnim} src={athlete} alt="athlete" />
+          <motion.img variants={photoAnim_contactUs} src={athlete} alt="athlete" />
           <div class="about_title">
             <p class="breadcrumbs">
               {/* <span class="mr-2"><Link to="/">Home</Link></span>
