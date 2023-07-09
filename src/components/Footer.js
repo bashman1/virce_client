@@ -106,7 +106,7 @@ const Footer = () => {
 const Services = styled(motion.div)`
   text-align: center;
   background: white;
-  height: 65vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,7 +191,8 @@ const Cards = styled.div`
  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   width: 80%;
-  margin: 0 auto;
+  margin: 2rem auto 0 auto;
+  padding: 2rem 0 0 0;
   grid-gap: 1.5rem;
 
   @media (max-width: 1300px) {
