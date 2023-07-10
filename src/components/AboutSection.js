@@ -8,14 +8,24 @@ import { titleAnim, fade, photoAnim } from "../animation";
 const AboutSection = () => {
   return (
     <About>
+      <Image>
+        <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
+      </Image>
       <DescriptionAbout>
         <motion.div>
           <Hide>
             <motion.h2 variants={titleAnim}>
-              VANILLA INNOVATION AND EXPANSION
+              VANILLA INNOVATION AND
               {/* We serve Fresh Vegestables & Fruits */}
             </motion.h2>
-            <motion.h3 variants={titleAnim}>
+          </Hide>
+          <Hide>
+            <motion.h2 variants={titleAnim}>
+              EXPANSION
+            </motion.h2>
+          </Hide>
+          <Hide>
+            <motion.h3 variants={fade}>
               We deliver organic vegetables & fruits
             </motion.h3>
           </Hide>
@@ -23,9 +33,7 @@ const AboutSection = () => {
 
         <motion.button variants={fade}>View Details</motion.button>
       </DescriptionAbout>
-      <Image>
-        <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
-      </Image>
+
 
       <Ellipse></Ellipse>
     </About>

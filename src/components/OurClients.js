@@ -106,7 +106,7 @@ const Cards = styled.div`
   }
 `;
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   flex-basis: 15rem;
   display:flex;
   align-items:center;

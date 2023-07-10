@@ -143,7 +143,7 @@ const Cards = styled.div`
   }
 `;
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   overflow: hidden;
   border: 1px solid #f0f0f0;
 

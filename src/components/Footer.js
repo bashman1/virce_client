@@ -1,8 +1,11 @@
 import React from "react";
 //Import Icons
 import facebook from "../img/facebook.png";
-//Styles
-import { About } from "../styles";
+import linkedIn from "../img/linkedIn.png";
+import twitter from "../img/twitter.png";
+
+//Styles 
+import { motion } from "framer-motion"
 import styled from "styled-components";
 import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
@@ -10,6 +13,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Footer = () => {
   const [element, controls] = useScroll();
+  const twitterUrl = 'https://twitter.com/virce';
   return (
     <Services
       variants={scrollReveal}
@@ -29,9 +33,13 @@ const Footer = () => {
             <h2>TAMBISA UGANDA LIMITED</h2>
             <p class="mb-5 pl-4 line">Tambiisa (U) Ltd is a leading vanilla processing and export company in Uganda.</p>
             <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-              <li class="ftco-animate fadeInUp ftco-animated"><Link href="#"><img src={facebook} alt="guy with a camera" /></Link></li>
-              <li class="ftco-animate fadeInUp ftco-animated"><Link href="#"><img src={facebook} alt="guy with a camera" /></Link></li>
-              <li class="ftco-animate fadeInUp ftco-animated"><Link href="#"><img src={facebook} alt="guy with a camera" /></Link></li>
+              <li class="ftco-animate fadeInUp ftco-animated">
+                <a href="https://www.facebook.com/virce">
+                  <img src={facebook} alt="guy with a camera" />
+                </a>
+              </li>
+              <li class="ftco-animate fadeInUp ftco-animated"><a href="https://www.linkedin.com/virce"><img src={linkedIn} alt="guy with a camera" /></a></li>
+              <li class="ftco-animate fadeInUp ftco-animated"><a href={twitterUrl} target="_blank" rel="noopener noreferrer"><img src={twitter} alt="guy with a camera" /></a></li>
             </ul>
           </Card>
 
@@ -84,6 +92,7 @@ const Footer = () => {
             </ul>
           </Card>
         </Cards>
+
         <div className="copy_right">
           <p>
             Copyright ©{(new Date().getFullYear())} All rights Reserved. Powered by Virce Corporation through Virce Core.
@@ -94,10 +103,17 @@ const Footer = () => {
   );
 };
 
-const Services = styled(About)`
+const Services = styled(motion.div)`
   text-align: center;
   background: white;
-    overflow: visible;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  position: relative;
+
+    
 
   h2 {
     padding-bottom: 2.5rem;
@@ -112,10 +128,9 @@ const StyledFooter = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   position: relative;
-  row-gap: 2rem;
 
 
   .mouse{
@@ -147,20 +162,7 @@ const StyledFooter = styled.div`
     }
   }
 
-  .ftco-footer-social{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: 1.5rem;
-    width: 60%;
-    margin-top: 5rem;
-
-    .ftco-animated{
-      img{
-        width: 3rem;
-      }
-    }
-  }
+ 
   .footer_menus{
      display: flex;
     align-items: flex-start;
@@ -172,10 +174,15 @@ const StyledFooter = styled.div`
   .copy_right{
     border-top:1px solid rgba(0,0,0,.1);
     width: 90%;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
     p{
       font-size: 14px;
-      color: #000000;
+      color: hsla(220, 100%, 20%, .6);
+      font-weight: bolder;
     }
   }
 `
@@ -184,7 +191,8 @@ const Cards = styled.div`
  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   width: 80%;
-  margin: 0 auto;
+  margin: 2rem auto 0 auto;
+  padding: 2rem 0 0 0;
   grid-gap: 1.5rem;
 
   @media (max-width: 1300px) {
@@ -194,6 +202,20 @@ const Cards = styled.div`
 
 const Card = styled.div`
   overflow: hidden;
+   .ftco-footer-social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1.5rem;
+    width: 60%;
+    margin: 5rem 0 0 1rem;
+
+    .ftco-animated{
+      img{
+        width: 3rem;
+      }
+    }
+  }
 
   h2 {
     font-size: 16px;

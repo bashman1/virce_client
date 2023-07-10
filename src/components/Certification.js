@@ -5,32 +5,36 @@ import { CertificationData } from "../CertificationsData";
 import Wave from "../components/Wave"
 //Styles
 import styled from "styled-components";
-import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
 //Framer Motion
 import { motion } from "framer-motion";
-import { photoAnim } from "../animation";
+import { scrollReveal } from "../animation";
 
 const Certification = () => {
   const [element, controls] = useScroll();
   const [certData, setCertData] = useState(CertificationData)
 
-  let card = certData.map(card => <Card>
-    <span className="svg_container">
-      <motion.img variants={photoAnim} src={card.icon} alt="crop_icon" />
-    </span>
-    <h3 className="card_title">{card.title}</h3>
-    <p>
-      {card.subtitle}
-    </p>
+  let card = certData.map(card =>
+    <Card>
+      <span className="svg_container">
+        <motion.img variants={scrollReveal} src={card.icon} alt="crop_icon" />
+      </span>
+      <h3 className="card_title">{card.title}</h3>
+      <p>
+        {card.subtitle}
+      </p>
 
-  </Card>);
+    </Card>);
+
+  // ======================================================== RETURN ===================
   return (
     <Services
       variants={scrollReveal}
       animate={controls}
       initial="hidden"
       ref={element}
+      whileInView="visible"
+
     >
       <StyledCertification>
         <span class="subheading">WHAT WE DO</span>
