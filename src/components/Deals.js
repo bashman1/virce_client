@@ -62,7 +62,6 @@ const AboutDeals = Styled(DescriptionAbout)`
     font-size: 18px;
     display: block;
     margin-bottom: 10px;
-    font-family: "Lora", Georgia, serif;
     font-style: italic;
     color: #82ae46;
   }
@@ -71,7 +70,6 @@ const AboutDeals = Styled(DescriptionAbout)`
     font-size: 40px;
     font-weight: 600;
     color: #000000;
-    font-family: "Poppins", Arial, sans-serif;
     margin-bottom:1.5rem;
     text-align:left
   }
@@ -88,7 +86,6 @@ const AboutDeals = Styled(DescriptionAbout)`
     a{
         color: #82ae46;
         font-size: 30px;
-        font-family: "Lora", Georgia, serif;
         font-style: italic;
     }
   }

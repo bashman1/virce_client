@@ -14,6 +14,7 @@ const Nav = () => {
       <StyledTopExtra>
 
         <TopItem>
+          <span>Call Us </span>
           <span><i class="uil uil-phone"></i></span>
           <span>+256-786-248201</span>
         </TopItem>
@@ -24,7 +25,7 @@ const Nav = () => {
         </TopItem>
 
         <TopItem>
-          <span><i class="uil uil-clock-eight"></i></span>
+          <span><i class="uil uil-map-marker"></i></span>
           <span>3-5 Business days delivery & Free Returns</span>
         </TopItem>
 
@@ -80,7 +81,7 @@ const StyledTop = styled.div`
 `
 
 const StyledTopExtra = styled.div`
-background: #82ae46 !important;
+background: #93db32!important;
 padding: .5rem 6rem !important;
 display: flex;
 justify-content: space-between;

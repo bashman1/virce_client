@@ -255,7 +255,6 @@ const Card = styled.div`
       justify-content: center;
       row-gap: 1rem;
       flex-direction:column;
-      padding-left:4rem;
 
       li {
         display: flex;

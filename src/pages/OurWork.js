@@ -227,7 +227,6 @@ const Hide = styled.div`
       font-weight: 800;
       color: #fff;
       font-size: 30px;
-      font-family: "Poppins", Arial, sans-serif;
       letter-spacing: 3px;
       text-transform: uppercase;
     }

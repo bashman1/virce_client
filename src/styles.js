@@ -52,11 +52,9 @@ export const DescriptionAbout = styled.div`
     text-align: center;
     width: 100%;
     transform: none;
-    font-size: 7vw;
     color: #fff;
     line-height: 1.3;
     font-weight: 600;
-    font-family: 'Amatic SC', cursive;
   }
   h3{
       color: #fff;
@@ -65,14 +63,16 @@ export const DescriptionAbout = styled.div`
     padding: 10px 31px;
     border: none !important;
     background: #dfb207;
-    border-radius: 15px;
+    border-radius: 2rem;
     margin-top: 2rem;
 
-    font-family: "Baloo 2";
     font-style: normal;
     font-weight: 600;
     text-align: center;
     color: #000000;
+    a{
+      color: #fff;
+    }
   }
   @media (max-width: 1300px) {
     padding: 0;
@@ -151,7 +151,6 @@ export const DescriptionProducts = styled.div`
     font-size: 18px;
     display: block;
     margin-bottom: 10px;
-    font-family: "Lora", Georgia, serif;
     font-style: italic;
     color: #82ae46;
   }
@@ -161,7 +160,6 @@ export const DescriptionProducts = styled.div`
     font-size: 60px;
     font-weight: 800;
     color: #000000;
-    font-family: "Poppins", Arial, sans-serif;
   }
   p{
     padding: 0 0 4rem 0;
@@ -187,7 +185,6 @@ export const DescriptionTestimonies = styled.div`
     font-size: 18px;
     display: block;
     margin-bottom: 10px;
-    font-family: "Lora", Georgia, serif;
     font-style: italic;
     color: #82ae46;
   }
@@ -197,7 +194,6 @@ export const DescriptionTestimonies = styled.div`
     font-size: 70px;
     font-weight: 800;
     color: #000000;
-    font-family: "Poppins", Arial, sans-serif;
   }
   p{
     padding: 0 0 4rem 0;
@@ -251,7 +247,6 @@ export const DescriptionProductDesign = styled.div`
   overflow: hidden;
 
   h2 {
-    font-family: "Baloo 2";
     line-height: 92.2%;
     font-weight: bolder;
     width: 100%;
@@ -259,7 +254,6 @@ export const DescriptionProductDesign = styled.div`
   }
 
   p {
-    font-family: "Baloo 2";
     font-style: normal;
     font-weight: 500;
     font-size: 1.5rem;
@@ -289,7 +283,6 @@ export const DescriptionProductDesign = styled.div`
     border: 2px solid #4f4f4f !important;
     border-radius: 12px;
     margin-top: 2rem;
-    font-family: "Baloo 2";
     font-style: normal;
     font-weight: 500;
     font-size: 1.15rem;
@@ -389,7 +382,6 @@ export const ProductDesignBottom = styled.div`
 
     p {
       padding: 0.7rem 0 !important;
-      font-family: "Baloo 2";
       font-style: normal;
       font-weight: 500;
       font-size: 1.3rem;
@@ -401,7 +393,6 @@ export const ProductDesignBottom = styled.div`
     }
 
     h2 {
-      font-family: "Baloo 2";
       font-style: normal;
       font-weight: 500;
       font-size: 2.3rem;
@@ -414,7 +405,6 @@ export const ProductDesignBottom = styled.div`
       color: #ffffff;
     }
     button {
-      font-family: "Baloo 2";
       font-style: normal;
       font-weight: 500;
       font-size: 1rem;
