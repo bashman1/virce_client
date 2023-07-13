@@ -155,13 +155,14 @@ const StyledNav = styled.nav`
     list-style: none;
 
   @media (max-width: 1300px){
-        padding: 0 !important;
-        width: 50vw !important;
-        display: flex !important;
+    padding: 0 !important;
+    width: 50vw !important;
+    display: flex !important;
     }
+
    @media (max-width: 1054px){
-        padding: 0 !important;
-        display: block;
+      padding: 0 !important;
+      display: block;
     }
   }
   #logo {

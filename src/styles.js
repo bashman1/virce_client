@@ -423,9 +423,22 @@ export const ProductDesignBottom = styled.div`
   }
 `;
 
-export const Image = styled.div`
+export const Image = styled(motion.div)`
   z-index: 2;
   overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+export const ImageNav = styled(motion.div)`
+  z-index: 2;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  
   img {
     width: 100%;
     height: 100%;
