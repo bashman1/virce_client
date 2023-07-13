@@ -111,7 +111,6 @@ const Card = styled.div`
         font-weight: 300;
         text-transform: uppercase;
         letter-spacing: 1px;
-        font-family: "Poppins", Arial, sans-serif;
         width: 90%;
         text-align: center;
         margin: 0 auto 0 auto;
@@ -133,7 +132,6 @@ const Card = styled.div`
         padding: 1rem;
         p{
             width: 100%;
-            font-family: "Poppins", Arial, sans-serif;
             font-size: 15px;
             line-height: 1.8;
             font-weight: 400;
