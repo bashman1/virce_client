@@ -156,7 +156,6 @@ const Card = styled(motion.div)`
       font-size: 17px;
       text-transform: uppercase;
       font-weight: bolder;
-      font-family: "Poppins", Arial, sans-serif;
       color: #000000;
       margin-bottom:.6rem
     }

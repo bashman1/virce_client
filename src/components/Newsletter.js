@@ -37,7 +37,6 @@ const StyledNewsLetter = styled.div`
     line-height: 1.5;
     font-weight: 400;
     color: #000000;
-    font-family: "Poppins", Arial, sans-serif;
   }
   .newsletter_form{
     border: none;

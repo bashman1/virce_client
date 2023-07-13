@@ -14,6 +14,7 @@ const Nav = () => {
       <StyledTopExtra>
 
         <TopItem>
+          <span>Call Us </span>
           <span><i class="uil uil-phone"></i></span>
           <span>+256-786-248201</span>
         </TopItem>
@@ -24,7 +25,7 @@ const Nav = () => {
         </TopItem>
 
         <TopItem>
-          <span><i class="uil uil-clock-eight"></i></span>
+          <span><i class="uil uil-map-marker"></i></span>
           <span>3-5 Business days delivery & Free Returns</span>
         </TopItem>
 
@@ -75,26 +76,53 @@ const StyledTop = styled.div`
   position: sticky;
   top: 0;
   flex-direction: column;
-
   z-index: 10;
+
+ 
 `
 
 const StyledTopExtra = styled.div`
-background: #82ae46 !important;
+background: #93db32!important;
 padding: .5rem 6rem !important;
 display: flex;
 justify-content: space-between;
 align-items: center;
 width: 100%;
+flex-wrap: wrap;
+
+ @media (max-width: 1226px){
+        font-size: 75%;
+        padding: .5rem 2rem !important;
+    }
+    @media (max-width: 678px){
+        flex-direction: column;
+    }
+ @media (max-width: 356px){
+        justify-content:flex-start;
+    }
 `
 const TopItem = styled.div`
 display: flex;
 align-items: center;
 justify-content: flex-start;
 column-gap: 1rem;
+flex-wrap: nowrap;
+flex: 1;
 
-span{
-  color: white;
+  @media (max-width: 356px){
+       width: 100%;
+    }
+
+  span{
+    color: white;
+    font-size: 1rem;
+
+   @media (max-width: 356px){
+        &:nth-child(1){
+          display: none;
+        }
+    }
+
 }
 `
 const StyledNav = styled.nav`
@@ -108,6 +136,14 @@ const StyledNav = styled.nav`
   backdrop-filter: blur(1rem);
   box-shadow: 0px 1px 10px #0000003d;
 
+ @media (max-width: 1300px){
+        padding: 0 !important;
+    }
+   @media (max-width: 1054px){
+        padding: 0 !important;
+    }
+  
+
   z-index: 10;
   
   a {
@@ -117,6 +153,16 @@ const StyledNav = styled.nav`
   ul {
     display: flex;
     list-style: none;
+
+  @media (max-width: 1300px){
+        padding: 0 !important;
+        width: 50vw !important;
+        display: flex !important;
+    }
+   @media (max-width: 1054px){
+        padding: 0 !important;
+        display: block;
+    }
   }
   #logo {
     color: #82ae46;

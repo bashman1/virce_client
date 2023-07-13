@@ -17,10 +17,10 @@ html{
 
 body{
     background: #ffff;
-   font-family: "Poppins", Arial, sans-serif;
     font-size: 15px;
     line-height: 1.8;
     font-weight: 400;
+    font-family: "Bookman Old Style";
     color: gray;
     overflow-x: hidden;
 }
@@ -33,17 +33,16 @@ button{
     background: transparent;
     color: white;
     transition: all 0.5s ease;
-    font-family: 'Inter', sans-serif;
 
         &:hover{
             background-color: #23d997;
             color: white;
         }
-    }
+}
 
-    h1{
-        line-height: 1.5;
-    }
+h1{
+line-height: 1.5;
+}
     h2{
         font-weight: lighter;
         font-size: 4rem;
@@ -82,6 +81,14 @@ button{
     textarea{
         border:none;
         border: 1px solid #ced4da;
+    }
+    a{
+        text-decoration: none;
+    }
+    ul{
+        li{
+            list-style: none;
+        }
     }
 
 `;

@@ -83,7 +83,6 @@ const StyledCertification = styled.div`
     font-size: 18px;
     display: block;
     margin-bottom: 10px;
-    font-family: "Lora", Georgia, serif;
     font-style: italic;
     color: #82ae46;
     }
