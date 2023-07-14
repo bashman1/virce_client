@@ -20,6 +20,7 @@ function App() {
       <GlobalStyle />
 
       <Nav />
+      <AboutUs /> 
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
           <Route path="/" exact>
