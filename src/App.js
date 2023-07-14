@@ -20,7 +20,8 @@ function App() {
       <GlobalStyle />
 
       <Nav />
-      <Switch location={location} key={location.pathname}>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.pathname}>
           <Route path="/" exact>
             <AboutUs />
           </Route>
@@ -35,6 +36,7 @@ function App() {
           </Route>
 
         </Switch>
+      </AnimatePresence>
     </div>
   );
 }
