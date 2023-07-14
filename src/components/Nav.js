@@ -8,7 +8,7 @@ import { photoAnim } from "../animation";
 
 const Nav = () => {
   const { pathname } = useLocation();
-  return (
+  return  (
     <StyledTop>
 
       <StyledTopExtra>

@@ -45,7 +45,7 @@ export const photoAnim = {
       ease: "easeOut",
       duration: 0.75,
     },
-  },
+  }
 };
 
 export const photoAnim_contactUs = {
