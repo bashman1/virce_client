@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import home1 from "../img/cover2.png";
-import { About, DescriptionAbout, Image, Hide, Ellipse } from "../styles";
+import home2 from "../img/getPaidStock.png";
+import home3 from "../img/ginger-plant-compressed.webp";
+import { About, DescriptionAbout, ImageNav, Hide, Ellipse } from "../styles";
 //Framer Motion
 import { motion } from "framer-motion";
 import { titleAnim, fade, photoAnim } from "../animation";
@@ -9,11 +11,44 @@ import styled from "styled-components";
 
 
 const AboutSection = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((currentImage + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [currentImage]);
+
+  const images = [
+    {
+      id: 1,
+      src: home1,
+      alt: 'Image 1'
+    },
+    {
+      id: 2,
+      src: home2,
+      alt: 'Image 2'
+    },
+    {
+      id: 3,
+      src: home3,
+      alt: 'Image 3'
+    }
+  ];
   return (
     <About>
-      <Image>
-        <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
-      </Image>
+      <ImageNav>
+        <motion.img variants={photoAnim} key={images[currentImage].id}
+          src={images[currentImage].src}
+          alt={images[currentImage].alt}
+          initial={{ scale: 1.5, opacity: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2 }} />
+      </ImageNav>
       <DescriptionAbout>
         <StyledHeaderText>
           <Hide>
