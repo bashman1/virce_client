@@ -41,11 +41,11 @@ const Nav = () => {
         </LogoContainer>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/tambisa">Home</Link>
           </li>
           <li>
             <li>
-              <Link to="/work">About Us</Link>
+              <Link to="/tambisa/work">About Us</Link>
               <Line
                 transition={{ duration: 0.75 }}
                 initial={{ width: "0%" }}
@@ -55,7 +55,7 @@ const Nav = () => {
           </li>
 
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/tambisa/contact">Contact</Link>
           </li>
         </ul>
       </StyledNav>
