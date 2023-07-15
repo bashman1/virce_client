@@ -14,6 +14,7 @@ import Certification from "../components/Certification"
 import { About, DescriptionAbout, ImageNav, Hide, Ellipse } from "../styles";
 import { titleAnim, fade, photoAnim } from "../animation";
 import styled from "styled-components";
+import axios from "axios";
 
 //Animations
 import { motion } from "framer-motion";
@@ -21,8 +22,25 @@ import { pageAnimation } from "../animation";
 
 const AboutUs = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [header, setHeader] = useState(null)
 
-  useEffect(() => {
+  const base_url = "http://virce.co.ug/core/api/public-web-content";
+  let title = ""
+  let subtitle = ""
+  let sliderImges =[]
+
+  useEffect(()=>{
+
+    const getHeader = async () => {
+      const {data:{data}} = await axios.post(base_url, {postData:"HEADER_SECTION"})
+      setHeader(data)
+
+    }
+   
+    getHeader();
+  },[])
+
+  useEffect(() => {   
     const interval = setInterval(() => {
       setCurrentImage((currentImage + 1) % images.length);
     }, 5000);
@@ -55,6 +73,8 @@ const AboutUs = () => {
       animate="show"
     >
       <About>
+      {header && (
+        <>
       <ImageNav>
         <motion.img variants={photoAnim} key={images[currentImage].id}
           src={images[currentImage].src}
@@ -64,30 +84,27 @@ const AboutUs = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 2 }} />
       </ImageNav>
-      <DescriptionAbout>
-        <StyledHeaderText>
+      <DescriptionAbout><StyledHeaderText>
           <Hide>
             <motion.h2 variants={titleAnim}>
-              Vanilla Innovation and
-              {/* We serve Fresh Vegestables & Fruits */}
+            {header[0].title}
             </motion.h2>
           </Hide>
           <Hide>
             <motion.h2 variants={titleAnim}>
-              Expansion
             </motion.h2>
           </Hide>
           <Hide>
             <motion.h3 variants={fade}>
-              We deliver organic vegetables & fruits
+            {subtitle}
             </motion.h3>
           </Hide>
         </StyledHeaderText>
 
         <motion.button variants={fade}><Link to="/work">About Tambiisa</Link></motion.button>
       </DescriptionAbout>
-
-
+      </>
+    )}
       <Ellipse></Ellipse>
       </About>
       <OurClients />
