@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import tabiisaLog from "../img/Tambiisa-Logo-transformed.png"
 import { photoAnim } from "../animation";
+import axios from "axios";
 
 const Nav = () => {
   const { pathname } = useLocation();
+
+  useEffect(()=>{
+
+    const getTopBanner = async () => {
+      const resp = await axios.post("http://virce.co.ug/core/api/public-web-content", {postData:"TOP_BANNER"})
+    console.log("resp", resp)
+    }
+
+    getTopBanner();
+  },[])
   const topBanner = 
         {
           contact:"+256-786-24820",
