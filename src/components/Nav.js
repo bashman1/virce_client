@@ -8,6 +8,33 @@ import { photoAnim } from "../animation";
 
 const Nav = () => {
   const { pathname } = useLocation();
+  const topBanner = 
+        {
+          contact:"+256-786-24820",
+          email:"info@tambisa.com",
+
+          address:[
+            "Masaka, Ibanda and Kagadi",
+            "Mukono, Fortportal, Mpigi",
+            "Mityana, Mubende,  Rwenzori subregion ie Kasese, Bundibugyo "
+          ]
+        }
+
+        const navBarSection = [
+          {
+            companyLogo:"../img/Tambiisa-Logo-transformed.png",
+            companyName:"tambisa",
+          },
+          {
+            menus:[
+             {name:"HOME", routeLink:"/"},
+             {name:"ABOUT", routeLink:"/about"},
+             {name:"CONTACT US", routeLink:"/contact"}
+            ]
+          }
+        ]
+       
+    
   return (
     <StyledTop>
 
@@ -41,21 +68,31 @@ const Nav = () => {
         </LogoContainer>
         <ul>
           <li>
-            <Link to="/tambisa">Home</Link>
+            <Link to="/">Home</Link>
+            <Line
+                transition={{ duration: 0.75 }}
+                initial={{ width: "0%" }}
+                animate={{ width: pathname === "/" ? "90%" : "0%" }}
+              />
           </li>
           <li>
             <li>
-              <Link to="/tambisa/work">About Us</Link>
+              <Link to="/work">About Us</Link>
               <Line
                 transition={{ duration: 0.75 }}
                 initial={{ width: "0%" }}
-                animate={{ width: pathname === "/work" ? "50%" : "0%" }}
+                animate={{ width: pathname === "/work" ? "90%" : "0%" }}
               />
             </li>
           </li>
 
           <li>
-            <Link to="/tambisa/contact">Contact</Link>
+            <Link to="/contact">Contact</Link>
+            <Line
+                transition={{ duration: 0.75 }}
+                initial={{ width: "0%" }}
+                animate={{ width: pathname === "/contact" ? "90%" : "0%" }}
+              />
           </li>
         </ul>
       </StyledNav>
@@ -216,8 +253,9 @@ const Line = styled(motion.div)`
   background: #23d997;
   width: 0%;
   position: absolute;
-  bottom: -80%;
-  left: 60%;
+  bottom: 25%;
+  left: 25%;
+
   @media (max-width: 1300px) {
     left: 0%;
   }
