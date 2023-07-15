@@ -91,19 +91,19 @@ const base_url = "http://virce.co.ug/core/api/public-web-content";
               </LogoContainer>)}
               <ul>
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/tambisa">Home</Link>
                   <Line
                     transition={{ duration: 0.75 }}
                     initial={{ width: "0%" }}
-                    animate={{ width: pathname === "/" ? "90%" : "0%" }}
+                    animate={{ width: pathname === "/tambisa" ? "90%" : "0%" }}
                   />
                 </li>
                 <li>
-                  <Link to="/work">About Us</Link>
+                  <Link to="/tambisa/work">About Us</Link>
                   <Line
                     transition={{ duration: 0.75 }}
                     initial={{ width: "0%" }}
-                    animate={{ width: pathname === "/work" ? "90%" : "0%" }}
+                    animate={{ width: pathname === "/tambisa/work" ? "90%" : "0%" }}
                   />
                 </li>
                 <li>
@@ -111,7 +111,7 @@ const base_url = "http://virce.co.ug/core/api/public-web-content";
                   <Line
                     transition={{ duration: 0.75 }}
                     initial={{ width: "0%" }}
-                    animate={{ width: pathname === "/contact" ? "90%" : "0%" }}
+                    animate={{ width: pathname === "/tambisa/contact" ? "90%" : "0%" }}
                   />
                 </li>
               </ul>
