@@ -75,7 +75,6 @@ const AboutUs = () => {
       <About>
       {header && (
         <>
-        {/* {} */}
       <ImageNav>
         <motion.img variants={photoAnim} key={images[currentImage].id}
           src={images[currentImage].src}
