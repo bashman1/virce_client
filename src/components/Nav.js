@@ -1,67 +1,124 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import tabiisaLog from "../img/Tambiisa-Logo-transformed.png"
 import { photoAnim } from "../animation";
+import axios from "axios";
 
 const Nav = () => {
   const { pathname } = useLocation();
-  return  (
-    <StyledTop>
+  const [topBanner, setTopBanner] = useState(null)
+  const [navSection, setNavSection] = useState(null)
+const base_url = "http://virce.co.ug/core/api/public-web-content";
+  useEffect(()=>{
 
-      <StyledTopExtra>
+    const getTopBanner = async () => {
+      const {data:{data}} = await axios.post(base_url, {postData:"TOP_BANNER"})
+      setTopBanner(data)
+    }
+    // 
+    const getNavSection= async () => {
+      const {data:{data}} = await axios.post(base_url, {postData:"NAV_SECTION"})
+      setNavSection(data)
+    }
+    getTopBanner();
+    getNavSection();
+  },[])
+ 
 
-        <TopItem>
-          <span>Call Us </span>
-          <span><i class="uil uil-phone"></i></span>
-          <span>+256-786-248201</span>
-        </TopItem>
-
-        <TopItem>
-          <span><i class="uil uil-telegram-alt"></i></span>
-          <span>info@tambisa.com</span>
-        </TopItem>
-
-        <TopItem>
-          <span><i class="uil uil-map-marker"></i></span>
-          <span>3-5 Business days delivery & Free Returns</span>
-        </TopItem>
-
-      </StyledTopExtra>
-
-      <StyledNav>
-        <LogoContainer>
-          <Link id="logo" to="/">
-            <Hide>
-              <motion.img variants={photoAnim} src={tabiisaLog} alt="Gnuts" />
-            </Hide>
-          </Link>
-        </LogoContainer>
-        <ul>
-          <li>
-            <Link to="/tambisa">Home</Link>
-          </li>
-          <li>
-            <li>
-              <Link to="/tambisa/work">About Us</Link>
-              <Line
-                transition={{ duration: 0.75 }}
-                initial={{ width: "0%" }}
-                animate={{ width: pathname === "/work" ? "50%" : "0%" }}
-              />
-            </li>
-          </li>
-
-          <li>
-            <Link to="/tambisa/contact">Contact</Link>
-          </li>
-        </ul>
-      </StyledNav>
-
-    </StyledTop>
-  );
+        const navBarSection = [
+          {
+            companyLogo:"../img/Tambiisa-Logo-transformed.png",
+            companyName:"tambisa",
+          },
+          {
+            menus:[
+             {name:"HOME", routeLink:"/"},
+             {name:"ABOUT", routeLink:"/about"},
+             {name:"CONTACT US", routeLink:"/contact"}
+            ]
+          }
+        ]
+       
+    
+        return (
+          <StyledTop>
+            {topBanner && (
+              <StyledTopExtra>
+                {topBanner.map((obj) => {
+                  return <>
+                  <TopItem key={obj.contact}>
+                    <span>Call Us</span>
+                    <span>
+                      <i className="uil uil-phone"></i>
+                    </span>
+                    <span>{obj.contact}</span>
+                  </TopItem>
+                  <TopItem>
+                  <span>
+                    <i className="uil uil-telegram-alt"></i>
+                  </span>
+                  <span>{obj.email}</span>
+                </TopItem>
+        
+                <TopItem>
+                  <span>
+                    <i className="uil uil-map-marker"></i>
+                  </span>
+                  <span>{obj.address.map(addrr => <spa>{addrr}</spa>)}</span>
+                </TopItem>
+                  </>
+                  })}
+        
+                
+              </StyledTopExtra>
+            )}
+        
+            <StyledNav>
+              {navSection && (<LogoContainer>
+                <Link id="logo" to="/">
+                  {navSection.map(nav => <Hide>
+                    <motion.img
+                      variants={photoAnim}
+                      src={nav.companyLogo}
+                      alt={nav.companyLogo}
+                    />
+                  </Hide>)}
+                  
+                </Link>
+              </LogoContainer>)}
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                  <Line
+                    transition={{ duration: 0.75 }}
+                    initial={{ width: "0%" }}
+                    animate={{ width: pathname === "/" ? "90%" : "0%" }}
+                  />
+                </li>
+                <li>
+                  <Link to="/work">About Us</Link>
+                  <Line
+                    transition={{ duration: 0.75 }}
+                    initial={{ width: "0%" }}
+                    animate={{ width: pathname === "/work" ? "90%" : "0%" }}
+                  />
+                </li>
+                <li>
+                  <Link to="/contact">Contact</Link>
+                  <Line
+                    transition={{ duration: 0.75 }}
+                    initial={{ width: "0%" }}
+                    animate={{ width: pathname === "/contact" ? "90%" : "0%" }}
+                  />
+                </li>
+              </ul>
+            </StyledNav>
+          </StyledTop>
+        );
+        
 };
 
 const StyledTop = styled.div`
@@ -215,8 +272,9 @@ const Line = styled(motion.div)`
   background: #23d997;
   width: 0%;
   position: absolute;
-  bottom: -80%;
-  left: 60%;
+  bottom: 25%;
+  left: 25%;
+
   @media (max-width: 1300px) {
     left: 0%;
   }
