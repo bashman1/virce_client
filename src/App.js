@@ -7,6 +7,7 @@ import ContactUs from "./pages/ContactUs";
 import OurWork from "./pages/OurWork";
 import Nav from "./components/Nav";
 import MovieDetail from "./pages/MovieDetail";
+import axios from "axios";
 //Router
 import { Switch, Route, useLocation } from "react-router-dom";
 //Animation
