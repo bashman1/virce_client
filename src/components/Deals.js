@@ -29,7 +29,7 @@ const Deals = () => {
         </div>
       </AboutDeals>
       <Image>
-        <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
+        <motion.img variants={scrollReveal} src={home1} alt="guy with a camera" />
       </Image>
 
     </StyledDeals>
