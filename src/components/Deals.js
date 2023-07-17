@@ -7,27 +7,17 @@ import { motion } from "framer-motion";
 import { scrollReveal } from "../animation";
 import { Link } from "react-router-dom";
 
-import { useScroll } from "./useScroll";
-
-
 const Deals = () => {
-  const [element, controls] = useScroll();
   return (
-    <StyledDeals
-      variants={scrollReveal}
-      animate={controls}
-      initial="hidden"
-      ref={element}
-
-    >
+    <StyledDeals>
       <AboutDeals>
         <span className="subheading">Best Price For You</span>
 
-        <motion.h2>Green Vanilla Production Volumes</motion.h2>
+        <h2>Green Vanilla Production Volumes</h2>
 
         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
 
-        <h3><Link href="#">Spinach</Link></h3>
+        <h3><Link href="#">Vanilla</Link></h3>
 
         <span className="price">$10 <Link href="#">now $5 only</Link></span>
 
