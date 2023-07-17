@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { photoAnim } from "../animation";
 import axios from "axios";
-import { base_url } from "../api";
-import { path } from "../api";
+// import { base_url } from "../api";
+// import { path } from "../api";
 
 const Nav = () => {
   const { pathname } = useLocation();
   const [topBanner, setTopBanner] = useState(null)
   const [navSection, setNavSection] = useState(null)
-
+  const base_url = "http://virce.co.ug/core/api/public-web-content";
   useEffect(() => {
 
     const getTopBanner = async () => {
@@ -77,7 +77,7 @@ const Nav = () => {
 
       <StyledNav>
         {navSection && (<LogoContainer>
-          <Link id="logo" to={`${path}`}>
+          <Link id="logo" to="/tambisa/">
             {navSection.map(nav => <Hide>
               <motion.img
                 variants={photoAnim}
@@ -90,27 +90,27 @@ const Nav = () => {
         </LogoContainer>)}
         <ul>
           <li>
-            <Link to={`${path}`}>Home</Link>
+            <Link to="/tambisa/">Home</Link>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
-              animate={{ width: pathname === `${path}` ? "90%" : "0%" }}
+              animate={{ width: pathname === "/tambisa/" ? "90%" : "0%" }}
             />
           </li>
           <li>
-            <Link to={`${path}/work`}>About Us</Link>
+            <Link to="/tambisa/work/">About Us</Link>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
-              animate={{ width: pathname === `${path}/work` ? "90%" : "0%" }}
+              animate={{ width: pathname ==="/tambisa/work" ? "90%" : "0%" }}
             />
           </li>
           <li>
-            <Link to={`${path}/contact`}>Contact</Link>
+            <Link to="/tambisa/contact">Contact</Link>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
-              animate={{ width: pathname === `${path}/contact` ? "90%" : "0%" }}
+              animate={{ width: pathname === "/tambisa/contact" ? "90%" : "0%" }}
             />
           </li>
         </ul>
