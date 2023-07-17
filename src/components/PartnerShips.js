@@ -9,21 +9,21 @@ import { photoAnim } from "../animation";
 const PartnerShips = () => {
   return (
     <StyledPartnerships>
-      <AboutDeals class="row">
-        <div class="text">
-          <strong class="number" data-number="10000">10,000</strong>
+      <AboutDeals className="row">
+        <div className="text">
+          <strong className="number" data-number="10000">10,000</strong>
           <span>Happy Customers</span>
         </div>
-        <div class="text">
-          <strong class="number" data-number="100">100</strong>
+        <div className="text">
+          <strong className="number" data-number="100">100</strong>
           <span>Branches</span>
         </div>
-        <div class="text">
-          <strong class="number" data-number="1000">1,000</strong>
+        <div className="text">
+          <strong className="number" data-number="1000">1,000</strong>
           <span>Partner</span>
         </div>
-        <div class="text">
-          <strong class="number" data-number="100">100</strong>
+        <div className="text">
+          <strong className="number" data-number="100">100</strong>
           <span>Awards</span>
         </div>
       </AboutDeals>

@@ -22,34 +22,34 @@ const Footer = () => {
       ref={element}
     >
       <StyledFooter>
-        <div class="mouse">
-          <Link href="#" class="mouse-icon">
-            <div class="mouse-wheel"><i class="uil uil-angle-up"></i></div>
+        <div className="mouse">
+          <Link href="#" className="mouse-icon">
+            <div className="mouse-wheel"><i className="uil uil-angle-up"></i></div>
           </Link>
         </div>
 
         <Cards>
           <Card>
             <h2>TAMBISA UGANDA LIMITED</h2>
-            <p class="mb-5 pl-4 line">Tambiisa (U) Ltd is a leading vanilla processing and export company in Uganda.</p>
-            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-              <li class="ftco-animate fadeInUp ftco-animated">
+            <p className="mb-5 pl-4 line">Tambiisa (U) Ltd is a leading vanilla processing and export company in Uganda.</p>
+            <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+              <li className="ftco-animate fadeInUp ftco-animated">
                 <a href="https://www.facebook.com/virce">
                   <img src={facebook} alt="guy with a camera" />
                 </a>
               </li>
-              <li class="ftco-animate fadeInUp ftco-animated"><a href="https://www.linkedin.com/virce"><img src={linkedIn} alt="guy with a camera" /></a></li>
-              <li class="ftco-animate fadeInUp ftco-animated"><a href={twitterUrl} target="_blank" rel="noopener noreferrer"><img src={twitter} alt="guy with a camera" /></a></li>
+              <li className="ftco-animate fadeInUp ftco-animated"><a href="https://www.linkedin.com/virce"><img src={linkedIn} alt="guy with a camera" /></a></li>
+              <li className="ftco-animate fadeInUp ftco-animated"><a href={twitterUrl} target="_blank" rel="noopener noreferrer"><img src={twitter} alt="guy with a camera" /></a></li>
             </ul>
           </Card>
 
           <Card>
             {/* <h2 className="menu_guy">Menu</h2>
-            <ul class="footer_menus">
-              <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Shop</Link></li>
-              <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">About</Link></li>
-              <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Journal</Link></li>
-              <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Contact Us</Link></li>
+            <ul className="footer_menus">
+              <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Shop</Link></li>
+              <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">About</Link></li>
+              <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Journal</Link></li>
+              <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Contact Us</Link></li>
             </ul> */}
           </Card>
 
@@ -57,15 +57,15 @@ const Footer = () => {
             {/* <h2 className="help_title">Help</h2>
 
             <div className="help_guys">
-              <ul class="help_list">
-                <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Shipping Information</Link></li>
-                <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Returns & Exchange</Link></li>
-                <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Terms & Conditions</Link></li>
-                <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Privacy Policy</Link></li>
+              <ul className="help_list">
+                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Shipping Information</Link></li>
+                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Returns & Exchange</Link></li>
+                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Terms & Conditions</Link></li>
+                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Privacy Policy</Link></li>
               </ul>
-              <ul class="help_list">
-                <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">FAQs</Link></li>
-                <li class="ftco-animate fadeInUp ftco-animated"><Link href="#">Contact</Link></li>
+              <ul className="help_list">
+                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">FAQs</Link></li>
+                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Contact</Link></li>
               </ul>
             </div> */}
           </Card>
@@ -74,19 +74,19 @@ const Footer = () => {
             <h2>Have a Questions?</h2>
             <ul className="contact_address">
               <li className="address">
-                <span><i class="uil uil-map-marker"></i></span>
+                <span><i className="uil uil-map-marker"></i></span>
                 <span>Masaka, Ibanda and Kagadi, Mukono, Fortportal, Mpigi, Mityana, Mubende,  in addition to Rwenzori subregion ie Kasese, Bundibugyo </span>
               </li>
               <li className="address">
-                <span><i class="uil uil-map-marker"></i></span>
+                <span><i className="uil uil-map-marker"></i></span>
                 <span>P.O BOX 276161 </span>
               </li>
               <li className="address">
-                <span><i class="uil uil-phone"></i></span>
+                <span><i className="uil uil-phone"></i></span>
                 <span>+256-786-248201</span>
               </li>
               <li className="address">
-                <span><i class="uil uil-envelope"></i></span>
+                <span><i className="uil uil-envelope"></i></span>
                 <span>info@tambisa.com</span>
               </li>
             </ul>

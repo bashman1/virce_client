@@ -24,7 +24,7 @@ const OurServices = () => {
       ref={element}
     >
       <DescriptionProducts>
-        <span class="subheading">Featured Products</span>
+        <span className="subheading">Featured Products</span>
         <h2>Our Products</h2>
         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
 
