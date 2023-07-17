@@ -77,7 +77,7 @@ const Nav = () => {
 
       <StyledNav>
         {navSection && (<LogoContainer>
-          <Link id="logo" to="/tambisa/">
+          <Link id="logo" to={`${path}`}>
             {navSection.map(nav => <Hide>
               <motion.img
                 variants={photoAnim}
@@ -98,19 +98,19 @@ const Nav = () => {
             />
           </li>
           <li>
-            <Link to={`${path}/work`}>About Us</Link>
+            <Link to={`${path}work`}>About Us</Link>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
-              animate={{ width: pathname === `${path}/work` ? "90%" : "0%" }}
+              animate={{ width: pathname === `${path}work` ? "90%" : "0%" }}
             />
           </li>
           <li>
-            <Link to={`${path}/contact`}>Contact</Link>
+            <Link to={`${path}contact`}>Contact</Link>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
-              animate={{ width: pathname === `${path}/contact` ? "90%" : "0%" }}
+              animate={{ width: pathname === `${path}contact` ? "90%" : "0%" }}
             />
           </li>
         </ul>

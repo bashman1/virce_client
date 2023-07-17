@@ -118,9 +118,11 @@ export const DescriptionOurClients = styled.div`
   flex: 1;
   z-index: 2;
   display: flex;
+  flex-direction: column;
 
   h2 {
     font-weight: lighter;
+    color: black;
   }
   @media (max-width: 1300px) {
     padding: 0;
@@ -137,6 +139,10 @@ justify-content: center;
 flex-direction: column;
 min-height: 100vh;
 width: 100%;
+
+h2{
+  color: black;
+}
 `;
 export const DescriptionProducts = styled.div`
   display: flex;

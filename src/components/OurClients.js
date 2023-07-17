@@ -1,16 +1,35 @@
-import React from "react";
-//Import Icons
-import serviceCops from "../img/truck.gif";
-import neptune from "../img/truck.png";
+import React, { useEffect, useState } from "react";
+
 //Styles
 import { DescriptionOurClients, Image } from "../styles";
 import styled from "styled-components";
 import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
 import { motion } from "framer-motion";
+import axios from "axios";
+import { base_url } from '../api';
 
 const OurClients = () => {
   const [element, controls] = useScroll();
+
+  const [ourService, setOurService] = useState([{
+    heading: "",
+    cards: []
+  }])
+
+
+  useEffect(() => {
+
+    const getOurService = async () => {
+      const { data: { data } } = await axios.post(base_url, { postData: "OUR_SERVICES" })
+      setOurService(data);
+
+
+
+    }
+
+    getOurService()
+  }, [])
   return (
     <Services
       variants={scrollReveal}
@@ -18,62 +37,40 @@ const OurClients = () => {
       initial="hidden"
       ref={element}
     >
-      <DescriptionOurClients>
-        <Cards>
-          <Card>
-            <div className="icon">
-              <div className="inner_circle">
-                <Image>
-                  <img src={serviceCops} alt="guy with a camera" />
-                </Image>
-              </div>
-            </div>
-            <div className="media-body">
-              <h3 className="heading">Always Fresh</h3>
-              <span>Product well package</span>
-            </div>
-          </Card>
-          <Card>
-            <div className="icon ic_2">
-              <div className="inner_circle ">
-                <i className="uil uil-truck"></i>
-              </div>
-            </div>
-            <div className="media-body">
-              <span>Quality Products</span>
-              <h3 className="heading">Superior Quality</h3>
-            </div>
-          </Card>
-          <Card>
-            <div className="icon">
-              <div className="inner_circle">
-                <Image>
-                  <img src={neptune} alt="guy with a camera" />
-                </Image>
-              </div>
-            </div>
-            <div className="media-body">
-              <h3 className="heading">Free Shipping</h3>
-              <span>On order over $100</span>
-            </div>
-          </Card>
-          <Card>
-            <div className="icon icon_c">
-              <div className="inner_circle inner_last">
-                <i className="uil uil-truck"></i>
-              </div>
-            </div>
-            <div className="media-body">
-              <h3 className="heading">Support</h3>
-              <span>24/7 Support</span>
-            </div>
-          </Card>
-        </Cards>
-      </DescriptionOurClients>
+      {ourService &&
+        ourService.map(serviceItem =>
+
+          <DescriptionOurClients>
+
+            {ourService && <h2>{serviceItem.heading}</h2>}
+            <Cards>
+              {serviceItem.cards.map(item => <Card {...item} />)}
+
+            </Cards>
+          </DescriptionOurClients>)
+
+      }
     </Services>
   );
 };
 
+const Card = (props) => {
+  return (
+    <StyledCard>
+      <div className="icon">
+        <div className="inner_circle">
+          <Image>
+            <img src={props.imgSrc} alt={props.imageDescription} />
+          </Image>
+        </div>
+      </div>
+      <div className="media-body">
+        <h3 className="heading">{props.cardTitle}</h3>
+        <span>{props.cardSubtitleTitle}</span>
+      </div>
+    </StyledCard>
+  )
+}
 const Services = styled(motion.div)`
   display: flex;
   align-items: center;
@@ -106,7 +103,7 @@ const Cards = styled.div`
   }
 `;
 
-const Card = styled(motion.div)`
+const StyledCard = styled(motion.div)`
   flex-basis: 15rem;
   display:flex;
   align-items:center;
