@@ -3,122 +3,121 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import tabiisaLog from "../img/Tambiisa-Logo-transformed.png"
 import { photoAnim } from "../animation";
 import axios from "axios";
+import { base_url } from "../api";
+import { path } from "../api";
 
 const Nav = () => {
   const { pathname } = useLocation();
   const [topBanner, setTopBanner] = useState(null)
   const [navSection, setNavSection] = useState(null)
-const base_url = "http://virce.co.ug/core/api/public-web-content";
-  useEffect(()=>{
+
+  useEffect(() => {
 
     const getTopBanner = async () => {
-      const {data:{data}} = await axios.post(base_url, {postData:"TOP_BANNER"})
-      setTopBanner(data)
+      try {
+        const { data: { data } } = await axios.post(base_url, { postData: "TOP_BANNER" })
+        setTopBanner(data)
+
+      } catch (error) {
+        alert("endpoint is failing")
+      }
+
     }
     // 
-    const getNavSection= async () => {
-      const {data:{data}} = await axios.post(base_url, {postData:"NAV_SECTION"})
-      setNavSection(data)
+    const getNavSection = async () => {
+      try {
+        const { data: { data } } = await axios.post(base_url, { postData: "NAV_SECTION" })
+        setNavSection(data)
+      } catch (error) {
+        alert("getNavSection(): endpoint is failing")
+      }
+
     }
     getTopBanner();
     getNavSection();
-  },[])
- 
+  }, [])
 
-        const navBarSection = [
-          {
-            companyLogo:"../img/Tambiisa-Logo-transformed.png",
-            companyName:"tambisa",
-          },
-          {
-            menus:[
-             {name:"HOME", routeLink:"/"},
-             {name:"ABOUT", routeLink:"/about"},
-             {name:"CONTACT US", routeLink:"/contact"}
-            ]
-          }
-        ]
-       
-    
-        return (
-          <StyledTop>
-            {topBanner && (
-              <StyledTopExtra>
-                {topBanner.map((obj) => {
-                  return <>
-                  <TopItem key={obj.contact}>
-                    <span>Call Us</span>
-                    <span>
-                      <i className="uil uil-phone"></i>
-                    </span>
-                    <span>{obj.contact}</span>
-                  </TopItem>
-                  <TopItem>
-                  <span>
-                    <i className="uil uil-telegram-alt"></i>
-                  </span>
-                  <span>{obj.email}</span>
-                </TopItem>
-        
-                <TopItem>
-                  <span>
-                    <i className="uil uil-map-marker"></i>
-                  </span>
-                  <span>{obj.address.map(addrr => <spa>{addrr}</spa>)}</span>
-                </TopItem>
-                  </>
-                  })}
-        
-                
-              </StyledTopExtra>
-            )}
-        
-            <StyledNav>
-              {navSection && (<LogoContainer>
-                <Link id="logo" to="/">
-                  {navSection.map(nav => <Hide>
-                    <motion.img
-                      variants={photoAnim}
-                      src={nav.companyLogo}
-                      alt={nav.companyLogo}
-                    />
-                  </Hide>)}
-                  
-                </Link>
-              </LogoContainer>)}
-              <ul>
-                <li>
-                  <Link to="/tambisa">Home</Link>
-                  <Line
-                    transition={{ duration: 0.75 }}
-                    initial={{ width: "0%" }}
-                    animate={{ width: pathname === "/tambisa" ? "90%" : "0%" }}
-                  />
-                </li>
-                <li>
-                  <Link to="/tambisa/work">About Us</Link>
-                  <Line
-                    transition={{ duration: 0.75 }}
-                    initial={{ width: "0%" }}
-                    animate={{ width: pathname === "/tambisa/work" ? "90%" : "0%" }}
-                  />
-                </li>
-                <li>
-                  <Link to="/contact">Contact</Link>
-                  <Line
-                    transition={{ duration: 0.75 }}
-                    initial={{ width: "0%" }}
-                    animate={{ width: pathname === "/tambisa/contact" ? "90%" : "0%" }}
-                  />
-                </li>
-              </ul>
-            </StyledNav>
-          </StyledTop>
-        );
-        
+
+
+
+  return (
+    <StyledTop>
+      {topBanner && (
+        <StyledTopExtra>
+          {topBanner.map((obj) => {
+            return <>
+              <TopItem key={obj.contact}>
+                <span>Call Us</span>
+                <span>
+                  <i className="uil uil-phone"></i>
+                </span>
+                <span>{obj.contact}</span>
+              </TopItem>
+              <TopItem>
+                <span>
+                  <i className="uil uil-telegram-alt"></i>
+                </span>
+                <span>{obj.email}</span>
+              </TopItem>
+
+              <TopItem>
+                <span>
+                  <i className="uil uil-map-marker"></i>
+                </span>
+                <span>{obj.address.map(addrr => <spa>{addrr}</spa>)}</span>
+              </TopItem>
+            </>
+          })}
+
+
+        </StyledTopExtra>
+      )}
+
+      <StyledNav>
+        {navSection && (<LogoContainer>
+          <Link id="logo" to={`${path}`}>
+            {navSection.map(nav => <Hide>
+              <motion.img
+                variants={photoAnim}
+                src={nav.companyLogo}
+                alt={nav.companyLogo}
+              />
+            </Hide>)}
+
+          </Link>
+        </LogoContainer>)}
+        <ul>
+          <li>
+            <Link to={`${path}`}>Home</Link>
+            <Line
+              transition={{ duration: 0.75 }}
+              initial={{ width: "0%" }}
+              animate={{ width: pathname === `${path}` ? "90%" : "0%" }}
+            />
+          </li>
+          <li>
+            <Link to={`${path}/work`}>About Us</Link>
+            <Line
+              transition={{ duration: 0.75 }}
+              initial={{ width: "0%" }}
+              animate={{ width: pathname === `${path}/work` ? "90%" : "0%" }}
+            />
+          </li>
+          <li>
+            <Link to={`${path}/contact`}>Contact</Link>
+            <Line
+              transition={{ duration: 0.75 }}
+              initial={{ width: "0%" }}
+              animate={{ width: pathname === `${path}/contact` ? "90%" : "0%" }}
+            />
+          </li>
+        </ul>
+      </StyledNav>
+    </StyledTop>
+  );
+
 };
 
 const StyledTop = styled.div`

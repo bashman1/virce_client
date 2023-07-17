@@ -4,14 +4,14 @@ import { About, DescriptionAbout, Image } from "../styles";
 import Styled from "styled-components"
 //Framer Motion
 import { motion } from "framer-motion";
-import { photoAnim } from "../animation";
+import { scrollReveal } from "../animation";
 import { Link } from "react-router-dom";
 
 const Deals = () => {
   return (
     <StyledDeals>
       <AboutDeals>
-        <span class="subheading">Best Price For You</span>
+        <span className="subheading">Best Price For You</span>
 
         <h2>Green Vanilla Production Volumes</h2>
 
@@ -19,13 +19,13 @@ const Deals = () => {
 
         <h3><Link href="#">Vanilla</Link></h3>
 
-        {/* <span class="price">$10 <Link href="#">now $5 only</Link></span> */}
+        <span className="price">$10 <Link href="#">now $5 only</Link></span>
 
-        <div id="timer" class="d-flex mt-5">
-          <div class="time" id="days">-1291<span>Days</span></div>
-          <div class="time pl-3" id="hours">04<span>Hours</span></div>
-          <div class="time pl-3" id="minutes">47<span>Minutes</span></div>
-          <div class="time pl-3" id="seconds">31<span>Seconds</span></div>
+        <div id="timer" className="d-flex mt-5">
+          <motion.div className="time" id="days">-1291<span>Days</span></motion.div>
+          <motion.div className="time pl-3" id="hours">04<span>Hours</span></motion.div>
+          <motion.div className="time pl-3" id="minutes">47<span>Minutes</span></motion.div>
+          <motion.div className="time pl-3" id="seconds">31<span>Seconds</span></motion.div>
         </div>
       </AboutDeals>
       <Image>

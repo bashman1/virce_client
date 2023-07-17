@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 //Animations
 import { motion } from "framer-motion";
 import {
-  sliderContainer,
   photoAnim_contactUs,
   photoAnim,
   pageAnimation,
@@ -31,12 +30,12 @@ const ContactUs = () => {
       <Movie>
         <Hide>
           <motion.img variants={photoAnim_contactUs} src={athlete} alt="athlete" />
-          <div class="about_title">
-            <p class="breadcrumbs">
-              {/* <span class="mr-2"><Link to="/">Home</Link></span>
+          <div className="about_title">
+            <p className="breadcrumbs">
+              {/* <span className="mr-2"><Link to="/">Home</Link></span>
               <span>Contact Us</span> */}
             </p>
-            <h1 class="mb-0 bread">Contact Us</h1>
+            <h1 className="mb-0 bread">Contact Us</h1>
           </div>
         </Hide>
       </Movie>
@@ -59,25 +58,25 @@ const ContactUs = () => {
           </GoogleMap>
 
           <StyledForm>
-            <form action="#" class="bg-white p-5 contact-form">
-              <div class="form-group">
+            <form action="#" className="bg-white p-5 contact-form">
+              <div className="form-group">
                 <h2>Talk To Us</h2>
               </div>
 
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name" />
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="Your Name" />
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email" />
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="Your Email" />
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject" />
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="Subject" />
               </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+              <div className="form-group">
+                <textarea name="" id="" cols="30" rows="7" className="form-control" placeholder="Message"></textarea>
               </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" />
+              <div className="form-group">
+                <input type="submit" value="Send Message" className="btn btn-primary py-3 px-5" />
               </div>
             </form>
           </StyledForm>
@@ -241,21 +240,8 @@ const Hide = styled.div`
 `;
 
 //Frame Animation
-const Frame1 = styled(motion.div)`
-  position: fixed;
-  left: 0;
-  top: 10%;
-  width: 100%;
-  height: 100vh;
-  background: #fffebf;
-  z-index: 2;
-`;
-const Frame2 = styled(Frame1)`
-  background: #ff8efb;
-`;
-const Frame3 = styled(Frame1)`
-  background: #8ed2ff;
-`;
+
+
 
 
 export default ContactUs;

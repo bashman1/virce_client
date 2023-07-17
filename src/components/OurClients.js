@@ -28,20 +28,20 @@ const OurClients = () => {
                 </Image>
               </div>
             </div>
-            <div class="media-body">
-              <h3 class="heading">Always Fresh</h3>
+            <div className="media-body">
+              <h3 className="heading">Always Fresh</h3>
               <span>Product well package</span>
             </div>
           </Card>
           <Card>
             <div className="icon ic_2">
               <div className="inner_circle ">
-                <i class="uil uil-truck"></i>
+                <i className="uil uil-truck"></i>
               </div>
             </div>
-            <div class="media-body">
+            <div className="media-body">
               <span>Quality Products</span>
-              <h3 class="heading">Superior Quality</h3>
+              <h3 className="heading">Superior Quality</h3>
             </div>
           </Card>
           <Card>
@@ -52,19 +52,19 @@ const OurClients = () => {
                 </Image>
               </div>
             </div>
-            <div class="media-body">
-              <h3 class="heading">Free Shipping</h3>
+            <div className="media-body">
+              <h3 className="heading">Free Shipping</h3>
               <span>On order over $100</span>
             </div>
           </Card>
           <Card>
             <div className="icon icon_c">
               <div className="inner_circle inner_last">
-                <i class="uil uil-truck"></i>
+                <i className="uil uil-truck"></i>
               </div>
             </div>
-            <div class="media-body">
-              <h3 class="heading">Support</h3>
+            <div className="media-body">
+              <h3 className="heading">Support</h3>
               <span>24/7 Support</span>
             </div>
           </Card>

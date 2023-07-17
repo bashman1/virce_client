@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //Page Components
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import home1 from "../img/cover2.png";
-import home2 from "../img/getPaidStock.png";
-import home3 from "../img/ginger-plant-compressed.webp";
+
 import OurClients from "../components/OurClients";
 import Vegetables from "../components/Vegetables";
 import OurServices from "../components/OurServices";
@@ -15,56 +13,48 @@ import { About, DescriptionAbout, ImageNav, Hide, Ellipse } from "../styles";
 import { titleAnim, fade, photoAnim } from "../animation";
 import styled from "styled-components";
 import axios from "axios";
+import { base_url } from '../api';
 
 //Animations
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
 
 const AboutUs = () => {
-  const [currentImage, setCurrentImage] = useState(0);
   const [header, setHeader] = useState(null)
+  const [title, setTitle] = useState(null)
+  const [subtitle, setSubtitle] = useState(null)
+  const [sliderImges, setSliderImges] = useState(null)
 
-  const base_url = "http://virce.co.ug/core/api/public-web-content";
-  let title = ""
-  let subtitle = ""
-  let sliderImges =[]
 
-  useEffect(()=>{
+  useEffect(() => {
 
     const getHeader = async () => {
-      const {data:{data}} = await axios.post(base_url, {postData:"HEADER_SECTION"})
-      setHeader(data)
+      try {
+        if (base_url) {
+          const { data: { data } } = await axios.post(base_url, { postData: "HEADER_SECTION" })
+          setHeader(data)
+
+          if (header) {
+            let [{ title, subtitle, sliderImges }] = header
+
+            setTitle(title)
+            setSubtitle(subtitle)
+            setSliderImges(sliderImges)
+          }
+
+        }
+
+      } catch (error) {
+        alert("axios is failing to make request")
+      }
+
 
     }
-   
+
     getHeader();
-  },[])
+  }, [header])
 
-  useEffect(() => {   
-    const interval = setInterval(() => {
-      setCurrentImage((currentImage + 1) % images.length);
-    }, 5000);
 
-    return () => clearInterval(interval);
-  }, [currentImage]);
-
-  const images = [
-    {
-      id: 1,
-      src: home1,
-      alt: 'Image 1'
-    },
-    {
-      id: 2,
-      src: home2,
-      alt: 'Image 2'
-    },
-    {
-      id: 3,
-      src: home3,
-      alt: 'Image 3'
-    }
-  ];
   return (
     <motion.div
       exit="exit"
@@ -73,39 +63,34 @@ const AboutUs = () => {
       animate="show"
     >
       <About>
-      {header && (
-        <>
-      <ImageNav>
-        <motion.img variants={photoAnim} key={images[currentImage].id}
-          src={images[currentImage].src}
-          alt={images[currentImage].alt}
-          initial={{ scale: 1.5, opacity: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 2 }} />
-      </ImageNav>
-      <DescriptionAbout><StyledHeaderText>
-          <Hide>
-            <motion.h2 variants={titleAnim}>
-            {header[0].title}
-            </motion.h2>
-          </Hide>
-          <Hide>
-            <motion.h2 variants={titleAnim}>
-            </motion.h2>
-          </Hide>
-          <Hide>
-            <motion.h3 variants={fade}>
-            {subtitle}
-            </motion.h3>
-          </Hide>
-        </StyledHeaderText>
+        {header && (
+          <>
+            {sliderImges && <SlideImages sliderImges={sliderImges} />}
+            <DescriptionAbout>
+              <StyledHeaderText>
+                <Hide>
+                  {title &&
+                    (<motion.h2 variants={titleAnim}>
+                      {title}
+                    </motion.h2>)}
+                </Hide>
+                <Hide>
+                  <motion.h2 variants={titleAnim}>
+                  </motion.h2>
+                </Hide>
+                <Hide>
+                  {subtitle &&
+                    <motion.h3 variants={fade}>
+                      {subtitle}
+                    </motion.h3>}
+                </Hide>
+              </StyledHeaderText>
 
-        <motion.button variants={fade}><Link to="/work">About Tambiisa</Link></motion.button>
-      </DescriptionAbout>
-      </>
-    )}
-      <Ellipse></Ellipse>
+              <motion.button variants={fade}><Link to="/work">About Tambiisa</Link></motion.button>
+            </DescriptionAbout>
+          </>
+        )}
+        <Ellipse></Ellipse>
       </About>
       <OurClients />
       <Vegetables />
@@ -118,6 +103,36 @@ const AboutUs = () => {
   );
 };
 
+const SlideImages = ({ sliderImges }) => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    let interval = null
+    if (sliderImges) {
+      interval = setInterval(() => {
+        setCurrentImage((currentImage + 1) % sliderImges.length);
+      }, 5000);
+    }
+
+
+    return () => clearInterval(interval);
+  }, [currentImage, sliderImges, sliderImges.length]);
+
+
+  return (
+    <ImageNav>
+      {sliderImges &&
+        <motion.img variants={photoAnim} key={sliderImges[currentImage].id}
+          src={sliderImges[currentImage].imgSrc}
+          alt={sliderImges[currentImage].imageDescription}
+          initial={{ scale: 1.5, opacity: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2 }} />
+      }
+    </ImageNav>
+  )
+}
 //Styled Components
 const StyledHeaderText = styled(motion.div)`
   display: flex;

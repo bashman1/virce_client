@@ -39,12 +39,12 @@ const OurWork = () => {
       <Movie>
         <Hide>
           <motion.img variants={photoAnim} src={athlete} alt="athlete" />
-          <div class="about_title">
-            <p class="breadcrumbs">
-              <span class="mr-2"><Link to="/">Home</Link></span>
+          <div className="about_title">
+            <p className="breadcrumbs">
+              <span className="mr-2"><Link to="/">Home</Link></span>
               <span>About us</span>
             </p>
-            <h1 class="mb-0 bread">About us</h1>
+            <h1 className="mb-0 bread">About us</h1>
           </div>
         </Hide>
       </Movie>
@@ -53,26 +53,26 @@ const OurWork = () => {
 
         <VegieLeft>
           <img src={theracer} alt="theracer" />
-          <div class="mouse">
-            <Link href="#" class="mouse-icon">
-              <div class="mouse-wheel"><i class="uil uil-play"></i></div>
+          <div className="mouse">
+            <Link href="#" className="mouse-icon">
+              <div className="mouse-wheel"><i className="uil uil-play"></i></div>
             </Link>
           </div>
         </VegieLeft>
 
         <StyledVegieRight>
-          <div class="vegie_right_header">
-            <h2 class="mb-4">About Tambisa</h2>
+          <div className="vegie_right_header">
+            <h2 className="mb-4">About Tambisa</h2>
           </div>
 
-          <div class="vegie_right_text">
+          <div className="vegie_right_text">
             {/* <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p> */}
             {/* <p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p> */}
             <p>Tambiisa (U) Ltd is a leading vanilla processing and export company in Uganda, which has been operating for more than a decade. Since its inception, the company has helped many farmers to uplift their standard of living through providing a sustained market for their green vanilla. The company has a state-of-the-art processing facility located in Makindye Ssabagabo, Kampala, with a current handling capacity of over 100+ MT of fresh vanilla beans. With an established international market for both organic and conventional cured vanilla beans, mostly in USA, EU and South Africa, Tambiisa sources quality organic vanilla beans directly from 500 organic farmers in the Rwenzori sub region (Bundibugyo district) and from 15 buying agents who are located in different vanilla-growing districts of Uganda.
               Almost 3,000 farmers to uplift their standard of living
             </p>
             <p>
-              <Link to="/shop" class="btn btn-primary">
+              <Link to="/shop" className="btn btn-primary">
                 <motion.button variants={fade}>Shop now</motion.button>
               </Link>
             </p>

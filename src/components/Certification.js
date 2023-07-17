@@ -12,7 +12,7 @@ import { scrollReveal } from "../animation";
 
 const Certification = () => {
   const [element, controls] = useScroll();
-  const [certData, setCertData] = useState(CertificationData)
+  const [certData,] = useState(CertificationData)
 
   let card = certData.map(card =>
     <Card>
@@ -37,7 +37,7 @@ const Certification = () => {
 
     >
       <StyledCertification>
-        <span class="subheading">WHAT WE DO</span>
+        <span className="subheading">WHAT WE DO</span>
         <h2>Tambisa Certification</h2>
         <p>Our company offers a variety of services to meet you project's needs, to take you fromo collaboration meetins all the way to ribbon-cutton and beyond. We believe that every project is unique, and can customize our approach to fit your prticular projects</p>
 
