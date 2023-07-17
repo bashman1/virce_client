@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 //Import Icons
 import serviceCops from "../img/dry-vanilla.jpg";
 // import neptune from "../img/category-3.jpg";
@@ -11,9 +11,25 @@ import styled from "styled-components";
 import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
 import { fade } from "../animation";
+import axios from "axios";
+import { base_url } from '../api';
 
 const Vegetables = () => {
     const [element, controls] = useScroll();
+
+    const [ourCategories, setOutCategories] = useState(null)
+
+    useEffect(() => {
+
+        const getOurService = async () => {
+            const { data: { data } } = await axios.post(base_url, { postData: "CATEGORIES" })
+            setOutCategories(data);
+
+        }
+
+        getOurService()
+    }, [])
+
     return (
         <VegetablesContainer
             variants={scrollReveal}
@@ -21,58 +37,38 @@ const Vegetables = () => {
             initial="hidden"
             ref={element}
         >
-            <DescriptionVegetables>
-                <Cards>
-                    <Card>
-                        <Image>
-                            <img src={serviceCops} alt="guy with a camera" />
-                        </Image>
-                        <motion.button variants={fade}>Vanilla </motion.button>
-                    </Card>
+            {ourCategories &&
+                ourCategories.map(categoryInfo =>
+                    <DescriptionVegetables>
+                        {categoryInfo.heading ? <h2>{categoryInfo.heading}</h2> : "(Title Not Set)"}
 
-                    <Card>
-                        <Image>
-                            <img src={category4} alt="guy with a camera" />
-                        </Image>
-                        <motion.button variants={fade}>Ginger</motion.button>
-                    </Card>
+                        <Cards>
+                            {categoryInfo.cards ?
+                                categoryInfo.cards.map(item => <Card {...item} />)
+                                : "(Cards Not Set)"}
 
-                    <Card>
-                        <Image>
-                            <img src={schoolpay} alt="guy with a camera" />
-                        </Image>
-                        <motion.button variants={fade}>Vanilla</motion.button>
-                    </Card>
+                        </Cards>
 
-                    {/* <Card>
-                        <Image>
-                            <img src={serviceCops} alt="guy with a camera" />
-                        </Image>
-                        <motion.button variants={fade}>View Details</motion.button>
-                    </Card> */}
-
-                    {/* <Card>
-                        <Image>
-                            <img src={serviceCops} alt="guy with a camera" />
-                        </Image>
-                        <motion.button variants={fade}>Dried</motion.button>
-                    </Card> */}
-
-                    {/* <Card>
-                        <Image>
-                            <img src={neptune} alt="guy with a camera" />
-                        </Image>
-                        <motion.button variants={fade}>View Details</motion.button>
-                    </Card> */}
-
-
-                </Cards>
-
-            </DescriptionVegetables>
+                    </DescriptionVegetables>)
+            }
         </VegetablesContainer>
+
     );
 };
 
+// ===================================================  Card Components ============
+const Card = (props) => {
+    return (
+        <StyledCard>
+            <Image>
+                <img src={props.imgSrc} alt={props.imageDescription} />
+            </Image>
+            <motion.button variants={fade}>{props.btnText} </motion.button>
+        </StyledCard>
+    )
+}
+
+// ===================================================  Styled Components ============
 const VegetablesContainer = styled(About)`
   text-align: center;
   background: white;
@@ -93,7 +89,7 @@ display: grid;
   }
 `;
 
-const Card = styled(motion.div)`
+const StyledCard = styled(motion.div)`
   display:flex;
   align-items:center;
   justify-content: center;

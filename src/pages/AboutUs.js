@@ -13,7 +13,7 @@ import { About, DescriptionAbout, ImageNav, Hide, Ellipse } from "../styles";
 import { titleAnim, fade, photoAnim } from "../animation";
 import styled from "styled-components";
 import axios from "axios";
-// import { base_url } from '../api';
+import { base_url } from '../api';
 
 //Animations
 import { motion } from "framer-motion";
@@ -25,7 +25,6 @@ const AboutUs = () => {
   const [subtitle, setSubtitle] = useState(null)
   const [sliderImges, setSliderImges] = useState(null)
 
-  const base_url = "http://virce.co.ug/core/api/public-web-content";
   useEffect(() => {
 
     const getHeader = async () => {

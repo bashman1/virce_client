@@ -27,13 +27,13 @@ function App() {
           <Route path={`${path}`} exact>
             <AboutUs />
           </Route>
-          <Route path={`${path}/work`} exact>
+          <Route path={`${path}work`} exact>
             <OurWork />
           </Route>
-          <Route path={`${path}/work/:id`}>
+          <Route path={`${path}work/:id`}>
             <MovieDetail />
           </Route>
-          <Route path={`${path}/contact`}>
+          <Route path={`${path}contact`}>
             <ContactUs />
           </Route>
 
