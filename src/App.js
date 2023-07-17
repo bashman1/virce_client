@@ -7,6 +7,7 @@ import ContactUs from "./pages/ContactUs";
 import OurWork from "./pages/OurWork";
 import Nav from "./components/Nav";
 import MovieDetail from "./pages/MovieDetail";
+import { path } from "./api";
 
 //Router
 import { Switch, Route, useLocation } from "react-router-dom";
@@ -23,16 +24,16 @@ function App() {
       <Nav />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
-          <Route path="/tambisa/" exact>
+          <Route path={`${path}`} exact>
             <AboutUs />
           </Route>
-          <Route path="/tambisa/work" exact>
+          <Route path={`${path}/work`} exact>
             <OurWork />
           </Route>
-          <Route path="/tambisa/work/:id">
+          <Route path={`${path}/work/:id`}>
             <MovieDetail />
           </Route>
-          <Route path="/tambisa/contact">
+          <Route path={`${path}/contact`}>
             <ContactUs />
           </Route>
 

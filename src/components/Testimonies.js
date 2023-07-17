@@ -20,7 +20,7 @@ const Testimonies = () => {
             ref={element}
         >
             <DescriptionTestimonies>
-                <span class="subheading">Funding Partners</span>
+                <span className="subheading">Funding Partners</span>
                 <h2 className="bigger">Our partners</h2>
                 {/* <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p> */}
 
@@ -29,10 +29,10 @@ const Testimonies = () => {
                         <div className="icon">
                             <img alt="icon" src={brandDesign} />
                         </div>
-                        <div class="text text-center">
-                            <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p class="name">Garreth Smith</p>
-                            <span class="position">System Analyst</span>
+                        <div className="text text-center">
+                            <p className="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            <p className="name">Garreth Smith</p>
+                            <span className="position">System Analyst</span>
                         </div>
                     </Card>
 
@@ -40,10 +40,10 @@ const Testimonies = () => {
                         <div className="icon">
                             <img alt="icon" src={productDesign} />
                         </div>
-                        <div class="text text-center">
-                            <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p class="name">Garreth Smith</p>
-                            <span class="position">Marketing Manager</span>
+                        <div className="text text-center">
+                            <p className="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            <p className="name">Garreth Smith</p>
+                            <span className="position">Marketing Manager</span>
                         </div>
                     </Card>
 
@@ -52,10 +52,10 @@ const Testimonies = () => {
                             <div className="icon">
                                 <img alt="icon" src={digitalMarketing} />
                             </div>
-                            <div class="text text-center">
-                                <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                <p class="name">Garreth Smith</p>
-                                <span class="position">Interface Designer</span>
+                            <div className="text text-center">
+                                <p className="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p className="name">Garreth Smith</p>
+                                <span className="position">Interface Designer</span>
                             </div>
                         </div>
                     </Card>
