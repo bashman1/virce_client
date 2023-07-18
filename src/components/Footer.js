@@ -43,15 +43,7 @@ const Footer = () => {
             </ul>
           </Card>
 
-          <Card>
-            {/* <h2 className="menu_guy">Menu</h2>
-            <ul className="footer_menus">
-              <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Shop</Link></li>
-              <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">About</Link></li>
-              <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Journal</Link></li>
-              <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Contact Us</Link></li>
-            </ul> */}
-          </Card>
+         
 
           <Card>
             {/* <h2 className="help_title">Help</h2>

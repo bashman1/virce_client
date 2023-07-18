@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { fade, photoAnim, titleAnim } from "../animation";
 import { base_url } from "../api";
 import Certification from "../components/Certification";
-import Deals from "../components/Deals";
+import Projects from "../components/Projects";
 import Footer from "../components/Footer";
 import OurClients from "../components/OurClients";
 import OurServices from "../components/OurServices";
@@ -86,7 +86,7 @@ const AboutUs = () => {
       <OurClients />
       <Vegetables />
       <OurServices />
-      <Deals />
+      <Projects />
       <Testimonies />
       <Certification />
       <Footer />
