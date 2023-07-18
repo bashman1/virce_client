@@ -21,7 +21,6 @@ const Nav = () => {
         setTopBanner(data)
 
       } catch (error) {
-        alert("endpoint is failing")
       }
 
     }
@@ -31,7 +30,6 @@ const Nav = () => {
         const { data: { data } } = await axios.post(base_url, { postData: "NAV_SECTION" })
         setNavSection(data)
       } catch (error) {
-        alert("getNavSection(): endpoint is failing")
       }
 
     }

@@ -1,21 +1,29 @@
-import React from "react";
-//Import Icons
-import brandDesign from "../img/product-5.jpg";
-import productDesign from "../img/product-5.jpg";
+import React, { useEffect, useState } from "react";
 
-import digitalMarketing from "../img/product-1.jpg";
-import gulapay from "../img/product-4.jpg";
-import seepug from "../img/product-3.jpg";
-import wefarm from "../img/product-2.jpg";
 //Styles
-import { DescriptionProducts } from "../styles";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { scrollReveal } from "../animation";
+import { DescriptionProducts } from "../styles";
 import { useScroll } from "./useScroll";
-import { motion } from "framer-motion";
+import axios from "axios";
+import { base_url } from "../api";
 
 const OurServices = () => {
   const [element, controls] = useScroll();
+  const [ourProducts, setOurProducts] = useState(null);
+
+  useEffect(() => {
+    const getOurProducts = async () => {
+      const {
+        data: { data },
+      } = await axios.post(base_url, { postData: "OUR_PRODUCTS" });
+      setOurProducts(prev => data);
+    };
+
+    getOurProducts();
+  }, []);
+
   return (
     <Services
       variants={scrollReveal}
@@ -23,96 +31,39 @@ const OurServices = () => {
       initial="hidden"
       ref={element}
     >
-      <DescriptionProducts>
-        <span className="subheading">Featured Products</span>
-        <h2>Our Products</h2>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+      {ourProducts &&
+        ourProducts.map(prodInfo =>
+          <DescriptionProducts>
+            {prodInfo.subtitle && <span className="subheading">{prodInfo.subtitle}</span>}
+            {prodInfo.heading && <h2>{prodInfo.heading}</h2>}
+            {prodInfo.text && <p>{prodInfo.text}</p>}
 
-        <Cards>
-          <Card>
-            <div className="icon">
-              <img alt="icon" src={brandDesign} />
-              <h4 className="card_title">Brand Design</h4>
-              <p>
-                20,000 Ugx
-              </p>
-            </div>
-          </Card>
+            <Cards>
+              {prodInfo.productList
+                ? prodInfo.productList.map((item) => <Card {...item} />)
+                : "(Cards Not Set)"}
+            </Cards>
+          </DescriptionProducts>
+        )}
 
-          <Card>
-            <div className="icon">
-              <img alt="icon" src={productDesign} />
-              <h4 className="card_title">Product Design</h4>
-              <p>
-                20,000 Ugx
-              </p>
-            </div>
-          </Card>
-
-          <Card>
-            <div className="icon">
-              <img alt="icon" src={digitalMarketing} />
-              <h4 className="card_title">Brand Design</h4>
-              <p>
-                20,000 Ugx
-              </p>
-            </div>
-          </Card>
-
-          <Card>
-            <div className="icon">
-              <img alt="icon" src={gulapay} />
-              <h4 className="card_title">Brand Design</h4>
-              <p>
-                20,000 Ugx
-              </p>
-            </div>
-          </Card>
-          <Card>
-            <div className="icon">
-              <img alt="icon" src={seepug} />
-              <h4 className="card_title">Brand Design</h4>
-              <p>
-                20,000 Ugx
-              </p>
-            </div>
-          </Card>
-
-          <Card>
-            <div className="icon">
-              <img alt="icon" src={productDesign} />
-              <h4 className="card_title">Product Design</h4>
-              <p>
-                20,000 Ugx
-              </p>
-            </div>
-          </Card>
-
-          <Card>
-            <div className="icon">
-              <img alt="icon" src={digitalMarketing} />
-              <h4 className="card_title">Brand Design</h4>
-              <p>
-                20,000 Ugx
-              </p>
-            </div>
-          </Card>
-
-          <Card>
-            <div className="icon">
-              <img alt="icon" src={wefarm} />
-              <h4 className="card_title">Bell Pepper</h4>
-              <p>
-                20,000 Ugx
-              </p>
-            </div>
-          </Card>
-        </Cards>
-      </DescriptionProducts>
     </Services>
   );
 };
 
+// ===================================================  Card Components ============
+const Card = (props) => {
+  return (
+    <StyledCard>
+      <div className="icon">
+        <img alt="icon" src={props.prodImgSrc} />
+        <h4 className="card_title">{props.productName}</h4>
+        <p>{props.price}</p>
+      </div>
+    </StyledCard>
+  );
+};
+
+// ===================================================  Styled Components ============
 const Services = styled(motion.div)`
   min-height: 100vh;
   display: flex;
@@ -132,7 +83,7 @@ const Services = styled(motion.div)`
 `;
 
 const Cards = styled.div`
- display: grid;
+  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   width: 80%;
   margin: 0 auto;
@@ -143,7 +94,7 @@ const Cards = styled.div`
   }
 `;
 
-const Card = styled(motion.div)`
+const StyledCard = styled(motion.div)`
   overflow: hidden;
   border: 1px solid #f0f0f0;
 
@@ -158,10 +109,10 @@ const Card = styled(motion.div)`
       width: 75%;
       height: 15rem;
       object-fit: cover;
-      margin:1rem auto;
+      margin: 1rem auto;
     }
     h4 {
-     font-size: 14px;
+      font-size: 14px;
       margin-bottom: 5px;
       font-weight: 300;
       text-transform: uppercase;
