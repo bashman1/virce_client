@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { motion } from "framer-motion";
+import styled from "styled-components";
 
 export const About = styled(motion.div)`
   height: 100vh;
@@ -56,9 +56,9 @@ export const DescriptionAbout = styled.div`
     line-height: 1.3;
     font-weight: 600;
   }
-  h3{
-      color: #fff;
-    }
+  h3 {
+    color: #fff;
+  }
   button {
     padding: 10px 31px;
     border: none !important;
@@ -70,7 +70,7 @@ export const DescriptionAbout = styled.div`
     font-weight: 600;
     text-align: center;
     color: #000000;
-    a{
+    a {
       color: #fff;
     }
   }
@@ -91,7 +91,7 @@ export const Ellipse = styled.div`
   height: 70%;
   border-radius: 50%;
 
-  background: #01010147;;
+  background: #01010147;
   filter: blur(50px);
   box-shadow: 0 0 400px #010101;
   transform: translate(-50%, -40%);
@@ -133,16 +133,16 @@ export const DescriptionOurClients = styled.div`
 `;
 
 export const DescriptionVegetables = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-min-height: 100vh;
-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
 
-h2{
-  color: black;
-}
+  h2 {
+    color: black;
+  }
 `;
 export const DescriptionProducts = styled.div`
   display: flex;
@@ -167,7 +167,7 @@ export const DescriptionProducts = styled.div`
     font-weight: 800;
     color: #000000;
   }
-  p{
+  p {
     padding: 0 0 4rem 0;
   }
   @media (max-width: 1300px) {
@@ -201,7 +201,7 @@ export const DescriptionTestimonies = styled.div`
     font-weight: 800;
     color: #000000;
   }
-  p{
+  p {
     padding: 0 0 4rem 0;
     width: 50%;
   }
@@ -444,7 +444,7 @@ export const ImageNav = styled(motion.div)`
   overflow: hidden;
   height: 100vh;
   width: 100vw;
-  
+
   img {
     width: 100%;
     height: 100%;
