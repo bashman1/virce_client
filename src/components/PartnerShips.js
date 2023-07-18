@@ -9,7 +9,7 @@ import { photoAnim } from "../animation";
 const PartnerShips = () => {
   return (
     <StyledPartnerships>
-      <AboutDeals className="row">
+      <AboutProjects className="row">
         <div className="text">
           <strong className="number" data-number="10000">10,000</strong>
           <span>Happy Customers</span>
@@ -26,7 +26,7 @@ const PartnerShips = () => {
           <strong className="number" data-number="100">100</strong>
           <span>Awards</span>
         </div>
-      </AboutDeals>
+      </AboutProjects>
 
       <Image>
         <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
@@ -53,7 +53,7 @@ const StyledPartnerships = Styled.div`
   }
 `;
 
-const AboutDeals = Styled(DescriptionAbout)`
+const AboutProjects = Styled(DescriptionAbout)`
   display:flex;
   align-items:center;
   justify-content:space-between;
