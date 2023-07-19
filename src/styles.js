@@ -123,6 +123,7 @@ export const DescriptionOurClients = styled.div`
   h2 {
     font-weight: lighter;
     color: black;
+    
   }
   @media (max-width: 1300px) {
     padding: 0;
@@ -435,6 +436,7 @@ export const Image = styled(motion.div)`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: .8rem;
   }
 `;
 export const ImageNav = styled(motion.div)`

@@ -110,6 +110,7 @@ const StyledCard = styled(motion.div)`
       height: 15rem;
       object-fit: cover;
       margin: 1rem auto;
+      border-radius: .8rem;
     }
     h4 {
       font-size: 14px;

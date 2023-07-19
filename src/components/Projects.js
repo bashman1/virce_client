@@ -16,10 +16,8 @@ const Projects = () => {
 
   useEffect(() => {
     const getOurProjects = async () => {
-      const {
-        data: { data },
-      } = await axios.post(base_url, { postData: "PROJECTS" });
-
+      const {data:{data:[data]}}= await axios.post(base_url, { postData: "PROJECTS" });
+      console.log("data", data)
       setOurProjects(prev => data);
     };
 
