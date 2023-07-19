@@ -183,9 +183,7 @@ export const DescriptionTestimonies = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 100vh;
   width: 100%;
-  margin-top: 5rem;
 
   .subheading {
     font-size: 18px;

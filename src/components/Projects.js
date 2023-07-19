@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import home1 from "../img/bg_3.jpg";
+
 import { About, DescriptionAbout, Image } from "../styles";
 import Styled from "styled-components"
 //Framer Motion
 import { motion } from "framer-motion";
 import { scrollReveal } from "../animation";
-import { Link } from "react-router-dom";
+
 // api
 import axios from "axios";
 import { base_url } from "../api";
@@ -32,7 +32,7 @@ const Projects = () => {
         {ourProjects && ourProjects.map((projInfo, index) =>
 
           <>
-            {(projInfo.subtitle && index == 0) && <span className="subheading">{projInfo.subtitle}</span>}
+            {(projInfo.subtitle && index === 0) && <span className="subheading">{projInfo.subtitle}</span>}
             {projInfo.heading && <h2>{projInfo.heading}</h2>}
 
             {projInfo.text && <p>{projInfo.text}</p>}
