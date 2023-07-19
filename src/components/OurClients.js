@@ -40,11 +40,11 @@ const OurClients = () => {
       {ourService &&
         ourService.map(serviceItem =>
 
-          <DescriptionOurClients>
+          <DescriptionOurClients key={serviceItem}>
 
             {ourService && <h2>{serviceItem.heading}</h2>}
             <Cards>
-              {serviceItem.cards.map(item => <Card {...item} />)}
+              {serviceItem.cards.map(item => <Card key={item.id} {...item} />)}
 
             </Cards>
           </DescriptionOurClients>)
