@@ -64,7 +64,7 @@ const Nav = () => {
                 <span>
                   <i className="uil uil-map-marker"></i>
                 </span>
-                <span>{obj.address.map(addrr => <spa>{addrr}</spa>)}</span>
+                <span>{obj.address.map(addrr => <span key={addrr}>{addrr}</span>)}</span>
               </TopItem>
             </>
           })}

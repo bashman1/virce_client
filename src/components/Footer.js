@@ -14,6 +14,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 const Footer = () => {
   const [element, controls] = useScroll();
   const twitterUrl = 'https://twitter.com/virce';
+  
   return (
     <Services
       variants={scrollReveal}
@@ -43,24 +44,6 @@ const Footer = () => {
             </ul>
           </Card>
 
-         
-
-          <Card>
-            {/* <h2 className="help_title">Help</h2>
-
-            <div className="help_guys">
-              <ul className="help_list">
-                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Shipping Information</Link></li>
-                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Returns & Exchange</Link></li>
-                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Terms & Conditions</Link></li>
-                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Privacy Policy</Link></li>
-              </ul>
-              <ul className="help_list">
-                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">FAQs</Link></li>
-                <li className="ftco-animate fadeInUp ftco-animated"><Link href="#">Contact</Link></li>
-              </ul>
-            </div> */}
-          </Card>
 
           <Card>
             <h2>Have a Questions?</h2>

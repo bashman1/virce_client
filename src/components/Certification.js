@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // Data
-import { CertificationData } from "../CertificationsData";
 //Import Icons
 import Wave from "../components/Wave"
 //Styles
@@ -9,22 +8,26 @@ import { useScroll } from "./useScroll";
 //Framer Motion
 import { motion } from "framer-motion";
 import { scrollReveal } from "../animation";
+import { base_url } from "../api";
+import axios from "axios";
+
 
 const Certification = () => {
   const [element, controls] = useScroll();
-  const [certData,] = useState(CertificationData)
 
-  let card = certData.map(card =>
-    <Card>
-      <span className="svg_container">
-        <motion.img variants={scrollReveal} src={card.icon} alt="crop_icon" />
-      </span>
-      <h3 className="card_title">{card.title}</h3>
-      <p>
-        {card.subtitle}
-      </p>
+  const [ourCerification, setOurCerification] = useState(null);
 
-    </Card>);
+  useEffect(() => {
+    const getOurCertification = async () => {
+      const {
+        data: { data },
+      } = await axios.post(base_url, { postData: "CERTIFICATION" });
+      setOurCerification(prev => data);
+    };
+
+    getOurCertification();
+  }, []);
+
 
   // ======================================================== RETURN ===================
   return (
@@ -36,17 +39,41 @@ const Certification = () => {
       whileInView="visible"
 
     >
-      <StyledCertification>
-        <span className="subheading">WHAT WE DO</span>
-        <h2>Tambisa Certification</h2>
-        <p>Our company offers a variety of services to meet you project's needs, to take you fromo collaboration meetins all the way to ribbon-cutton and beyond. We believe that every project is unique, and can customize our approach to fit your prticular projects</p>
-
-        <Cards>
-          {card}
-        </Cards>
-      </StyledCertification>
+       {ourCerification && ourCerification.map(cert => 
+          <StyledCertification>
+       
+          {cert.subtitle && <span className="subheading">{cert.subtitle}</span> }
+          {cert.heading && <h2>{cert.heading}</h2> }
+          {cert.text &&  <p>{cert.text }</p> }
+          
+          {cert.certList && 
+          <Cards>
+            { cert.certList.map(certItem => <Card key={certItem.id} {...certItem} /> )}
+          </Cards>
+            
+          }
+  
+          
+        </StyledCertification>
+        )}
+    
       <Wave />
     </Services>
+  );
+};
+
+// ===================================================  Card Components ============
+const Card = (props) => {
+  return (
+    <StyledCard>
+     <span className="svg_container">
+        <motion.img variants={scrollReveal} src={props.img} alt="crop_icon" />
+      </span>
+      <h3 className="card_title">{props.name}</h3>
+      <p>
+        {props.description}
+      </p>
+    </StyledCard>
   );
 };
 
@@ -109,7 +136,7 @@ const Cards = styled.div`
   }
 `;
 
-const Card = styled.div`
+const StyledCard = styled.div`
   overflow: hidden;
 
   /* Inside auto layout */
