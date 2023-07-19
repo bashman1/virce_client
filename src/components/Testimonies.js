@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 //Import Icons
-import brandDesign from "../img/person_1.jpg";
-import productDesign from "../img/person_2.jpg";
 
-import digitalMarketing from "../img/person_1.jpg";
 //Styles
 import { About, DescriptionTestimonies } from "../styles";
 import styled from "styled-components";
 import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
+import axios from "axios";
+import { base_url } from '../api';
 
 const Testimonies = () => {
+    const [ourPartners, setOurPartners] = useState(null);
     const [element, controls] = useScroll();
+
+    useEffect(() => {
+        const getOurPartners = async () => {
+          const {
+            data: { data },
+          } = await axios.post(base_url, { postData: "OUR_PARTNES" });
+          setOurPartners(data);
+        };
+    
+        getOurPartners();
+      }, []);
+
     return (
         <Services
             variants={scrollReveal}
@@ -19,55 +31,46 @@ const Testimonies = () => {
             initial="hidden"
             ref={element}
         >
-            <DescriptionTestimonies>
-                <span className="subheading">Funding Partners</span>
-                <h2 className="bigger">Our partners</h2>
-                {/* <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p> */}
+             {ourPartners &&
+                ourPartners.map((partnerInfo) => (
+                    <DescriptionTestimonies>
+                         {partnerInfo.heading ?  <h2>{partnerInfo.heading}</h2> : "(Title Not Set)"}
+                         {partnerInfo.subtitle ?  <span>{partnerInfo.subtitle}</span> : "(subtitle Not Set)"}
+                        
+                        {
+                          partnerInfo.patnerList && 
+                            <Cards>
+                            {partnerInfo.patnerList.map((item) => <Card {...item} />)}
+                            </Cards>
+                         
+                        }
+                         
 
-                <Cards>
-                    <Card>
-                        <div className="icon">
-                            <img alt="icon" src={brandDesign} />
-                        </div>
-                        <div className="text text-center">
-                            <p className="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p className="name">Garreth Smith</p>
-                            <span className="position">System Analyst</span>
-                        </div>
-                    </Card>
-
-                    <Card>
-                        <div className="icon">
-                            <img alt="icon" src={productDesign} />
-                        </div>
-                        <div className="text text-center">
-                            <p className="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p className="name">Garreth Smith</p>
-                            <span className="position">Marketing Manager</span>
-                        </div>
-                    </Card>
-
-                    <Card>
-                        <div className="icons-container">
-                            <div className="icon">
-                                <img alt="icon" src={digitalMarketing} />
-                            </div>
-                            <div className="text text-center">
-                                <p className="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                <p className="name">Garreth Smith</p>
-                                <span className="position">Interface Designer</span>
-                            </div>
-                        </div>
-                    </Card>
-                </Cards>
-            </DescriptionTestimonies>
+                    </DescriptionTestimonies>
+             ))}
         </Services>
     );
 };
 
+// ===================================================  Card Components ============
+const Card = (props) => {
+    return (
+        <StyledCard>
+        <div className="icon">
+            <img alt="icon" src={props.patnerImgSrc} />
+        </div>
+        <div className="text text-center">
+            <p className="mb-5 pl-4 line">{props.patnerBio}</p>
+            <p className="name">{props.patnerName}</p>
+            <span className="position">{props.patnerTitle}</span>
+        </div>
+    </StyledCard>
+    );
+  };
 const Services = styled(About)`
   text-align: center;
   background: white;
+  margin-top:0;
 
   h2 {
     padding-bottom: 2.5rem;
@@ -88,7 +91,7 @@ const Cards = styled.div`
   }
 `;
 
-const Card = styled.div`
+const StyledCard = styled.div`
   overflow: hidden;
 
   /* Inside auto layout */
