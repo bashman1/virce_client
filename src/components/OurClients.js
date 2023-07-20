@@ -43,6 +43,7 @@ const OurClients = () => {
           <DescriptionOurClients key={serviceItem}>
 
             {ourService && <h2>{serviceItem.heading}</h2>}
+
             <Cards>
               {serviceItem.cards.map(item => <Card key={item.id} {...item} />)}
 
@@ -80,7 +81,7 @@ const Services = styled(motion.div)`
   position: relative;
   text-align: center;
   background: white;
-  height: 60vh;
+  height: 80vh;
   text-align: center;
   background: white;
 
@@ -91,12 +92,12 @@ const Services = styled(motion.div)`
 `;
 
 const Cards = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-gap: 2rem;
+  margin-top: 3rem;
 
   @media (max-width: 1300px) {
     justify-content: center;
@@ -104,24 +105,25 @@ const Cards = styled.div`
 `;
 
 const StyledCard = styled(motion.div)`
-  flex-basis: 15rem;
   display:flex;
   align-items:center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
-  row-gap: 1rem;
+  background: linear-gradient(130deg,#ff7a1803,#af002d0a 41.07%,#31919703 76.05%);
+  height: 50vh;  
+  padding: 1.5rem;
+  border-radius: 2rem;
+  overflow: hidden;
 
   .icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     background: #e4b2d6;
     height: 10rem;
-    width: 10rem;
-
+    width: 10.5rem;
     border-radius: 50%;
-
+    flex: 1;
   
     .inner_circle {
       display:flex;
@@ -131,9 +133,13 @@ const StyledCard = styled(motion.div)`
       width: 8rem;
       border-radius: 50%;
       border: 3px solid #e9c1de;
+      
 
       img{
       border-radius: 50%;
+      width: 7rem;
+      height: 7rem;
+      text-align: center;
       }
 
       i {
@@ -149,18 +155,31 @@ const StyledCard = styled(motion.div)`
   }
   .media-body{
     width:100%;
+    flex: 1;
+   
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 25vh;
+    overflow: hidden;
+    text-overflow: ellipsis; 
     h3 {
       font-size: 17px;
-      text-transform: uppercase;
+      text-transform: capitalize;
       font-weight: bolder;
-      color: #000000;
-      margin-bottom:.6rem
+      color: #000000;     
+      text-align: center;
     }
     span {
-      text-transform: uppercase;
+      text-align: justify;
+      margin-top:.6rem;
+      text-transform: capitalize;
       color: rgba(0, 0, 0, 0.5);
       font-size: 12px;
       font-weight: 500;
+      display: block;
+      padding-bottom:1rem;
     }
   }
   .ic_2{

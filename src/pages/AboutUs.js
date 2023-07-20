@@ -14,6 +14,7 @@ import OurServices from "../components/OurServices";
 import Testimonies from "../components/Testimonies";
 import Vegetables from "../components/Vegetables";
 import { About, DescriptionAbout, Ellipse, Hide, ImageNav } from "../styles";
+import { path } from "../api";
 
 //Animations
 import { motion } from "framer-motion";
@@ -76,7 +77,7 @@ const AboutUs = () => {
               </StyledHeaderText>
 
               <motion.button variants={fade}>
-                <Link to="/work">About Tambiisa</Link>
+              <Link to={`${path}work`}>About Tambiisa</Link>
               </motion.button>
             </DescriptionAbout>
           </>

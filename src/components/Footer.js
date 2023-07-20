@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 //Import Icons
 import facebook from "../img/facebook.png";
 import linkedIn from "../img/linkedIn.png";
 import twitter from "../img/twitter.png";
+// api
+import axios from "axios";
+import { base_url } from "../api";
 
 //Styles 
 import { motion } from "framer-motion"
@@ -13,7 +16,18 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Footer = () => {
   const [element, controls] = useScroll();
+  const [footer, setFooter] = useState(null);
   const twitterUrl = 'https://twitter.com/virce';
+
+  useEffect(() => {
+    const getFooter = async () => {
+      const {data:{data:{cards}}}= await axios.post(base_url, { postData: "FOOTER" });
+      console.log("data", cards)
+      setFooter(prev => cards);
+    };
+
+    getFooter();
+  }, []);
   
   return (
     <Services
@@ -30,42 +44,59 @@ const Footer = () => {
         </div>
 
         <Cards>
-          <Card>
-            <h2>TAMBISA UGANDA LIMITED</h2>
-            <p className="mb-5 pl-4 line">Tambiisa (U) Ltd is a leading vanilla processing and export company in Uganda.</p>
-            <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-              <li className="ftco-animate fadeInUp ftco-animated">
-                <a href="https://www.facebook.com/virce">
-                  <img src={facebook} alt="guy with a camera" />
-                </a>
-              </li>
-              <li className="ftco-animate fadeInUp ftco-animated"><a href="https://www.linkedin.com/virce"><img src={linkedIn} alt="guy with a camera" /></a></li>
-              <li className="ftco-animate fadeInUp ftco-animated"><a href={twitterUrl} target="_blank" rel="noopener noreferrer"><img src={twitter} alt="guy with a camera" /></a></li>
-            </ul>
-          </Card>
+          {footer && footer.map(card =>
+            <Card>
+            <h2>{card.title}</h2>
 
+            {card.description &&  <p className="mb-5 pl-4 line">{card.description}</p> }
+           
+            {card.socialMediaLinks &&
+                <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li className="ftco-animate fadeInUp ftco-animated">
+                  <a href={ `${card.socialMediaLinks.facebook}`}>
+                    <img src={facebook} alt="guy with a camera" />
+                  </a>
+                </li>
+                <li className="ftco-animate fadeInUp ftco-animated">
+                  <a href={ `${card.socialMediaLinks.linkedin}`}>
+                    <img src={facebook} alt="guy with a camera" />
+                  </a>
+                </li>
+                <li className="ftco-animate fadeInUp ftco-animated">
+                  <a href={ `${card.socialMediaLinks.linkedin}`} target="_blank" rel="noopener noreferrer">
+                    <img src={twitter} alt="guy with a camera" /></a></li>
+               
+              </ul>
+            }
 
-          <Card>
-            <h2>Have a Questions?</h2>
+            {card.phone && 
+              <p className="address">
+              <span><i className="uil uil-phone"></i></span>
+              <span>{card.phone}</span>
+            </p> 
+            }
+
+            {card.email && 
+              <p className="address">
+              <span><i className="uil uil-phone"></i></span>
+              <span>{card.email}</span>
+            </p> 
+            }
+
+            {card.contactDetails && 
             <ul className="contact_address">
-              <li className="address">
-                <span><i className="uil uil-map-marker"></i></span>
-                <span>Masaka, Ibanda and Kagadi, Mukono, Fortportal, Mpigi, Mityana, Mubende,  in addition to Rwenzori subregion ie Kasese, Bundibugyo </span>
-              </li>
-              <li className="address">
-                <span><i className="uil uil-map-marker"></i></span>
-                <span>P.O BOX 276161 </span>
-              </li>
-              <li className="address">
-                <span><i className="uil uil-phone"></i></span>
-                <span>+256-786-248201</span>
-              </li>
-              <li className="address">
-                <span><i className="uil uil-envelope"></i></span>
-                <span>info@tambisa.com</span>
-              </li>
+                {card.contactDetails.map(addr =>
+                   <li className="address">
+                   <span><i className="uil uil-map-marker"></i></span>
+                   <span>{addr} </span>
+                 </li>
+                )}
             </ul>
+            
+            }
+            
           </Card>
+            )}
         </Cards>
 
         <div className="copy_right">
@@ -163,8 +194,9 @@ const StyledFooter = styled.div`
 `
 
 const Cards = styled.div`
- display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
   width: 80%;
   margin: 2rem auto 0 auto;
   padding: 2rem 0 0 0;
@@ -176,14 +208,16 @@ const Cards = styled.div`
 `;
 
 const Card = styled.div`
+  width: 20rem;
   overflow: hidden;
+
    .ftco-footer-social{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     column-gap: 1.5rem;
     width: 60%;
-    margin: 5rem 0 0 1rem;
+    margin: 5rem auto 0 1rem;
 
     .ftco-animated{
       img{
@@ -197,32 +231,23 @@ const Card = styled.div`
     font-weight: bolder;
     color: #000000;
     padding:0px;
+    text-align: left;
     }
 
-    .menu_guy,.help_title{
-      text-align: left;
-    margin-left: 5rem;
-    }
+  
     p {
       margin-top: 0;
-      margin-bottom: 1rem;
       font-size: 14px;
       color: #000000;
-      padding:1rem;
+      padding: .5rem 0;
       text-align: left;
+      display: flex;
+      row-gap: 1rem;
     }
-    .help_guys{
-      display:flex;
-      justify-content:space-around;
-      align-items: center;
-
-      .help_list{
-        display: flex;
-        align-items:flex-start;
-        justify-content: center;
-        flex-direction:column;
-        row-gap:1rem;
-      }
+    .address{
+      display: flex;
+      padding: 0.5rem 0;
+      column-gap: 1rem;
     }
     .contact_address{
       display: flex;
