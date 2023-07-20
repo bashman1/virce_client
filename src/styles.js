@@ -431,7 +431,7 @@ export const ProductDesignBottom = styled.div`
 export const Image = styled(motion.div)`
   z-index: 2;
   overflow: hidden;
-
+  width: 100%;
   img {
     width: 100%;
     height: 100%;

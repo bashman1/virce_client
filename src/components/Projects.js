@@ -17,7 +17,7 @@ const Projects = () => {
   useEffect(() => {
     const getOurProjects = async () => {
       const {data:{data:[data]}}= await axios.post(base_url, { postData: "PROJECTS" });
-      console.log("data", data)
+
       setOurProjects(prev => data);
     };
 
@@ -65,7 +65,7 @@ const Projects = () => {
 
 //Styled Components
 const StyledProjects = Styled(About)`
-height: 90vh;
+height: 100vh;
 `;
 
 const AboutProjects = Styled(DescriptionAbout)`

@@ -76,7 +76,7 @@ const VegetablesContainer = styled(About)`
 const Cards = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
 
   @media (max-width: 1300px) {
@@ -89,18 +89,21 @@ const StyledCard = styled(motion.div)`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  row-gap: 1rem;
-  margin: 2rem;
+  margin: 0rem 0;
   position: relative;
+  padding: 1rem;
 
   button {
-    background: #82ae46;
+    background: #ffc0047a;
     position: absolute;
-    bottom: 0%;
-    left: 0%;
+    bottom: 3rem;
+    left: 2rem;
     z-index: 100;
     border: none;
     outline: none;
+    border-radius: 2rem;
+    width: 82%;
+    backdrop-filter: blur(1rem);
   }
   img {
     width: 100%;
