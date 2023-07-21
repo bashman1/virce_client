@@ -22,7 +22,7 @@ const Footer = () => {
   useEffect(() => {
     const getFooter = async () => {
       const {data:{data:{cards}}}= await axios.post(base_url, { postData: "FOOTER" });
-      console.log("data", cards)
+  
       setFooter(prev => cards);
     };
 
