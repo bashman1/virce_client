@@ -25,7 +25,7 @@ const AboutVideo = () => {
 return (
     <VegieLeft ref={element} variants={fade} animate={controls} initial="hidden">
       {aboutVideo && aboutVideo.map(obj => 
-      <iframe title="tambisa" src="https://www.youtube.com/embed/y-gQf0gDg4s?autoplay=1&mute=1" >
+      <iframe title="tambisa" src={`https://www.youtube.com/embed/${obj.videoLink}?autoplay=1&mute=1`} >
       </iframe>
       )
         
