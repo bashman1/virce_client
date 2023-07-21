@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 //Import Icons
 import facebook from "../img/facebook.png";
-import linkedIn from "../img/linkedIn.png";
 import twitter from "../img/twitter.png";
 // api
 import axios from "axios";
@@ -17,7 +16,6 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 const Footer = () => {
   const [element, controls] = useScroll();
   const [footer, setFooter] = useState(null);
-  const twitterUrl = 'https://twitter.com/virce';
 
   useEffect(() => {
     const getFooter = async () => {

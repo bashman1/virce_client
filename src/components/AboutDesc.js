@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { base_url } from "../api";
+import mimiNawewe from "../img/neverLetMeDown.webp"
 
 const AboutDesc = () => {
   const [aboutDesc, setAboutDesc] = useState(null);
@@ -40,6 +41,10 @@ const StyledVegieRight = styled.div`
   flex-direction: column;
   flex: 1;
   padding: 3rem 10rem;
+  background-image: url(${mimiNawewe});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .vegie_right_header {
     margin: 1.5rem 0;
@@ -54,7 +59,8 @@ const StyledVegieRight = styled.div`
   .vegie_right_text {
     p {
       margin-bottom: 1rem;
-      line-height: 245%;
+      line-height: 205%;
+      color: #171616;;
 
       a {
         button {
