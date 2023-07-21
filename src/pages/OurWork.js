@@ -1,26 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 //Images
-import athlete from "../img/bg_1.jpg";
-import theracer from "../img/about.jpg";
+
 // import Newsletter from "../components/Newsletter"
 import Footer from "../components/Footer";
 import PartnerShips from "../components/PartnerShips";
+import AboutDesc from "components/AboutDesc";
+import AboutVideo from "components/AboutVideo";
+import AboutHeader from "components/AboutHeader"
 //Animations
 import { motion } from "framer-motion";
 import {
   sliderContainer,
   slider,
   pageAnimation,
-  fade,
-  photoAnim,
 } from "../animation";
-import { useScroll } from "../components/useScroll";
+
 import ScrollTop from "../components/ScrollTop";
 
 const OurWork = () => {
-  const [element, controls] = useScroll();
+ 
   return (
     <Work
       style={{ background: "#fff" }}
@@ -36,52 +35,9 @@ const OurWork = () => {
         <Frame4 variants={slider}></Frame4>
       </motion.div>
 
-      <Movie>
-        <Hide>
-          <motion.img variants={photoAnim} src={athlete} alt="athlete" />
-          <div className="about_title">
-            <p className="breadcrumbs">
-              <span className="mr-2"><Link to="/">Home</Link></span>
-              <span>About us</span>
-            </p>
-            <h1 className="mb-0 bread">About us</h1>
-          </div>
-        </Hide>
-      </Movie>
-
-      <StyledVegie ref={element} variants={fade} animate={controls} initial="hidden">
-
-        <VegieLeft>
-          <img src={theracer} alt="theracer" />
-          <div className="mouse">
-            <Link href="#" className="mouse-icon">
-              <div className="mouse-wheel"><i className="uil uil-play"></i></div>
-            </Link>
-          </div>
-        </VegieLeft>
-
-        <StyledVegieRight>
-          <div className="vegie_right_header">
-            <h2 className="mb-4">About Tambisa</h2>
-          </div>
-
-          <div className="vegie_right_text">
-            {/* <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p> */}
-            {/* <p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p> */}
-            <p>Tambiisa (U) Ltd is a leading vanilla processing and export company in Uganda, which has been operating for more than a decade. Since its inception, the company has helped many farmers to uplift their standard of living through providing a sustained market for their green vanilla. The company has a state-of-the-art processing facility located in Makindye Ssabagabo, Kampala, with a current handling capacity of over 100+ MT of fresh vanilla beans. With an established international market for both organic and conventional cured vanilla beans, mostly in USA, EU and South Africa, Tambiisa sources quality organic vanilla beans directly from 500 organic farmers in the Rwenzori sub region (Bundibugyo district) and from 15 buying agents who are located in different vanilla-growing districts of Uganda.
-              Almost 3,000 farmers to uplift their standard of living
-            </p>
-            <p>
-              <Link to="/shop" className="btn btn-primary">
-                <motion.button variants={fade}>Shop now</motion.button>
-              </Link>
-            </p>
-          </div>
-        </StyledVegieRight>
-
-      </StyledVegie>
-
-      {/* <Newsletter /> */}
+      <AboutHeader />
+      <AboutDesc />
+      <AboutVideo />
       <PartnerShips />
       <Footer />
 
@@ -103,135 +59,6 @@ const Work = styled(motion.div)`
   }
 `;
 
-const Movie = styled(motion.div)`
-  img {
-    width: 100%;
-    height: 75vh;
-    object-fit: cover;  
-  }
-`;
-
-const StyledVegie = styled(motion.div)`
-  padding: 0 10rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height:100vh;
-  overflow:hidden;
-
-  img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-  }
-`;
-
-const VegieLeft = styled.div`
-  position: relative;
-  height: inherit;
-  flex:1;
-
-  .mouse{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 99;
-    transform: translate(-50%, -50%);
-
-    .mouse-icon{
-      width: 100px;
-      height: 100px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 50%;
-      background: #82ae46;
-      cursor: pointer;
-      position: relative;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .mouse-wheel{
-        i{
-          font-size: 3rem;
-          color: white;
-        }
-      }
-    }
-  }
-`;
-
-const StyledVegieRight = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex:1;
-  padding:3rem;
-
-  .vegie_right_header{
-    margin:1.5rem 0;
-
-    h2{
-      font-size: 40px;
-      font-weight: 800;
-      color: #000000;
-    }
-  }
-  .vegie_right_text{
-    p{
-      margin-bottom: 1rem;
-
-      a{
-        button{
-          background: #82ae46;
-          border: 1px solid #82ae46;
-          color: #fff;
-          border-radius: 2rem;
-        }
-      }
-    }
-
-  }
-`
-const Hide = styled.div`
-  overflow: hidden;
-  position:relative;
-
-  .about_title{
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-
-    p{
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 3px;
-      margin-bottom: 0;
-      z-index: 99;
-      font-weight: 300;
-      color: white;
-      padding: 0;
-
-      .mr-2{        
-        margin-right: 0.5rem !important;
-        a{
-          color: white;
-        }
-      }
-      span{
-          color: white;
-      }
-    }
-
-    h1{
-      font-weight: 800;
-      color: #fff;
-      font-size: 30px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-  }
-`;
 
 //Frame Animation
 const Frame1 = styled(motion.div)`
