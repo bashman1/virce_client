@@ -74,7 +74,7 @@ const AboutProjects = Styled(DescriptionAbout)`
   display:flex;
   align-items:center;
   justify-content:space-between;
-  width: 60%;
+  width: 70%;
 
   .text{
     font-size: 18px;
@@ -82,17 +82,17 @@ const AboutProjects = Styled(DescriptionAbout)`
     margin-bottom: 10px;
     color: #82ae46;
     text-align: center !important;
+    line-height:2.5rem;
 
     .number{
       font-weight: 400;
-      font-size: 30px;
+      font-size: 4rem;
       color: #000000;
     }
     span {
       display: block;
       font-size: 12px;
       color: rgba(0, 0, 0, 0.7);
-      text-transform: uppercase;
       letter-spacing: 1px;
       text-align: center !important;
     }

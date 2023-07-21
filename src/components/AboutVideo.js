@@ -40,10 +40,12 @@ const VegieLeft = styled.div`
   position: relative;
   height: inherit;
   flex:1;
-  padding: 3rem 5rem;
+  padding: 3rem 0rem;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 70%;
+  margin: 0 auto;
 
   iframe{
     border-radius: 1rem;
