@@ -16,7 +16,8 @@ const PartnerShips = () => {
     const getAboutActivities = async () => {
       const {
         data: { data },
-      } = await axios.post(base_url, { postData: "ABOUT_Activities" });
+      } = await axios.post(base_url, { postData: "OUR_ACTIVITIES" });
+      console.log("data---", data)
       setAboutActivities(prev => data);
     };
 
@@ -24,18 +25,20 @@ const PartnerShips = () => {
   }, []);
   return (
     <StyledPartnerships>
-      {aboutActivities && 
-        <>
-          <AboutProjects className="row">
-            {aboutActivities.activityList.map( activity => 
-              <Activity {...activity} />           
-              )}          
-          </AboutProjects>
+      {aboutActivities && aboutActivities.map(obj => 
+       <>
+       <AboutProjects className="row">
+         {obj.activityList.map( activity => 
+           <Activity {...activity} />           
+           )}          
+       </AboutProjects>
 
-          <Image>
-            <motion.img variants={photoAnim} src={aboutActivities.activityImg} alt="guy with a camera" />
-          </Image>
-        </>
+       <Image>
+         <motion.img variants={photoAnim} src={obj.activityImg} alt="guy with a camera" />
+       </Image>
+     </>
+      )
+       
       }
 
     </StyledPartnerships>
