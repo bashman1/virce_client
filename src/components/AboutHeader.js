@@ -13,9 +13,9 @@ const AboutHeader = () => {
 
   useEffect(() => {
     const getAboutHeader = async () => {
-      const {
-        data: { data },
-      } = await axios.post(base_url, { postData: "ABOUT_HEADER" });
+
+      const {data:{data}} = await axios.post(base_url, { postData: "ABOUT_HEADER" });
+
       setAboutHeader(prev => data);
     };
 
@@ -24,16 +24,17 @@ const AboutHeader = () => {
     return(
         <Movie>
           {aboutHeader && 
-            <Hide>
-                
-            <motion.img variants={photoAnim} src={aboutHeader.aboutImg} alt="athlete" />
+          aboutHeader.map(obj => 
+            <Hide>                
+            <motion.img variants={photoAnim} src={obj.aboutImg} alt="athlete" />
             <div className="about_title">
               <p className="breadcrumbs">            
-                <span className="mr-2"><Link to="/">{aboutHeader.subHeading}</Link></span>
+                <span className="mr-2"><Link to="/">{obj.subHeading}</Link></span>
               </p>
-              <h1 className="mb-0 bread">{aboutHeader.heading}</h1>
+              <h1 className="mb-0 bread">{obj.heading}</h1>
             </div>
-          </Hide>
+          </Hide> )
+            
           }
             
           </Movie>

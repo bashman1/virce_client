@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { useScroll } from "../components/useScroll";
 import {fade } from "../animation";
 import axios from "axios";
@@ -25,14 +24,11 @@ const AboutVideo = () => {
 
 return (
     <VegieLeft ref={element} variants={fade} animate={controls} initial="hidden">
-      {aboutVideo && 
-        <>
-         <video src={aboutVideo.videoLink} alt="theracer" />
-        <div className="mouse">
-        <Link href="#" className="mouse-icon">
-            <div className="mouse-wheel"><i className="uil uil-play"></i></div>
-        </Link>
-        </div></>
+      {aboutVideo && aboutVideo.map(obj => 
+      <iframe title="tambisa" src="https://www.youtube.com/embed/y-gQf0gDg4s?autoplay=1&mute=1" >
+      </iframe>
+      )
+        
       }
        
     </VegieLeft>
@@ -44,12 +40,12 @@ const VegieLeft = styled.div`
   position: relative;
   height: inherit;
   flex:1;
-  padding: 3rem 10rem;
+  padding: 3rem 5rem;
   display: flex;
   flex-direction: column;
   height: 100vh;
 
-  img{
+  iframe{
     border-radius: 1rem;
     height: 100%;
     width: 100%;

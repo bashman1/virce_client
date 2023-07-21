@@ -8,8 +8,7 @@ const AboutDesc = () => {
 
   useEffect(() => {
     const getAboutDesc = async () => {
-      const {
-        data: { data },
+      const { data: { data },
       } = await axios.post(base_url, { postData: "ABOUT_DESC" });
       setAboutDesc((prev) => data);
     };
@@ -19,19 +18,18 @@ const AboutDesc = () => {
 
   return (
     <StyledVegieRight>
-      {aboutDesc && (
-        <>
-          <div className="vegie_right_header">
-            <h2 className="mb-4">{aboutDesc.heading}</h2>
-          </div>
+      {aboutDesc && aboutDesc.map(obj =>
+         <>
+         <div className="vegie_right_header">
+           <h2 className="mb-4">{obj.heading}</h2>
+         </div>
 
-          <div className="vegie_right_text">
-            <p>
-              {aboutDesc.aboutDescriptoin}
-            </p>
-          </div>
-        </>
-      )}
+         <div className="vegie_right_text">
+           <p>
+             {obj.aboutDescriptoin}
+           </p>
+         </div>
+       </> ) }
     </StyledVegieRight>
   );
 };
