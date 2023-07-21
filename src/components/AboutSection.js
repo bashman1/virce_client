@@ -69,7 +69,7 @@ const AboutSection = () => {
           </Hide>
         </StyledHeaderText>
 
-        <motion.button variants={fade}><Link to="/work">About Tambiisa</Link></motion.button>
+        <motion.button variants={fade}><Link to="/work">---oiusfsyudgbuoj</Link></motion.button>
       </DescriptionAbout>
 
 

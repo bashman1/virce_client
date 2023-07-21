@@ -152,7 +152,6 @@ export const DescriptionProducts = styled.div`
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  margin-top: 5rem;
 
   .subheading {
     font-size: 18px;

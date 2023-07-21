@@ -1,41 +1,55 @@
-import React from "react";
-import home1 from "../img/bg_3.jpg";
+import React, { useEffect, useState } from "react";
+
 import { DescriptionAbout, Image } from "../styles";
 import Styled from "styled-components"
 //Framer Motion
 import { motion } from "framer-motion";
 import { photoAnim } from "../animation";
+import axios from "axios";
+import { base_url } from '../api';
 
 const PartnerShips = () => {
+  const [aboutActivities, setAboutActivities] = useState(null);
+
+
+  useEffect(() => {
+    const getAboutActivities = async () => {
+      const {
+        data: { data },
+      } = await axios.post(base_url, { postData: "ABOUT_Activities" });
+      setAboutActivities(prev => data);
+    };
+
+    getAboutActivities();
+  }, []);
   return (
     <StyledPartnerships>
-      <AboutProjects className="row">
-        <div className="text">
-          <strong className="number" data-number="10000">10,000</strong>
-          <span>Happy Customers</span>
-        </div>
-        <div className="text">
-          <strong className="number" data-number="100">100</strong>
-          <span>Branches</span>
-        </div>
-        <div className="text">
-          <strong className="number" data-number="1000">1,000</strong>
-          <span>Partner</span>
-        </div>
-        <div className="text">
-          <strong className="number" data-number="100">100</strong>
-          <span>Awards</span>
-        </div>
-      </AboutProjects>
+      {aboutActivities && 
+        <>
+          <AboutProjects className="row">
+            {aboutActivities.activityList.map( activity => 
+              <Activity {...activity} />           
+              )}          
+          </AboutProjects>
 
-      <Image>
-        <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
-      </Image>
+          <Image>
+            <motion.img variants={photoAnim} src={aboutActivities.activityImg} alt="guy with a camera" />
+          </Image>
+        </>
+      }
 
     </StyledPartnerships>
   );
 };
 
+const Activity = (props) => {
+  return (
+    <div className="text">
+      <strong className="number" data-number="10000">{props.stats}</strong>
+      <span>{props.name}</span>
+    </div>
+  )
+}
 //Styled Components
 const StyledPartnerships = Styled.div`
   height: 60vh;

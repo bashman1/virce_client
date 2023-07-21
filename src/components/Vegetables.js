@@ -69,7 +69,7 @@ const Card = (props) => {
 const VegetablesContainer = styled(About)`
   text-align: center;
   background: white;
-  height: 100%;
+  height: 70vh;
   width: 100%;
 `;
 
