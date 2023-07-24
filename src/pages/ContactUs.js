@@ -30,11 +30,7 @@ const ContactUs = () => {
       <Movie>
         <Hide>
           <motion.img variants={photoAnim_contactUs} src={athlete} alt="athlete" />
-          <div className="about_title">
-            <p className="breadcrumbs">
-              {/* <span className="mr-2"><Link to="/">Home</Link></span>
-              <span>Contact Us</span> */}
-            </p>
+          <div className="about_title">            
             <h1 className="mb-0 bread">Contact Us</h1>
           </div>
         </Hide>

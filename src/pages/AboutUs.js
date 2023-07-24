@@ -133,6 +133,8 @@ const StyledHeaderText = styled(motion.div)`
   justify-content: center;
   align-items: center;
   row-gap: 1.5rem;
+  width: 80%;
+  margin: 0 auto;
 
   h2 {
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);

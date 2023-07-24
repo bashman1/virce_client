@@ -93,6 +93,7 @@ const Services = styled(motion.div)`
     padding-bottom: 2.5rem;
     font-size: 2.2rem;
     font-weight: bolder;
+    text-align: justify;
   }
 `;
 
@@ -167,6 +168,7 @@ const StyledCard = styled.div`
       padding: 1.5rem 0;
       align-self: flex-start;
       color: #000001;
+       text-align: center;
     }
 `;
 
