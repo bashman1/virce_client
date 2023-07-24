@@ -29,6 +29,7 @@ const Testimonies = () => {
             variants={scrollReveal}
             animate={controls}
             initial="hidden"
+            id="partners"
             ref={element}
         >
              {ourPartners &&

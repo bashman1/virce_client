@@ -41,9 +41,9 @@ const Certification = () => {
     >
        {ourCerification && ourCerification.map(cert => 
           <StyledCertification>
-       
+         {cert.heading && <h2>{cert.heading}</h2> }
           {cert.subtitle && <span className="subheading">{cert.subtitle}</span> }
-          {cert.heading && <h2>{cert.heading}</h2> }
+        
           {cert.text &&  <p>{cert.text }</p> }
           
           {cert.certList && 
@@ -159,7 +159,7 @@ const StyledCard = styled.div`
       width: 90%;
       text-align: center;
       margin: 0 auto 0 auto;
-      color: #000000;
+      color: #82ae46;
     }
 
     p {

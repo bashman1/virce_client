@@ -31,6 +31,7 @@ const Vegetables = () => {
       variants={scrollReveal}
       animate={controls}
       initial="hidden"
+      id="curedVanilla"
       ref={element}
     >
       {ourCategories &&

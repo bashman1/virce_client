@@ -96,6 +96,19 @@ const Nav = () => {
             />
           </li>
           <li>
+            <a href="#ourOffering">Our Offering </a>            
+          </li>
+          <li>
+            <a href="#curedVanilla">Our Products </a>            
+          </li>
+          <li>
+            <a href="#initiatives">Initiatives  </a>            
+          </li>
+          <li>
+            <a href="#partners">Partners </a>            
+          </li>
+         
+          <li>
             <Link to={`${path}work`}>About Us</Link>
             <Line
               transition={{ duration: 0.75 }}
@@ -104,7 +117,7 @@ const Nav = () => {
             />
           </li>
           <li>
-            <Link to={`${path}contact`}>Contact</Link>
+            <Link to={`${path}contact`}>Customer Service</Link>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
