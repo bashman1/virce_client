@@ -124,6 +124,7 @@ export const DescriptionOurClients = styled.div`
   h2 {
     font-weight: lighter;
     color: black;
+    margin-bottom: 2rem;
     
   }
   @media (max-width: 1300px) {
@@ -170,6 +171,7 @@ export const DescriptionProducts = styled.div`
   }
   p {
     padding: 0 0 4rem 0;
+    width: 60%;
   }
   @media (max-width: 1300px) {
     padding: 0;
@@ -432,6 +434,9 @@ export const Image = styled(motion.div)`
   z-index: 2;
   overflow: hidden;
   width: 100%;
+  display: flex;
+justify-content: center;
+align-items: center;
   img {
     width: 100%;
     height: 100%;

@@ -25,7 +25,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <StyledProjects>
+    <StyledProjects id="initiatives">
       <AboutProjects>
         {ourProjects && ourProjects.map((projInfo, index) =>
 
@@ -69,15 +69,16 @@ height: 100vh;
 `;
 
 const AboutProjects = Styled(DescriptionAbout)`
-  top: 2rem;
-  right: 2rem;
-  transform: none;
-  width: 60%;
-  text-align:left;
-  backdrop-filter: blur(2rem);
-  background: #000000ad;
-  padding: 2rem;
-  border-radius: 5rem 0rem 0rem 0rem;
+backdrop-filter: blur(.5rem);
+background: #000000ad;
+padding: 2rem;
+border-radius: 7rem 0 7rem 0;
+height: 85vh;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 85%;
+text-align: center;
 
   .subheading{
     font-size: 18px;
@@ -121,8 +122,11 @@ const AboutProjects = Styled(DescriptionAbout)`
   }
   #timer{
     width: 80%;
-    margin-top: 3rem !important;
+    margin-top: 1rem !important;
     display: flex !important;
+align-items: center;
+justify-content: center;
+column-gap: 1rem;
 
     .time{
       width: 25%;

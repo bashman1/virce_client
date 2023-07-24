@@ -36,6 +36,7 @@ const OurClients = () => {
       animate={controls}
       initial="hidden"
       ref={element}
+      id="ourOffering"
     >
       {ourService &&
         ourService.map(serviceItem =>
@@ -72,7 +73,7 @@ const Card = (props) => {
     </StyledCard>
   )
 }
-const Services = styled(motion.div)`
+const Services = styled(motion.a)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -81,7 +82,7 @@ const Services = styled(motion.div)`
   position: relative;
   text-align: center;
   background: white;
-  height: 80vh;
+  height: 90vh;
   text-align: center;
   background: white;
 
@@ -93,7 +94,7 @@ const Services = styled(motion.div)`
 
 const Cards = styled.div`
   width: 80%;
-  margin: 0 auto;
+  margin: 2rem auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   grid-gap: 2rem;
@@ -110,10 +111,11 @@ const StyledCard = styled(motion.div)`
   justify-content: flex-start;
   flex-direction: column;
   background: linear-gradient(130deg,#fcac9c,#feaf9a 41.07%,#fcac9c 76.05%);
-  height: 50vh;  
+  min-height: 40vh;  
   padding: 1.5rem;
   border-radius: 2rem;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
 
   .icon {
     display: flex;
@@ -121,9 +123,10 @@ const StyledCard = styled(motion.div)`
     justify-content: center;
     background: #530f02;
     height: 10rem;
-    width: 10.5rem;
+    width: 10rem;
     border-radius: 50%;
-    flex: 1;
+    position: absolute;
+    top: -4rem;
   
     .inner_circle {
       display:flex;
@@ -157,11 +160,10 @@ const StyledCard = styled(motion.div)`
     width:100%;
     flex: 1;
    
-    margin-top: 2rem;
+    margin-top: 7rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    height: 25vh;
     overflow: hidden;
     text-overflow: ellipsis; 
     h3 {

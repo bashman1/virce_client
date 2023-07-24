@@ -193,7 +193,7 @@ const StyledFooter = styled.div`
 
 const Cards = styled.div`
  display: flex;
- align-items: center;
+ align-items: flex-start;
  justify-content: space-between;
   width: 80%;
   margin: 2rem auto 0 auto;
