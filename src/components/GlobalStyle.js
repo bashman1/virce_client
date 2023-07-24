@@ -23,6 +23,7 @@ body{
     font-family: "Bookman Old Style";
     color: gray;
     overflow-x: hidden;
+    text-align: justify;
 }
 button{
     font-weight: bold;
