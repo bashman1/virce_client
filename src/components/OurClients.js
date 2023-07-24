@@ -109,7 +109,7 @@ const StyledCard = styled(motion.div)`
   align-items:center;
   justify-content: flex-start;
   flex-direction: column;
-  background: linear-gradient(130deg,#ff7a1803,#af002d0a 41.07%,#31919703 76.05%);
+  background: linear-gradient(130deg,#fcac9c,#feaf9a 41.07%,#fcac9c 76.05%);
   height: 50vh;  
   padding: 1.5rem;
   border-radius: 2rem;
@@ -119,7 +119,7 @@ const StyledCard = styled(motion.div)`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #e4b2d6;
+    background: #530f02;
     height: 10rem;
     width: 10.5rem;
     border-radius: 50%;
@@ -168,14 +168,14 @@ const StyledCard = styled(motion.div)`
       font-size: 17px;
       text-transform: capitalize;
       font-weight: bolder;
-      color: #000000;     
+      color: #ffffff;     
       text-align: center;
     }
     span {
       text-align: justify;
       margin-top:.6rem;
       text-transform: capitalize;
-      color: rgba(0, 0, 0, 0.5);
+      color: #530f02;
       font-size: 12px;
       font-weight: 500;
       display: block;

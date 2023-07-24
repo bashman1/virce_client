@@ -136,7 +136,7 @@ const StyledTop = styled.div`
 `
 
 const StyledTopExtra = styled.div`
-background: #93db32!important;
+background: #530f02 !important;
 padding: .5rem 6rem !important;
 display: flex;
 justify-content: space-between;
@@ -266,7 +266,7 @@ const Hide = styled.div`
 `;
 const Line = styled(motion.div)`
   height: 0.3rem;
-  background: #23d997;
+  background: #530f02;
   width: 0%;
   position: absolute;
   bottom: 25%;

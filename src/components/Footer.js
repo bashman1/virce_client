@@ -35,11 +35,11 @@ const Footer = () => {
       ref={element}
     >
       <StyledFooter>
-        <div className="mouse">
+        {/* <div className="mouse">
           <Link href="#" className="mouse-icon">
             <div className="mouse-wheel"><i className="uil uil-angle-up"></i></div>
           </Link>
-        </div>
+        </div> */}
 
         <Cards>
           {footer && footer.map(card =>
