@@ -69,11 +69,15 @@ height: 100vh;
 `;
 
 const AboutProjects = Styled(DescriptionAbout)`
-  top: 8rem;
-  right: 5%;
+  top: 2rem;
+  right: 2rem;
   transform: none;
-  width: 50%;
+  width: 60%;
   text-align:left;
+  backdrop-filter: blur(2rem);
+  background: #000000ad;
+  padding: 2rem;
+  border-radius: 5rem 0rem 0rem 0rem;
 
   .subheading{
     font-size: 18px;
@@ -86,17 +90,18 @@ const AboutProjects = Styled(DescriptionAbout)`
     position: relative;
     font-size: 40px;
     font-weight: 600;
-    color: #000000;
+    
     margin-bottom:1.5rem;
     text-align:left
   }
   p{
-    padding: 3rem 0rem;
+    padding: 1rem 0rem;
     color: #ccc;
     font-size: 1.4rem;
     line-height: 150%;
     margin-bottom: 1rem;
     margin-top:0;
+    text-align: justify;
   }
   h3{
 
