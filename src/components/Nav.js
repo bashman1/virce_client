@@ -124,6 +124,14 @@ const Nav = () => {
               animate={{ width: pathname === `${path}contact` ? "90%" : "0%" }}
             />
           </li>
+          <li>
+            <Link target="_blank" to={{ pathname:"http://virce.co.ug/core/virce-pre-prod/"}}>Login</Link>
+            {/* <Line
+              transition={{ duration: 0.75 }}
+              initial={{ width: "0%" }}
+              animate={{ width: pathname === `${path}contact` ? "90%" : "0%" }}
+            /> */}
+          </li>
         </ul>
       </StyledNav>
     </StyledTop>
