@@ -13,6 +13,7 @@ import OurClients from "../components/OurClients";
 import OurServices from "../components/OurServices";
 import Testimonies from "../components/Testimonies";
 import Vegetables from "../components/Vegetables";
+import OurPartners from "../components/OurPartners";
 import { About, DescriptionAbout, Ellipse, Hide, ImageNav } from "../styles";
 import { path } from "../api";
 
@@ -61,21 +62,21 @@ const AboutUs = () => {
         {header && (
           <>
             {sliderImges && <SlideImages sliderImges={sliderImges} />}
-            <DescriptionAbout>
-              <StyledHeaderText>
-                <Hide>
-                  {title && <motion.h2 variants={titleAnim}>{title}</motion.h2>}
-                </Hide>
-                <Hide>
-                  <motion.h2 variants={titleAnim}></motion.h2>
-                </Hide>
-                <Hide>
-                  {subtitle && (
-                    <motion.h3 variants={fade}>{subtitle}</motion.h3>
-                  )}
-                </Hide>
-              </StyledHeaderText>
-
+            
+              <DescriptionAbout>
+                <StyledHeaderText>
+                  <Hide>
+                    {title && <motion.h2 variants={titleAnim}>{title}</motion.h2>}
+                  </Hide>
+                  <Hide>
+                    <motion.h2 variants={titleAnim}></motion.h2>
+                  </Hide>
+                  <Hide>
+                    {subtitle && (
+                      <motion.h3 variants={fade}>{subtitle}</motion.h3>
+                    )}
+                  </Hide>
+                </StyledHeaderText>
               <motion.button variants={fade}>
               <Link to={`${path}work`}>About Tambiisa</Link>
               </motion.button>
@@ -90,6 +91,7 @@ const AboutUs = () => {
       <Projects />
       <Testimonies />
       <Certification />
+      <OurPartners />
       <Footer />
     </motion.div>
   );

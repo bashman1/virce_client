@@ -117,6 +117,14 @@ const Nav = () => {
             />
           </li>
           <li>
+            <Link to={`${path}gallery`}>Gallery</Link>
+            <Line
+              transition={{ duration: 0.75 }}
+              initial={{ width: "0%" }}
+              animate={{ width: pathname === `${path}gallery` ? "90%" : "0%" }}
+            />
+          </li>
+          <li>
             <Link to={`${path}contact`}>Customer Service</Link>
             <Line
               transition={{ duration: 0.75 }}

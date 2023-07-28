@@ -11,7 +11,6 @@ import { motion } from "framer-motion"
 import styled from "styled-components";
 import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Footer = () => {
   const [element, controls] = useScroll();

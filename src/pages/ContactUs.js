@@ -1,9 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-//Images
-import athlete from "../img/bg_1.jpg";
-import nuts from "../img/ginger_600x.webp";
 import Footer from "../components/Footer";
 //Animations
 import { motion } from "framer-motion";
@@ -15,9 +12,52 @@ import {
 } from "../animation";
 import { useScroll } from "../components/useScroll";
 import ScrollTop from "../components/ScrollTop";
+// api
+import axios from "axios";
+import { base_url } from "../api";
+
 
 const ContactUs = () => {
   const [element, controls] = useScroll();
+  const [formData, setFormData] = useState({
+    name:"",
+
+  })
+  const [contactUs, setContactUs] = useState(null);
+
+  useEffect(() => {
+    const getcontactUs = async () => {
+      const {data:{data:[data]}}= await axios.post(base_url, { postData: "CONTACT_US" });
+
+      setContactUs(prev => data);
+    };
+
+    getcontactUs();
+  }, []);
+  
+  // ==================================== HANDLE FORM SUBMIT ===============================
+  const handleSubmit = async(event) => {
+      event.preventDefault();
+      
+      const {data:{data:[data]}}= await axios.post(base_url, 
+        { postData: formData }, 
+        { headers: {  'Content-Type': 'application/x-www-form-urlencoded'  }
+        });
+
+        console.log(data)
+  }
+
+  // ======================================= HANDLE INPUT CHANGE ===========================
+  const handleChange = (event) => {
+    const {name, value} = event.target;
+   
+    setFormData(prevFormData => {
+      return {
+        ...prevFormData, [name]:value
+      }
+
+    })
+  }
   return (
     <Work
       style={{ background: "#fff" }}
@@ -26,59 +66,88 @@ const ContactUs = () => {
       initial="hidden"
       animate="show"
     >
+    {contactUs && contactUs.contactHeader &&
+      contactUs.contactHeader.map(headerItem => 
+        <Movie>
+          <Hide>
+            <motion.img variants={photoAnim_contactUs} src={headerItem.imgSrc} alt={headerItem.imgDesc} />
+            <div className="about_title">            
+              <h1 className="mb-0 bread">{headerItem.heading}</h1>
+              <p>{headerItem.subheading}</p>
+            </div>
+          </Hide>
+        </Movie> )
+      
+    }
+      
+      {contactUs && contactUs.address && 
+        <StyledContact ref={element} variants={fade} animate={controls} initial="hidden">
 
-      <Movie>
-        <Hide>
-          <motion.img variants={photoAnim_contactUs} src={athlete} alt="athlete" />
-          <div className="about_title">            
-            {/* <h1 className="mb-0 bread">Contact Us</h1> */}
-          </div>
-        </Hide>
-      </Movie>
-
-      <StyledContact ref={element} variants={fade} animate={controls} initial="hidden">
         <ContactAddress>
-          <p><span>Address:</span> Masaka, Ibanda and Kagadi, Mukono</p>
-          <p><span>Phone:</span> <Link href="tel://1234567920">+256-786-248201</Link></p>
-          <p><span>P.O Box:</span> <Link href="mailto:info@yoursite.com">P.O BOX 276161</Link></p>
-          <p><span>Website</span> <Link href="#">tambisa.com</Link></p>
+          {contactUs.address.map(addr => 
+            <>
+                {addr.physical && <p><span>Address:</span> {addr.physical}</p>}
+                {addr.Phone && <p><span>Phone:</span> <Link href={`tel://${addr.Phone}`}>{addr.Phone}</Link></p>}
+                {addr.website && <p><span>website:</span> {addr.website}</p>}
+            </>
+             
+              ) }
 
         </ContactAddress>
 
         <ContactForm ref={element} variants={fade} animate={controls} initial="hidden">
+          {contactUs.address.map(addr => 
+              <>
+                <GoogleMap>
+                  <Hide>
+                    <motion.img variants={photoAnim} src={addr.formImg} alt={addr.imgDesc} />
+                  </Hide>
+                </GoogleMap>
 
-          <GoogleMap>
-            <Hide>
-              <motion.img variants={photoAnim} src={nuts} alt="Gnuts" />
-            </Hide>
-          </GoogleMap>
+                <StyledForm>
+                  <form onSubmit={handleSubmit} className="bg-white p-5 contact-form">
+                    <div className="form-group">
+                     <h2>{addr.formTitle ? addr.formTitle : "Form Title - (Not Set)"}</h2>
+                    </div>
 
-          <StyledForm>
-            <form action="#" className="bg-white p-5 contact-form">
-              <div className="form-group">
-                <h2>Talk To Us</h2>
-              </div>
+                    <div className="form-group">
+                      <input 
+                        type="text" 
+                        className="form-control" 
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your Name" 
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input type="text" className="form-control" placeholder="Your Email" />
+                    </div>
+                    <div className="form-group">
+                      <input type="text" className="form-control" placeholder="Subject" />
+                    </div>
+                    <div className="form-group">
+                      <textarea name="" id="" cols="30" rows="7" className="form-control" placeholder="Message"></textarea>
+                    </div>
+                    <div className="form-group">
+                     <input type="submit" value={addr.formTitle ? addr.formTitle : "(Not Set)"} className="btn btn-primary py-3 px-5" /> 
+                    </div>
+                  </form>
+                </StyledForm>
+                 
+                 
+              </>
+              
+                ) }
 
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="Your Name" />
-              </div>
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="Your Email" />
-              </div>
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="Subject" />
-              </div>
-              <div className="form-group">
-                <textarea name="" id="" cols="30" rows="7" className="form-control" placeholder="Message"></textarea>
-              </div>
-              <div className="form-group">
-                <input type="submit" value="Send Message" className="btn btn-primary py-3 px-5" />
-              </div>
-            </form>
-          </StyledForm>
+        
+
+          
 
         </ContactForm>
-      </StyledContact>
+        </StyledContact>
+      }
+      
 
       <Footer />
 
