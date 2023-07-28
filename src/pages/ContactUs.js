@@ -27,8 +27,8 @@ const ContactUs = () => {
 
   useEffect(() => {
     const getcontactUs = async () => {
-      const {data:{data:[data]}}= await axios.post(base_url, { postData: "CONTACT_US" });
-
+      const {data:{data}}= await axios.post(base_url, { postData: "CONTACT_US" });
+      console.log("data--", data)
       setContactUs(prev => data);
     };
 
@@ -66,89 +66,81 @@ const ContactUs = () => {
       initial="hidden"
       animate="show"
     >
-    {contactUs && contactUs.contactHeader &&
-      contactUs.contactHeader.map(headerItem => 
-        <Movie>
-          <Hide>
-            <motion.img variants={photoAnim_contactUs} src={headerItem.imgSrc} alt={headerItem.imgDesc} />
-            <div className="about_title">            
-              <h1 className="mb-0 bread">{headerItem.heading}</h1>
-              <p>{headerItem.subheading}</p>
-            </div>
-          </Hide>
-        </Movie> )
+    {contactUs &&
+      contactUs.map(contactItem => 
+        <>
+          {contactItem.contactHeader && contactItem.contactHeader.map(headerItem => 
+            <Movie>
+              <Hide>
+                <motion.img variants={photoAnim_contactUs} src={headerItem.imgSrc} alt={headerItem.imgDesc} />
+                <div className="about_title">            
+                  <h1 className="mb-0 bread">{headerItem.heading}</h1>
+                  <p>{headerItem.subheading}</p>
+                </div>
+              </Hide>
+            </Movie>
+          )          
+         }
+          <StyledContact ref={element} variants={fade} animate={controls} initial="hidden">
+          <ContactAddress>
+            {contactItem.address && contactItem.address.map(addressItem => 
+              <>
+                  {addressItem.physical && <p><span>Address:</span> {addressItem.physical}</p>}
+                  {addressItem.Phone && <p><span>Phone:</span> <Link href={`tel://${addressItem.Phone}`}>{addressItem.Phone}</Link></p>}
+                  {addressItem.website && <p><span>website:</span> {addressItem.website}</p>}
+      
+              </>
+              )}
+            </ContactAddress>
+             {contactItem.formDetails && contactItem.formDetails.map(formItem => 
+                <ContactForm ref={element} variants={fade} animate={controls} initial="hidden">
+                   <GoogleMap>
+                     <Hide>
+                       <motion.img variants={photoAnim} src={formItem.formImg} alt={formItem.imgDesc} />
+                     </Hide>
+                   </GoogleMap>
+   
+                   <StyledForm>
+                     <form onSubmit={handleSubmit} className="bg-white p-5 contact-form">
+                       <div className="form-group">
+                        <h2>{formItem.formTitle ? formItem.formTitle : "Form Title - (Not Set)"}</h2>
+                       </div>
+   
+                       <div className="form-group">
+                         <input 
+                           type="text" 
+                           className="form-control" 
+                           name="name"
+                           value={formData.name}
+                           onChange={handleChange}
+                           placeholder="Your Name" 
+                         />
+                       </div>
+                       <div className="form-group">
+                         <input type="text" className="form-control" placeholder="Your Email" />
+                       </div>
+                       <div className="form-group">
+                         <input type="text" className="form-control" placeholder="Subject" />
+                       </div>
+                       <div className="form-group">
+                         <textarea name="" id="" cols="30" rows="7" className="form-control" placeholder="Message"></textarea>
+                       </div>
+                       <div className="form-group">
+                        <input type="submit" value={formItem.formTitle ? formItem.formTitle : "(Not Set)"} className="btn btn-primary py-3 px-5" /> 
+                       </div>
+                     </form>
+                   </StyledForm>
+                    
+   
+           </ContactForm>)          
+            }
+             
+             </StyledContact>
+          
+        </>
+        )
       
     }
-      
-      {contactUs && contactUs.address && 
-        <StyledContact ref={element} variants={fade} animate={controls} initial="hidden">
-
-        <ContactAddress>
-          {contactUs.address.map(addr => 
-            <>
-                {addr.physical && <p><span>Address:</span> {addr.physical}</p>}
-                {addr.Phone && <p><span>Phone:</span> <Link href={`tel://${addr.Phone}`}>{addr.Phone}</Link></p>}
-                {addr.website && <p><span>website:</span> {addr.website}</p>}
-            </>
-             
-              ) }
-
-        </ContactAddress>
-
-        <ContactForm ref={element} variants={fade} animate={controls} initial="hidden">
-          {contactUs.address.map(addr => 
-              <>
-                <GoogleMap>
-                  <Hide>
-                    <motion.img variants={photoAnim} src={addr.formImg} alt={addr.imgDesc} />
-                  </Hide>
-                </GoogleMap>
-
-                <StyledForm>
-                  <form onSubmit={handleSubmit} className="bg-white p-5 contact-form">
-                    <div className="form-group">
-                     <h2>{addr.formTitle ? addr.formTitle : "Form Title - (Not Set)"}</h2>
-                    </div>
-
-                    <div className="form-group">
-                      <input 
-                        type="text" 
-                        className="form-control" 
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Your Name" 
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input type="text" className="form-control" placeholder="Your Email" />
-                    </div>
-                    <div className="form-group">
-                      <input type="text" className="form-control" placeholder="Subject" />
-                    </div>
-                    <div className="form-group">
-                      <textarea name="" id="" cols="30" rows="7" className="form-control" placeholder="Message"></textarea>
-                    </div>
-                    <div className="form-group">
-                     <input type="submit" value={addr.formTitle ? addr.formTitle : "(Not Set)"} className="btn btn-primary py-3 px-5" /> 
-                    </div>
-                  </form>
-                </StyledForm>
-                 
-                 
-              </>
-              
-                ) }
-
-        
-
-          
-
-        </ContactForm>
-        </StyledContact>
-      }
-      
-
       <Footer />
 
       <ScrollTop />
@@ -171,6 +163,13 @@ const Work = styled(motion.div)`
 `;
 
 const Movie = styled(motion.div)`
+.about_title{
+  position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: white;
+}
   img {
     width: 100%;
     height: 70vh;
@@ -256,12 +255,14 @@ const StyledForm = styled.div`
       box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
       padding:1rem 3rem 1rem 0rem;
       width: 50%;
+      cursor: pointer;
     }
   }
   
 `
 const ContactAddress = styled.div`
   display:flex;
+  flex-direction: row;
   align-items:center;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -273,6 +274,8 @@ const ContactAddress = styled.div`
     padding: 2rem;
     flex:1;
     height: 10rem;
+    border-radius: 1rem;
+    text-align:center;
 
     .mouse-icon{
       width: 100px;
