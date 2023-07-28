@@ -124,9 +124,9 @@ text-align: center;
     width: 80%;
     margin-top: 1rem !important;
     display: flex !important;
-align-items: center;
-justify-content: center;
-column-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
 
     .time{
       width: 25%;

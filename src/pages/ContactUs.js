@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-//Images
-import athlete from "../img/bg_1.jpg";
-import nuts from "../img/ginger_600x.webp";
 import Footer from "../components/Footer";
 //Animations
 import { motion } from "framer-motion";
@@ -46,6 +43,8 @@ const ContactUs = () => {
         { postData: formData }, 
         { headers: {  'Content-Type': 'application/x-www-form-urlencoded'  }
         });
+
+        console.log(data)
   }
 
   // ======================================= HANDLE INPUT CHANGE ===========================

@@ -61,21 +61,21 @@ const AboutUs = () => {
         {header && (
           <>
             {sliderImges && <SlideImages sliderImges={sliderImges} />}
-            <DescriptionAbout>
-              <StyledHeaderText>
-                <Hide>
-                  {title && <motion.h2 variants={titleAnim}>{title}</motion.h2>}
-                </Hide>
-                <Hide>
-                  <motion.h2 variants={titleAnim}></motion.h2>
-                </Hide>
-                <Hide>
-                  {subtitle && (
-                    <motion.h3 variants={fade}>{subtitle}</motion.h3>
-                  )}
-                </Hide>
-              </StyledHeaderText>
-
+            
+              <DescriptionAbout>
+                <StyledHeaderText>
+                  <Hide>
+                    {title && <motion.h2 variants={titleAnim}>{title}</motion.h2>}
+                  </Hide>
+                  <Hide>
+                    <motion.h2 variants={titleAnim}></motion.h2>
+                  </Hide>
+                  <Hide>
+                    {subtitle && (
+                      <motion.h3 variants={fade}>{subtitle}</motion.h3>
+                    )}
+                  </Hide>
+                </StyledHeaderText>
               <motion.button variants={fade}>
               <Link to={`${path}work`}>About Tambiisa</Link>
               </motion.button>
