@@ -61,7 +61,7 @@ const Gallery = () => {
           </Movie>
         ))}
 
-        {galleryItem.ourLastest && 
+        {/* {galleryItem.ourLastest && 
                 <StyledLatest
                   ref={element}
                   variants={fade}
@@ -96,7 +96,7 @@ const Gallery = () => {
                   )}
                 </StyledImageContainer>
               </StyledLatest>
-            }
+            } */}
         </>
       )}
       <Footer />
