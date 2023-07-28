@@ -6,7 +6,7 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import OurWork from "./pages/OurWork";
 import Nav from "./components/Nav";
-import MovieDetail from "./pages/MovieDetail";
+import Gallery from "./pages/Gallery";
 import { path } from "./api";
 
 //Router
@@ -30,8 +30,8 @@ function App() {
           <Route path={`${path}work`} exact>
             <OurWork />
           </Route>
-          <Route path={`${path}work/:id`}>
-            <MovieDetail />
+          <Route path={`${path}gallery`}>
+            <Gallery />
           </Route>
           <Route path={`${path}contact`}>
             <ContactUs />

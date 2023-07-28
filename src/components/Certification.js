@@ -104,7 +104,7 @@ const StyledCertification = styled.div`
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  padding: 5rem 10rem;
+  padding: 1rem 10rem;
   background: #f7f6f2;
 
    .subheading {
@@ -120,7 +120,7 @@ const StyledCertification = styled.div`
     }
     p{
       color: rgba(0,0,0,0.8);
-      width:60%;
+      width:80%;
       margin:0 auto;
       font-size:1.15rem;
     }
