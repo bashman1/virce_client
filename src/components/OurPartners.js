@@ -9,7 +9,7 @@ import { useScroll } from "./useScroll";
 import axios from "axios";
 import { base_url } from '../api';
 
-const Testimonies = () => {
+const OurPartners = () => {
     const [ourPartners, setOurPartners] = useState(null);
     const [element, controls] = useScroll();
 
@@ -17,7 +17,7 @@ const Testimonies = () => {
         const getOurPartners = async () => {
           const {
             data: { data },
-          } = await axios.post(base_url, { postData: "OUR_PARTNES" });
+          } = await axios.post(base_url, { postData: "PARTNERSHIPS" });
           setOurPartners(data);
         };
     
@@ -28,7 +28,8 @@ const Testimonies = () => {
         <Services
             variants={scrollReveal}
             animate={controls}
-            initial="hidden"           
+            initial="hidden"
+            id="partners"
             ref={element}
         >
              {ourPartners &&
@@ -59,10 +60,8 @@ const Card = (props) => {
         <div className="icon">
             <img alt="icon" src={props.patnerImgSrc} />
         </div>
-        <div className="text text-center">
-            <p className="mb-5 pl-4 line">{props.patnerBio}</p>
+        <div className="text text-center">           
             <p className="name">{props.patnerName}</p>
-            <span className="position">{props.patnerTitle}</span>
         </div>
     </StyledCard>
     );
@@ -149,4 +148,4 @@ const StyledCard = styled.div`
 `;
 
 
-export default Testimonies;
+export default OurPartners;

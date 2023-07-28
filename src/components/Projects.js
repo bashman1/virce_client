@@ -5,14 +5,15 @@ import Styled from "styled-components"
 //Framer Motion
 import { motion } from "framer-motion";
 import { scrollReveal } from "../animation";
-
+import { useScroll } from "./useScroll";
 // api
 import axios from "axios";
 import { base_url } from "../api";
-
+import styled from "styled-components";
 
 const Projects = () => {
   const [ourProjects, setOurProjects] = useState(null);
+  const [element, controls] = useScroll();
 
   useEffect(() => {
     const getOurProjects = async () => {
@@ -25,7 +26,15 @@ const Projects = () => {
   }, []);
 
   return (
-    <StyledProjects id="initiatives">
+    <Services
+    variants={scrollReveal}
+    animate={controls}
+    initial="hidden"
+    ref={element}
+    whileInView="visible"
+
+  >
+     <StyledProjects id="initiatives">
       <AboutProjects>
         {ourProjects && ourProjects.map((projInfo, index) =>
 
@@ -60,9 +69,30 @@ const Projects = () => {
       </Image>
       
     </StyledProjects>
+  </Services>
+   
   );
 };
 
+const Services = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  color: white;
+  position: relative;
+  text-align: center;
+  background: white;
+  min-height: 100vh !important;
+  padding-top: 2rem;
+
+  h2 {
+    padding-bottom: 2.5rem;
+    font-size: 2.2rem;
+    font-weight: bolder;
+    text-align: justify;
+  }
+`;
 //Styled Components
 const StyledProjects = Styled(About)`
 height: 100vh;

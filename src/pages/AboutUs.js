@@ -13,6 +13,7 @@ import OurClients from "../components/OurClients";
 import OurServices from "../components/OurServices";
 import Testimonies from "../components/Testimonies";
 import Vegetables from "../components/Vegetables";
+import OurPartners from "../components/OurPartners";
 import { About, DescriptionAbout, Ellipse, Hide, ImageNav } from "../styles";
 import { path } from "../api";
 
@@ -90,6 +91,7 @@ const AboutUs = () => {
       <Projects />
       <Testimonies />
       <Certification />
+      <OurPartners />
       <Footer />
     </motion.div>
   );
