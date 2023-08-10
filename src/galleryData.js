@@ -19,39 +19,39 @@ export const galleryData = () => {
           }
         ],  
         
-      ourLastest:{
-        heading:"Latest Shots",
-        images:[
-          {
-            imgSrc:athlete,
-            imgDesc:"Gallery Photos Speak It All",
-          },
-          {
-            imgSrc:athlete,
-            imgDesc:"Gallery Photos Speak It All",
-          },
-          {
-            imgSrc:athlete,
-            imgDesc:"Gallery Photos Speak It All",
-          },
-          {
-            imgSrc:athlete,
-            imgDesc:"Gallery Photos Speak It All",
-          },
-          {
-            imgSrc:athlete,
-            imgDesc:"Gallery Photos Speak It All",
-          }
-          ]
-      },
+      ourLastest:[
+        {
+          heading:"Latest Shots",
+          images:[
+            {
+              imgSrc:athlete,
+              imgDesc:"Gallery Photos Speak It All",
+            },
+            
+            {
+              imgSrc:goodtimes,
+              imgDesc:"Gallery Photos Speak It All",
+            },
+            {
+              imgSrc:athlete,
+              imgDesc:"Gallery Photos Speak It All",
+            },
+            {
+              imgSrc:goodtimes2,
+              imgDesc:"Gallery Photos Speak It All",
+            }
+            ]
+        }
+      ],
         
-      bestMoments:{
+      bestMoments:[{
         heading:"Best Shots",
         subheading:"This is the Best Way To React Us",
 
         images:[
+          
           {
-            imgSrc:athlete2,
+            imgSrc:theracer2,
             imgDesc:"Gallery Photos Speak It All",
           },
           {
@@ -63,15 +63,11 @@ export const galleryData = () => {
             imgDesc:"Gallery Photos Speak It All",
           },
           {
-            imgSrc:athlete2,
-            imgDesc:"Gallery Photos Speak It All",
-          },
-          {
-            imgSrc:athlete2,
+            imgSrc:theracer,
             imgDesc:"Gallery Photos Speak It All",
           }
           ]
-      },
+      }],
     }
     ];
 };
