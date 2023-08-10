@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import {galleryData} from "../galleryData.js";
 import { Image } from "../styles";
 //Animations
 import { motion } from "framer-motion";
-import {
-  photoAnim_contactUs,
-  photoAnim,
-  pageAnimation,
-  fade,
-} from "../animation";
+import { scrollReveal } from "../animation";
+import { photoAnim_contactUs, pageAnimation } from "../animation";
 import { useScroll } from "../components/useScroll";
 import ScrollTop from "../components/ScrollTop";
 // api
@@ -21,20 +15,19 @@ import { base_url } from "../api";
 const Gallery = () => {
   const [element, controls] = useScroll();
 
-  const [gallery, setGallery] = useState(galleryData);
+  const [gallery, setGallery] = useState(null);
 
   useEffect(() => {
-    // const getcontactUs = async () => {
-    //   const {data:{data:[data]}}= await axios.post(base_url, { postData: "GALLERY" });
+    const getcontactUs = async () => {
+      const {data}= await axios.post(base_url, { postData: "GALLERY" });
+     
+      setGallery(prev => data);
+    };
 
-    //   setGallery(prev => data);
-    // };
+    getcontactUs();
+  }, []);
 
-    // getcontactUs();
-    setGallery((prev) => gallery);
-  }, [gallery]);
-
-  
+  console.log("gallery", gallery)
   return (
     <Work
       style={{ background: "#fff" }}
@@ -43,62 +36,49 @@ const Gallery = () => {
       initial="hidden"
       animate="show"
     >
-      {gallery && gallery.map(galleryItem => 
+      {gallery &&
         <>
-        {galleryItem.galleryHeader &&  galleryItem.galleryHeader.map((item) => (
-          <Movie>
-            <Hide>
-              <motion.img
-                variants={photoAnim_contactUs}
-                src={item.imgSrc}
-                alt={item.imgDesc}
-              />
-              <div className="about_title">
-                <h1 className="mb-0 bread">{item.heading}</h1>
-                <p>{item.subheading}</p>
-              </div>
-            </Hide>
-          </Movie>
-        ))}
+        <Movie>
+          <Hide>
+            <motion.img
+              variants={photoAnim_contactUs}
+              src={gallery.galleryHeader.imgSrc}
+              alt="image"
+            />
+            <div className="about_title">
+              <h1 className="mb-0 bread">{gallery.galleryHeader.heading}</h1>
+              <p>{gallery.galleryHeader.subheading}</p>
+            </div>
+          </Hide>
+        </Movie>
 
-        {/* {galleryItem.ourLastest && 
-                <StyledLatest
-                  ref={element}
-                  variants={fade}
-                  animate={controls}
-                  initial="hidden"
-                >
-                  <h1 className="mb-0 bread">{galleryItem.ourLastest.heading}</h1>
-                  <StyledImageContainer>
-                    {galleryItem.ourLastest.images.map((image) =>   
-                      <Image>
-                        <img src={image.imgSrc} alt={image.imgDesc} />
-                      </Image>
-                    )}
-                  </StyledImageContainer>
-                </StyledLatest>
-              }
+        {gallery.sections && 
+          gallery.sections.map(item => 
+            
+            <StyledLatest
+            ref={element}
+            variants={scrollReveal}
+            animate={controls}
+            initial="hidden"
+            >
+            <div>
+              <h1 className="mb-0 bread">{item.title}</h1>
+              <p className="mb-0 bread">{item.sub_title}</p>
+            </div>
 
-      {galleryItem.bestMoments && 
-              <StyledLatest
-                ref={element}
-                variants={fade}
-                animate={controls}
-                initial="hidden"
-              >
-                <h1 className="mb-0 bread">{galleryItem.bestMoments.heading}</h1>
-                
-                <StyledImageContainer>
-                  {galleryItem.bestMoments.images.map((image) =>   
-                    <Image>
-                      <img src={image.imgSrc} alt={image.imgDesc} />
-                    </Image>
-                  )}
-                </StyledImageContainer>
-              </StyledLatest>
-            } */}
-        </>
-      )}
+           <StyledImageContainer>
+             {item.images.map((image) => (
+               <Image>
+                 <img src={image.imgSrc} alt={image.imgDesc} />
+               </Image>
+             ))}
+           </StyledImageContainer>
+         </StyledLatest>
+            )
+        }
+    </>
+      } 
+
       <Footer />
       <ScrollTop />
     </Work>
@@ -120,10 +100,18 @@ const Work = styled(motion.div)`
 `;
 
 const Movie = styled(motion.div)`
+position: relative;
+
   img {
     width: 100%;
     height: 70vh;
     object-fit: cover;
+  }
+  .about_title{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 
@@ -133,21 +121,63 @@ const StyledLatest = styled(motion.div)`
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  row-gap: 5rem;
+  row-gap: 1rem;
   min-height: 100vh;
-  overflow: hidden;
-  background: red;
+`;
+const StyledBestMoments = styled(motion.div)`
+  padding: 5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  row-gap: 1rem;
+  min-height: 100vh;
+`;
+const StyledImageContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+  grid-gap: 1rem;
 
   img {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+const StyledImageBM = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  grid-gap: .5rem;
+  img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 `;
 
-const StyledImageContainer = styled.div`
-background-color: red;
-`
+const StyledImage = styled(motion.div)`
+  z-index: 2;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:nth-child(1){
+    grid-column: 1/3;
+  }
+  &:nth-child(2){
+    grid-column: 3/4;
+    grid-row: 1/3;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.8rem;
+  }
+`;
 const Hide = styled.div`
   overflow: hidden;
   position: relative;

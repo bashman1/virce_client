@@ -53,6 +53,7 @@ const Activity = (props) => {
     </div>
   )
 }
+
 //Styled Components
 const StyledPartnerships = Styled.div`
   height: 60vh;

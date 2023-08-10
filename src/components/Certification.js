@@ -127,8 +127,8 @@ const StyledCertification = styled.div`
 `
 const Cards = styled.div`
  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-  width: 70%;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  width: 90%;
   margin: 5rem auto 2rem auto;
   grid-gap: 3rem;
 
