@@ -100,10 +100,18 @@ const Work = styled(motion.div)`
 `;
 
 const Movie = styled(motion.div)`
+position: relative;
+
   img {
     width: 100%;
     height: 70vh;
     object-fit: cover;
+  }
+  .about_title{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 
