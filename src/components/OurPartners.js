@@ -80,7 +80,7 @@ const Services = styled(About)`
 
 const Cards = styled.div`
  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   width: 80%;
   margin: 0 auto;
   grid-gap: 1.5rem;
@@ -138,7 +138,6 @@ const StyledCard = styled.div`
             line-height: 1.8;
             font-weight: 400;
             position: relative;
-            border-left: 1px solid #e6e6e6;
             color: rgba(0, 0, 0, 0.8);
         }
         .name{
