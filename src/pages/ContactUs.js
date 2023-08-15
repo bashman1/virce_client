@@ -21,9 +21,20 @@ const ContactUs = () => {
   const [element, controls] = useScroll();
   const [formData, setFormData] = useState({
     name:"",
+    email:"",
+    telphone:"",
+    subject:"",
+    message:"",
+    web_id:1,
+    status:"Active",
+    business_id:5,
+    branch_id:5
 
   })
   const [contactUs, setContactUs] = useState(null);
+  const [formSubmitCode, setFormSubmitCode] = useState(null)
+  const [loanding, setLoading] = useState(false)
+
 
   useEffect(() => {
     const getcontactUs = async () => {
@@ -38,13 +49,25 @@ const ContactUs = () => {
   // ==================================== HANDLE FORM SUBMIT ===============================
   const handleSubmit = async(event) => {
       event.preventDefault();
+      setLoading(prev => true)
       
-      const {data:{data:[data]}}= await axios.post(base_url, 
-        { postData: formData }, 
-        { headers: {  'Content-Type': 'application/x-www-form-urlencoded'  }
-        });
+      const {status}= await axios.post("https://virce.co.ug/core/api/public-web-contact-us", 
+        formData , 
+        { headers: {  'Content-Type': 'application/json'  }
+        }); 
+        setFormSubmitCode(prev => status)
 
-        console.log(data)
+        setTimeout(()=>{        
+          setFormData(prevData => {
+            return {...prevData, name:"",
+            email:"",
+            telphone:"",
+            subject:"",
+            message:"", }
+          })
+          setFormSubmitCode(prev => null)
+          setLoading(prev => false)
+        }, 3000)
   }
 
   // ======================================= HANDLE INPUT CHANGE ===========================
@@ -58,6 +81,10 @@ const ContactUs = () => {
 
     })
   }
+
+  // ================================== handle loanding
+
+
   return (
     <Work
       style={{ background: "#fff" }}
@@ -105,7 +132,7 @@ const ContactUs = () => {
                        <div className="form-group">
                         <h2>{formItem.formTitle ? formItem.formTitle : "Form Title - (Not Set)"}</h2>
                        </div>
-   
+                        {formSubmitCode && <div className="form_success">Message Successfully Sent, thank you</div>}
                        <div className="form-group">
                          <input 
                            type="text" 
@@ -117,16 +144,35 @@ const ContactUs = () => {
                          />
                        </div>
                        <div className="form-group">
-                         <input type="text" className="form-control" placeholder="Your Email" />
+                         <input type="text" 
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                         className="form-control" placeholder="Your Email" />
                        </div>
                        <div className="form-group">
-                         <input type="text" className="form-control" placeholder="Subject" />
+                         <input type="tel" 
+                          name="telphone"
+                          value={formData.telphone}
+                          onChange={handleChange}
+                         className="form-control" placeholder="Your Phone" />
                        </div>
                        <div className="form-group">
-                         <textarea name="" id="" cols="30" rows="7" className="form-control" placeholder="Message"></textarea>
+                         <input type="text" 
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                         className="form-control" placeholder="Subject" />
                        </div>
                        <div className="form-group">
-                        <input type="submit" value={formItem.formTitle ? formItem.formTitle : "(Not Set)"} className="btn btn-primary py-3 px-5" /> 
+                         <textarea 
+                         name="message" 
+                         value={formData.message}
+                         onChange={handleChange}
+                         id="" cols="30" rows="7" className="form-control" placeholder="Message"></textarea>
+                       </div>
+                       <div className="form-group"> 
+                        <input type="submit" value={loanding ? "Sending..." : formItem.formTitle } className="btn btn-primary py-3 px-5" /> 
                        </div>
                      </form>
                    </StyledForm>
@@ -226,7 +272,22 @@ const StyledForm = styled.div`
   padding:1.5rem 3rem;
   background:white;
   border-radius: 0rem 1rem 1rem 0rem;
-
+  form{
+    position: relative;
+  }
+  .form_success{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #5b1a0e;
+    color: white;
+    padding: 2rem;
+    font-size: 1.1rem;
+    width: 70%;
+    border-radius: .5rem;
+    text-align: center;
+  }
   .form-group {
     margin-bottom: 1.5rem;
     h2{
