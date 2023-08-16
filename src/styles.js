@@ -187,6 +187,7 @@ export const DescriptionTestimonies = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  min-height: 100vh;
 
   .subheading {
     font-size: 18px;
@@ -198,11 +199,11 @@ export const DescriptionTestimonies = styled.div`
 
   h2 {
     position: relative;
-    font-size: 70px;
     font-weight: 800;
     color: #000000;
   }
-  p {
+ 
+  span {
     padding: 0 0 4rem 0;
     width: 50%;
   }
