@@ -20,6 +20,7 @@ const Vegetables = () => {
       const {
         data: { data },
       } = await axios.post(base_url, { postData: "CATEGORIES" });
+
       setOutCategories(data);
     };
 
@@ -57,12 +58,14 @@ const Vegetables = () => {
 // ===================================================  Card Components ============
 const Card = (props) => {
   return (
-    <StyledCard>
-      <Image>
-        <img src={props.imgSrc} alt={props.imageDescription} />
-      </Image>
-      <motion.button variants={fade}>{props.btnText} </motion.button>
-    </StyledCard>
+    <>
+      <StyledCard>
+        <Image>
+          <img src={props.imgSrc} alt={props.imageDescription} />
+        </Image>
+        <motion.button variants={fade}>{props.btnText} </motion.button>
+      </StyledCard>      
+    </>
   );
 };
 
@@ -70,15 +73,19 @@ const Card = (props) => {
 const VegetablesContainer = styled(About)`
   text-align: center;
   background: white;
-  height: 70vh;
+  min-height: 70vh;
   width: 100%;
+  padding: 0 10rem;
 `;
 
 const Cards = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-  width: 70%;
-  margin: 0 auto;
+ display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
 
   @media (max-width: 1300px) {
     justify-content: center;
@@ -86,6 +93,8 @@ const Cards = styled.div`
 `;
 
 const StyledCard = styled(motion.div)`
+  flex: 1 0 17rem;
+  margin: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,8 +102,10 @@ const StyledCard = styled(motion.div)`
   margin: 0rem 0;
   position: relative;
   padding: 1rem;
+  min-height: 50vh;
 
   button {
+    display: block;
     background: #ffc0047a;
     position: absolute;
     bottom: 3rem;
@@ -104,7 +115,7 @@ const StyledCard = styled(motion.div)`
     outline: none;
     border-radius: 2rem;
     width: 82%;
-    backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1.05rem);
   }
   img {
     width: 100%;
