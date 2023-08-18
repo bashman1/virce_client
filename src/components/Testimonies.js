@@ -8,6 +8,7 @@ import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
 import axios from "axios";
 import { base_url } from '../api';
+import { motion } from "framer-motion";
 
 const Testimonies = () => {
     const [ourPartners, setOurPartners] = useState(null);
@@ -55,36 +56,60 @@ const Testimonies = () => {
 // ===================================================  Card Components ============
 const Card = (props) => {
     return (
-        <StyledCard>
-        <div className="icon">
-            <img alt="icon" src={props.patnerImgSrc} />
-        </div>
-        <div className="text text-center">
-            <p className="mb-5 pl-4 line">{props.patnerBio}</p>
-            <p className="name">{props.patnerName}</p>
-            <span className="position">{props.patnerTitle}</span>
-        </div>
-    </StyledCard>
+      <StyledCard>
+      <div className="icon">
+          <img alt="icon" src={props.patnerImgSrc} />
+      </div>
+      <div className="text text-center">
+          <p className="mb-5 pl-4 line">{props.patnerBio}</p>
+          <p className="name">{props.patnerName}</p>
+          <span className="position">{props.patnerTitle}</span>
+      </div>
+  </StyledCard>
     );
   };
-const Services = styled(About)`
+const Services = styled(motion.div)`
   text-align: center;
   background: white;
   margin-top:0;
+  padding: 5rem 10rem;
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  color: white;
+  position: relative;
 
   h2 {
     padding-bottom: 2.5rem;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    padding-bottom: 2.5rem;
+  }
+  @media (max-width: 1300px) {
+    display: block;
+    padding: 2rem 2rem;
+    text-align: center;
+
+  h2 {
+    padding-bottom: 2.5rem;
+    font-size: 2rem;
     font-weight: bolder;
   }
+
+}
 `;
 
 const Cards = styled.div`
- display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr));
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-  grid-gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;  
+  gap:1.7rem;
 
   @media (max-width: 1300px) {
     justify-content: center;
@@ -92,6 +117,7 @@ const Cards = styled.div`
 `;
 
 const StyledCard = styled.div`
+flex: 1 0 20rem;
   overflow: hidden;
 
   /* Inside auto layout */

@@ -24,11 +24,22 @@ const AboutVideo = () => {
 
 return (
     <VegieLeft ref={element} variants={fade} animate={controls} initial="hidden">
+       {aboutVideo && aboutVideo.map(obj => 
+      <h2>{obj.text}</h2>
+      )
+      }
       {aboutVideo && aboutVideo.map(obj => 
-      <iframe title="tambisa" src={`https://www.youtube.com/embed/${obj.videoLink}?autoplay=1&mute=1`} >
+      <iframe 
+      title="Tambisa CEO explaning about Tambisa" 
+      src={`https://www.youtube.com/embed/${obj.videoLink}?autoplay=1&loop=1&mute=1`}
+      allowFullScreen={true}
+      frameborder="0"
+      sandbox="allow-scripts allow-same-origin"
+      seamless={true}
+      loading="lazy"
+      allow="accelerometer; autoplay;loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture full">
       </iframe>
       )
-        
       }
        
     </VegieLeft>
@@ -39,47 +50,23 @@ return (
 const VegieLeft = styled.div`
   position: relative;
   height: inherit;
-  flex:1;
-  padding: 3rem 0rem;
+  padding: 5rem 0rem;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+
+  min-height: 100vh;
   width: 70%;
   margin: 0 auto;
 
   iframe{
     border-radius: 1rem;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     object-fit: cover;
   }
-  .mouse{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 99;
-    transform: translate(-50%, -50%);
-
-    .mouse-icon{
-      width: 100px;
-      height: 100px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 50%;
-      background: #82ae46;
-      cursor: pointer;
-      position: relative;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .mouse-wheel{
-        i{
-          font-size: 3rem;
-          color: white;
-        }
-      }
-    }
+ h2{
+   width:100%;
+   text-align: center;
   }
 `;
 export default AboutVideo;
