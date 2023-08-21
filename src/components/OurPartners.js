@@ -70,6 +70,7 @@ const Services = styled(About)`
   text-align: center;
   background: white;
   margin-top:0;
+  margin-top: 10vh;
 
   h2 {
     padding-bottom: 2.5rem;

@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
-const primaryColor  = "85.4, 42.6%, 47.8%"
-const textColor = "hsl(210, 14%, 83%)"
-const secondaryColor = "hsl(10.1, 97.5%, 15.5%)"
+const primaryColor = "85.4, 42.6%, 47.8%";
+const textColor = "hsl(210, 14%, 83%)";
+const secondaryColor = "hsl(10.1, 97.5%, 15.5%)";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -160,7 +160,7 @@ line-height: 1.5;
         color: ${secondaryColor} !important;
         font-size: 2rem !important;
         line-height: 1.5 !important;
-    }
+    }    
 
 `;
 

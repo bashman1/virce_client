@@ -85,6 +85,7 @@ const Services = styled(motion.div)`
   background: white;
   min-height: 100vh !important;
   padding-top: 2rem;
+  margin-top: 10vh;
 
   h2 {
     padding-bottom: 2.5rem;
