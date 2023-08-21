@@ -34,7 +34,7 @@ const AboutUs = () => {
           const {
             data: { data },
           } = await axios.post(base_url, { postData: "HEADER_SECTION" });
-          setHeader(data);
+          setHeader(prev =>data);
 
           if (header) {
             let [{ title, subtitle, sliderImges }] = header;

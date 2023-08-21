@@ -48,8 +48,8 @@ const PartnerShips = () => {
 const Activity = (props) => {
   return (
     <div className="text">
-      <strong className="number" data-number="10000">{props.stats}</strong>
-      <span>{props.name}</span>
+      <strong className="number text_white" data-number="10000">{props.stats}</strong>
+      <span className="text_white">{props.name}</span>
     </div>
   )
 }

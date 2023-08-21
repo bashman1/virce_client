@@ -15,7 +15,7 @@ const AboutSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage((currentImage + 1) % images.length);
+      setCurrentImage((currentImage => currentImage + 1) % images.length);
     }, 5000);
 
     return () => clearInterval(interval);

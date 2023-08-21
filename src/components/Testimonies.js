@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 //Import Icons
 
 //Styles
-import { About, DescriptionTestimonies } from "../styles";
+import {  DescriptionTestimonies } from "../styles";
 import styled from "styled-components";
 import { scrollReveal } from "../animation";
 import { useScroll } from "./useScroll";
@@ -35,7 +35,7 @@ const Testimonies = () => {
              {ourPartners &&
                 ourPartners.map((partnerInfo) => (
                     <DescriptionTestimonies>
-                         {partnerInfo.heading ?  <h2>{partnerInfo.heading}</h2> : "(Title Not Set)"}
+                         {partnerInfo.heading ?  <h2 className="header_color">{partnerInfo.heading}</h2> : "(Title Not Set)"}
                          {partnerInfo.subtitle ?  <span>{partnerInfo.subtitle}</span> : "(subtitle Not Set)"}
                         
                         {
@@ -62,7 +62,7 @@ const Card = (props) => {
       </div>
       <div className="text text-center">
           <p className="mb-5 pl-4 line">{props.patnerBio}</p>
-          <p className="name">{props.patnerName}</p>
+          <p className="name text_bold">{props.patnerName}</p>
           <span className="position">{props.patnerTitle}</span>
       </div>
   </StyledCard>

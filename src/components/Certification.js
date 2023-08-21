@@ -40,8 +40,8 @@ const Certification = () => {
 
     >
        {ourCerification && ourCerification.map(cert => 
-          <StyledCertification>
-         {cert.heading && <h2>{cert.heading}</h2> }
+          <StyledCertification key={cert.heading}>
+         {cert.heading && <h2 className="header_color">{cert.heading}</h2> }
           {cert.subtitle && <span className="subheading">{cert.subtitle}</span> }
         
           {cert.text &&  <p>{cert.text }</p> }
