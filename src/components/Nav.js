@@ -131,6 +131,14 @@ const Nav = () => {
               animate={{ width: hash === `#partners` ? "90%" : "0%" }}
             />
           </li>
+          <li>
+            <a href="/#ourTeam">Our Team </a>
+            <Line
+              transition={{ duration: 0.75 }}
+              initial={{ width: "0%" }}
+              animate={{ width: hash === `#ourTeam` ? "90%" : "0%" }}
+            />
+          </li>
 
           <li>
             <Link to={`${path}work`}>About Us</Link>

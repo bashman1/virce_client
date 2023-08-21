@@ -29,7 +29,8 @@ const Testimonies = () => {
         <Services
             variants={scrollReveal}
             animate={controls}
-            initial="hidden"           
+            initial="hidden"  
+            id="ourTeam"         
             ref={element}
         >
              {ourPartners &&

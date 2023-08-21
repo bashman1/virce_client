@@ -94,14 +94,24 @@ const Services = styled(motion.div)`
   }
 `;
 //Styled Components
-const StyledProjects = Styled(About)`
+const StyledProjects = Styled(motion.div)`
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
     color: white;
-    position: relative;
+    position: relative;    
+  overflow: hidden;
+  color: white;
+  position: relative;
+
+
+  @media (max-width: 1300px) {
+    display: block;
+    padding: 2rem 2rem;
+    text-align: center;
+  }
 
 
   @media (max-width: 1300px) {
@@ -118,9 +128,9 @@ padding: 2rem;
 border-radius: 7rem 0 7rem 0;
 width: 90%;
 position: absolute;
-  top: 90%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -90%);
+  transform: translate(-50%, -50%);
   z-index: 3;
   text-align: center;
   height: 90vh;
