@@ -8,6 +8,10 @@ import OurWork from "./pages/OurWork";
 import Nav from "./components/Nav";
 import Gallery from "./pages/Gallery";
 import { path } from "./api";
+import { motion } from "framer-motion";
+import { photoAnim } from "./animation";
+import chatIcon from "./img/messenger.png"
+import { Link } from "react-router-dom";
 
 //Router
 import { Switch, Route, useLocation } from "react-router-dom";
@@ -39,6 +43,14 @@ function App() {
 
         </Switch>
       </AnimatePresence>
+      <Link  to={`${path}contact`} className="chat_guy" >
+        <motion.img
+          className="prev_arrow"
+          variants={photoAnim}
+          src={chatIcon}
+          alt="back-arrow"
+        />
+      </Link>
     </div>
   );
 }

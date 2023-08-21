@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { About,  Image } from "../styles";
+import {   Image } from "../styles";
 import Styled from "styled-components"
 //Framer Motion
 import { motion } from "framer-motion";
