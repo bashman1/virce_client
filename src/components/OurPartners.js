@@ -34,8 +34,8 @@ const OurPartners = () => {
         >
              {ourPartners &&
                 ourPartners.map((partnerInfo) => (
-                    <DescriptionTestimonies>
-                         {partnerInfo.heading ?  <h2>{partnerInfo.heading}</h2> : "(Title Not Set)"}
+                    <DescriptionTestimonies key={partnerInfo.heading}>
+                         {partnerInfo.heading ?  <h2 className="header_color">{partnerInfo.heading}</h2> : "(Title Not Set)"}
                          {partnerInfo.subtitle ?  <span>{partnerInfo.subtitle}</span> : "(subtitle Not Set)"}
                         
                         {
@@ -61,7 +61,7 @@ const Card = (props) => {
             <img alt="icon" src={props.patnerImgSrc} />
         </div>
         <div className="text text-center">           
-            <p className="name">{props.patnerName}</p>
+            <p className="name bold">{props.patnerName}</p>
         </div>
     </StyledCard>
     );

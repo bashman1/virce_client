@@ -39,14 +39,14 @@ const Vegetables = () => {
         ourCategories.map((categoryInfo) => (
           <DescriptionVegetables>
             {categoryInfo.heading ? (
-              <h2>{categoryInfo.heading}</h2>
+              <h2 className="header_color">{categoryInfo.heading}</h2>
             ) : (
               "(Title Not Set)"
             )}
 
             <Cards>
               {categoryInfo.cards
-                ? categoryInfo.cards.map((item) => <Card {...item} />)
+                ? categoryInfo.cards.map((item) => <Card {...item} key={item.btnText} />)
                 : "(Cards Not Set)"}
             </Cards>
           </DescriptionVegetables>

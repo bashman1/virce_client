@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { About, DescriptionAbout, Image } from "../styles";
+import { About,  Image } from "../styles";
 import Styled from "styled-components"
 //Framer Motion
 import { motion } from "framer-motion";
@@ -38,11 +38,11 @@ const Projects = () => {
       <AboutProjects>
         {ourProjects && ourProjects.map((projInfo, index) =>
 
-          <>
+          <>           
+            {projInfo.heading && <h2 >{projInfo.heading}</h2>}
             {(projInfo.subtitle && index === 0) && <span className="subheading">{projInfo.subtitle}</span>}
-            {projInfo.heading && <h2>{projInfo.heading}</h2>}
 
-            {projInfo.text && <p>{projInfo.text}</p>}
+            {projInfo.text && <p dangerouslySetInnerHTML={{__html:projInfo.text}}></p>}
             {projInfo.middleText && <p>{projInfo.middleText}</p>}
 
             {projInfo.projectStats &&
@@ -95,20 +95,35 @@ const Services = styled(motion.div)`
 `;
 //Styled Components
 const StyledProjects = Styled(About)`
-height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    color: white;
+    position: relative;
+
+
+  @media (max-width: 1300px) {
+    display: block;
+    padding: 2rem 2rem;
+    text-align: center;
+  }
 `;
 
-const AboutProjects = Styled(DescriptionAbout)`
+const AboutProjects = Styled(motion.div)`
 backdrop-filter: blur(.5rem);
 background: #000000ad;
 padding: 2rem;
 border-radius: 7rem 0 7rem 0;
-height: 85vh;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-width: 85%;
-text-align: center;
+width: 90%;
+position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  z-index: 3;
+  text-align: center;
+  height: 90vh;
 
   .subheading{
     font-size: 18px;
@@ -116,14 +131,15 @@ text-align: center;
     margin-bottom: 10px;
     font-style: italic;
     color: #82ae46;
+
   }
   h2{
     position: relative;
     font-size: 40px;
     font-weight: 600;
+    text-align: center;
     
-    margin-bottom:1.5rem;
-    text-align:left
+    margin-bottom:1rem;
   }
   p{
     padding: 1rem 0rem;

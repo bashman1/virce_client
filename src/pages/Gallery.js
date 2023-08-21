@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
-import { Image } from "../styles";
 //Animations
 import { motion } from "framer-motion";
-import { scrollReveal } from "../animation";
+
 import { photoAnim_contactUs, pageAnimation } from "../animation";
-import { useScroll } from "../components/useScroll";
 import ScrollTop from "../components/ScrollTop";
 // api
 import axios from "axios";
 import { base_url } from "../api";
 
 const Gallery = () => {
-  const [element, controls] = useScroll();
 
   const [gallery, setGallery] = useState(null);
 
@@ -55,22 +52,17 @@ const Gallery = () => {
         {gallery.sections && 
           gallery.sections.map(item => 
             
-            <StyledLatest
-            ref={element}
-            variants={scrollReveal}
-            animate={controls}
-            initial="hidden"
-            >
-            <div>
-              <h1 className="mb-0 bread">{item.title}</h1>
+            <StyledLatest >
+            <div className="text_center w_70 m_auto">
+              {item.title && <h1 className="mb-0 bread header_color">{item.title}</h1>}
               <p className="mb-0 bread">{item.sub_title}</p>
             </div>
 
            <StyledImageContainer>
              {item.images.map((image) => (
-               <Image>
+               <GalleryImage>
                  <img src={image.imgSrc} alt={image.imgDesc} />
-               </Image>
+               </GalleryImage>
              ))}
            </StyledImageContainer>
          </StyledLatest>
@@ -112,51 +104,21 @@ position: relative;
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color:white;
   }
 `;
 
 const StyledLatest = styled(motion.div)`
-  padding: 5rem 10rem;
+  padding: 3rem 10rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
   row-gap: 1rem;
-  min-height: 100vh;
+  min-height: 50vh;
 `;
-const StyledBestMoments = styled(motion.div)`
-  padding: 5rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-  row-gap: 1rem;
-  min-height: 100vh;
-`;
-const StyledImageContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
-  grid-gap: 1rem;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-const StyledImageBM = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  position: relative;
-  grid-gap: .5rem;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
-const StyledImage = styled(motion.div)`
+const GalleryImage = styled(motion.div)`
+flex: 1 0 20rem;
   z-index: 2;
   overflow: hidden;
   width: 100%;
@@ -164,20 +126,24 @@ const StyledImage = styled(motion.div)`
   justify-content: center;
   align-items: center;
 
-  &:nth-child(1){
-    grid-column: 1/3;
-  }
-  &:nth-child(2){
-    grid-column: 3/4;
-    grid-row: 1/3;
-  }
-  img {
+  img {    
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 0.8rem;
+    border-radius: .8rem;
   }
 `;
+const StyledImageContainer = styled.div`
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  flex-direction: row;
+`;
+
+
 const Hide = styled.div`
   overflow: hidden;
   position: relative;

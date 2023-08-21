@@ -1,5 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
+const primaryColor  = "85.4, 42.6%, 47.8%"
+const textColor = "hsl(210, 14%, 83%)"
+const secondaryColor = "hsl(10.1, 97.5%, 15.5%)"
+
 const GlobalStyle = createGlobalStyle`
 
 *{
@@ -90,6 +94,72 @@ line-height: 1.5;
         li{
             list-style: none;
         }
+    }
+
+    .bold{
+        font-weight: bold !important;
+        color: hsl(${primaryColor}) !important;
+    }
+    .error_msg{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: ${primaryColor};
+        color: ${textColor};
+
+    }
+    .text_center{
+        text-align: center !important;
+    }
+
+    /* --------------------------------------- Width styles ------------- */
+    .w_70{
+        width: 70%;
+    }
+
+      /* --------------------------------------- Display - Flex styles ------------- */
+    .d_flex_row{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .flex_1{
+        flex: 1;
+    }
+    .align_start{
+        align-items: flex-start;
+    }
+    .column_gap_2{
+        column-gap: 2rem;
+    }
+    .column_gap_10{
+        column-gap: 10rem;
+    }
+    /* --------------------------------------- Margin styles ------------- */
+
+    .text_white{
+        color: white !important;
+    }
+    .text_bold{
+        font-weight:bold !important;
+    }
+    .m_auto{
+        margin: 0 auto;
+    }
+    .header_color{
+        color: ${secondaryColor} !important;
+        font-size: 4rem !important;
+        line-height: 1.5 !important;
+    }
+    .subtitle_color{
+        color: ${secondaryColor} !important;
+    }
+    .footer_color{
+        color: ${secondaryColor} !important;
+        font-size: 2rem !important;
+        line-height: 1.5 !important;
     }
 
 `;

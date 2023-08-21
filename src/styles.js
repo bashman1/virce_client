@@ -159,7 +159,6 @@ export const DescriptionProducts = styled.div`
     font-size: 18px;
     display: block;
     margin-bottom: 10px;
-    font-style: italic;
     color: #82ae46;
   }
 
@@ -193,7 +192,6 @@ export const DescriptionTestimonies = styled.div`
     font-size: 18px;
     display: block;
     margin-bottom: 10px;
-    font-style: italic;
     color: #82ae46;
   }
 
