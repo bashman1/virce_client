@@ -11,7 +11,7 @@ import { path } from "../api";
 const Nav = () => {
   const { pathname, hash } = useLocation();
   const [topBanner, setTopBanner] = useState(null);
-  const [navSection, setNavSection] = useState(null);
+  const [navSection, setNavSection] = useState([]);
 
   useEffect(() => {
     const getTopBanner = async () => {
@@ -19,8 +19,10 @@ const Nav = () => {
         const {
           data: { data },
         } = await axios.post(base_url, { postData: "TOP_BANNER" });
-        setTopBanner(data);
-      } catch (error) {}
+        setTopBanner(prev => data);
+      } catch (error) {
+        
+      }
     };
     //
     const getNavSection = async () => {
@@ -47,7 +49,7 @@ const Nav = () => {
                   <span>
                     <i className="uil uil-phone"></i>
                   </span>
-                  <span>{obj.contact}</span>
+                  <span dangerouslySetInnerHTML={{__html:obj.contact}}></span>
                 </TopItem>
                 <TopItem>
                   <span>
@@ -98,7 +100,7 @@ const Nav = () => {
             />
           </li>
           <li>
-            <a href={`${path}#ourOffering`}>Our Offering </a>
+            <a href={`/#ourOffering`}>Our Offering </a>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
@@ -106,7 +108,7 @@ const Nav = () => {
             />
           </li>
           <li>
-            <a href="#curedVanilla">Our Products </a>
+            <a href="/#curedVanilla">Our Products </a>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
@@ -114,7 +116,7 @@ const Nav = () => {
             />
           </li>
           <li>
-            <a href="#initiatives">Initiatives </a>
+            <a href="/#initiatives">Initiatives </a>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
@@ -122,7 +124,7 @@ const Nav = () => {
             />
           </li>
           <li>
-            <a href="#partners">Partners </a>
+            <a href="/#partners">Partners </a>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}

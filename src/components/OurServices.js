@@ -33,9 +33,9 @@ const OurServices = () => {
     >
       {ourProducts &&
         ourProducts.map(prodInfo =>
-          <DescriptionProducts>
-            {prodInfo.subtitle && <span className="subheading">{prodInfo.subtitle}</span>}
-            {prodInfo.heading && <h2>{prodInfo.heading}</h2>}
+          <DescriptionProducts>           
+            {prodInfo.heading && <h2 className="header_color">{prodInfo.heading}</h2>}
+            {prodInfo.subtitle && <span className="subheading ">{prodInfo.subtitle}</span>}
             {prodInfo.text && <p>{prodInfo.text}</p>}
 
             <Cards>

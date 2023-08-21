@@ -8,11 +8,10 @@ import PartnerShips from "../components/PartnerShips";
 import AboutDesc from "components/AboutDesc";
 import AboutVideo from "components/AboutVideo";
 import AboutHeader from "components/AboutHeader"
+
 //Animations
 import { motion } from "framer-motion";
 import {
-  sliderContainer,
-  slider,
   pageAnimation,
 } from "../animation";
 
@@ -28,12 +27,7 @@ const OurWork = () => {
       initial="hidden"
       animate="show"
     >
-      <motion.div variants={sliderContainer}>
-        <Frame1 variants={slider}></Frame1>
-       
-      </motion.div>
-
-      <AboutHeader />
+      <AboutHeader />   
       <AboutDesc />
       <AboutVideo />
       <PartnerShips />
@@ -55,18 +49,6 @@ const Work = styled(motion.div)`
   h2 {
     padding: 1rem 0rem;
   }
-`;
-
-
-//Frame Animation
-const Frame1 = styled(motion.div)`
-  position: fixed;
-  left: 0;
-  top: 10%;
-  width: 100%;
-  height: 100vh;
-  background:  #8effa0;
-  z-index: 2;
 `;
 
 

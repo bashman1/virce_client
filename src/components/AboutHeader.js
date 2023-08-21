@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { photoAnim } from "../animation";
 import axios from "axios";
 import { base_url } from "../api";
+import {Ellipse} from "../styles";
 
 const AboutHeader = () => {
   const [aboutHeader, setAboutHeader] = useState(null);
@@ -33,13 +34,18 @@ const AboutHeader = () => {
             </div>
           </Hide>
         ))}
+
+<Ellipse></Ellipse>
     </Movie>
   );
 };
 
 //Styled Components
 const Movie = styled(motion.div)`
+position: relative;
  height: 75vh;
+ overflow: hidden;
+ 
   img {
     width: 100%;
     height: 75vh;
@@ -57,6 +63,7 @@ const Hide = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     text-align:center;
+    z-index: 999;
 
     p {
       margin-bottom: 0;

@@ -14,7 +14,7 @@ import { useScroll } from "./useScroll";
 
 const Footer = () => {
   const [element, controls] = useScroll();
-  const [footer, setFooter] = useState(null);
+  const [footer, setFooter] = useState([]);
 
   useEffect(() => {
     const getFooter = async () => {
@@ -40,16 +40,16 @@ const Footer = () => {
           </Link>
         </div> */}
 
-        <Cards>
+        <Cards className="d_flex_row column_gap_10 align_start">
           {footer && footer.map(card =>
-            <Card>
-            <h2>{card.title}</h2>
+            <Card className="" key={card.title}>
+            <h2 className="footer_color">{card.title}</h2>
 
             {card.description &&  <p className="mb-5 pl-4 line">{card.description}</p> }
            
             {card.socialMediaLinks &&
-                <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li className="ftco-animate fadeInUp ftco-animated">
+                <ul  key={card.title} className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li  className="ftco-animate fadeInUp ftco-animated">
                   <a href={ `${card.socialMediaLinks.facebook}`}>
                     <img src={facebook} alt="guy with a camera" />
                   </a>
@@ -191,13 +191,10 @@ const StyledFooter = styled.div`
 `
 
 const Cards = styled.div`
- display: flex;
- align-items: flex-start;
- justify-content: space-between;
-  width: 80%;
+ 
+  width: 100%;
   margin: 2rem auto 0 auto;
   padding: 2rem 0 0 0;
-  grid-gap: 1.5rem;
 
   @media (max-width: 1300px) {
     justify-content: center;
@@ -205,9 +202,9 @@ const Cards = styled.div`
 `;
 
 const Card = styled.div`
-  width: 20rem;
-  overflow: hidden;
 
+  width: 25rem;
+  overflow: hidden;  
    .ftco-footer-social{
     display: flex;
     align-items: flex-start;

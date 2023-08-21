@@ -5,7 +5,7 @@ import { base_url } from "../api";
 import mimiNawewe from "../img/neverLetMeDown.webp"
 
 const AboutDesc = () => {
-  const [aboutDesc, setAboutDesc] = useState(null);
+  const [aboutDesc, setAboutDesc] = useState([]);
 
   useEffect(() => {
     const getAboutDesc = async () => {
@@ -26,8 +26,7 @@ const AboutDesc = () => {
          </div>
 
          <div className="vegie_right_text">
-           <p>
-             {obj.aboutDescriptoin}
+           <p dangerouslySetInnerHTML={{__html:obj.aboutDescriptoin}}>            
            </p>
          </div>
        </> ) }

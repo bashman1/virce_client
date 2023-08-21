@@ -43,7 +43,7 @@ const OurClients = () => {
 
           <DescriptionOurClients key={serviceItem}>
 
-            {ourService && <h2>{serviceItem.heading}</h2>}
+            {ourService && <h2 className="header_color">{serviceItem.heading}</h2>}
 
             <Cards>
               {serviceItem.cards.map(item => <Card key={item.id} {...item} />)}
