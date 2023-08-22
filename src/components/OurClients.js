@@ -85,6 +85,7 @@ const Services = styled(motion.a)`
   height: 90vh;
   text-align: center;
   background: white;
+  margin-top: 10vh;
 
   p {
     width: 70%;
