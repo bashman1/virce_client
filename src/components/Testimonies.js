@@ -74,6 +74,7 @@ const Services = styled(motion.div)`
   background: white;
   margin-top:0;
   padding: 5rem 10rem;
+  margin-top: 10vh;
 
   min-height: 100vh;
   display: flex;

@@ -76,6 +76,7 @@ const VegetablesContainer = styled(About)`
   min-height: 70vh;
   width: 100%;
   padding: 0 10rem;
+  margin-top: 10vh;
 `;
 
 const Cards = styled.div`

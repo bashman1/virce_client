@@ -187,6 +187,7 @@ export const DescriptionTestimonies = styled.div`
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
+  margin-top: 10vh;
 
   .subheading {
     font-size: 18px;
@@ -448,11 +449,15 @@ export const ImageNav = styled(motion.div)`
   overflow: hidden;
   height: 100vh;
   width: 100vw;
+  position: relative;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .next_arrow{
+   
   }
 `;
 

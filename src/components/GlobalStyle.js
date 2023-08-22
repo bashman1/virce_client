@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
-const primaryColor  = "85.4, 42.6%, 47.8%"
-const textColor = "hsl(210, 14%, 83%)"
-const secondaryColor = "hsl(10.1, 97.5%, 15.5%)"
+const primaryColor = "85.4, 42.6%, 47.8%";
+const textColor = "hsl(210, 14%, 83%)";
+const secondaryColor = "hsl(10.1, 97.5%, 15.5%)";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -28,6 +28,32 @@ body{
     color: gray;
     overflow-x: hidden;
     text-align: justify;
+
+    .App{
+        position: relative;
+
+        .chat_guy{
+            position: fixed;
+            right: -2%;
+            top: 90%;
+            transform: translate(-100%, -1%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 5rem;
+            width: 5rem;
+            z-index: 999;
+            background:white;
+            border-radius: 50%;
+            border: 1px solid red;
+
+            img{
+                width: 40%;
+                height: 40%;
+                object-fit: cover;
+            }
+        }
+    }
 }
 button{
     font-weight: bold;
@@ -152,6 +178,7 @@ line-height: 1.5;
         color: ${secondaryColor} !important;
         font-size: 4rem !important;
         line-height: 1.5 !important;
+        font-weight: bold !important;
     }
     .subtitle_color{
         color: ${secondaryColor} !important;
@@ -160,7 +187,7 @@ line-height: 1.5;
         color: ${secondaryColor} !important;
         font-size: 2rem !important;
         line-height: 1.5 !important;
-    }
+    }    
 
 `;
 
