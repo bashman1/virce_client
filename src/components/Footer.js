@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 //Import Icons
 import facebook from "../img/facebook.png";
 import twitter from "../img/twitter.png";
+import linkedin from "../img/linkedin.png";
 // api
 import axios from "axios";
 import { base_url } from "../api";
@@ -56,7 +57,7 @@ const Footer = () => {
                 </li>
                 <li className="ftco-animate fadeInUp ftco-animated">
                   <a href={ `${card.socialMediaLinks.linkedin}`}>
-                    <img src={facebook} alt="guy with a camera" />
+                    <img src={linkedin} alt="guy with a camera" />
                   </a>
                 </li>
                 <li className="ftco-animate fadeInUp ftco-animated">
