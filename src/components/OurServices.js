@@ -34,9 +34,9 @@ const OurServices = () => {
       {ourProducts &&
         ourProducts.map(prodInfo =>
           <DescriptionProducts>           
-            {prodInfo.heading && <h2 className="header_color">{prodInfo.heading}</h2>}
-            {prodInfo.subtitle && <span className="subheading ">{prodInfo.subtitle}</span>}
-            {prodInfo.text && <p>{prodInfo.text}</p>}
+            {prodInfo.heading && <h2 className="header_color" dangerouslySetInnerHTML={{__html:prodInfo.heading}}></h2>}
+            {prodInfo.subtitle && <span className="subheading" dangerouslySetInnerHTML={{__html:prodInfo.subtitle}}></span>}
+            {prodInfo.text && <p dangerouslySetInnerHTML={{__html:prodInfo.text}}></p>}
 
             <Cards>
               {prodInfo.productList
@@ -56,8 +56,8 @@ const Card = (props) => {
     <StyledCard>
       <div className="icon">
         <img alt="icon" src={props.prodImgSrc} />
-        <h4 className="card_title">{props.productName}</h4>
-        <p>{props.price}</p>
+        <h4 className="card_title" dangerouslySetInnerHTML={{__html:props.productName}}></h4>
+        <p dangerouslySetInnerHTML={{__html:props.price}}></p>
       </div>
     </StyledCard>
   );

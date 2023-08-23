@@ -68,14 +68,14 @@ const AboutUs = () => {
             <DescriptionAbout>
               <StyledHeaderText>
                 <Hide>
-                  {title && <motion.h2 variants={titleAnim}>{title}</motion.h2>}
+                  {title && <motion.h2 dangerouslySetInnerHTML={{__html:title}} variants={titleAnim}></motion.h2>}
                 </Hide>
                 <Hide>
                   <motion.h2 variants={titleAnim}></motion.h2>
                 </Hide>
                 <Hide>
                   {subtitle && (
-                    <motion.h3 variants={fade}>{subtitle}</motion.h3>
+                    <motion.h3 variants={fade} dangerouslySetInnerHTML={{__html:subtitle}}></motion.h3>
                   )}
                 </Hide>
               </StyledHeaderText>

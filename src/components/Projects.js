@@ -39,11 +39,12 @@ const Projects = () => {
         {ourProjects && ourProjects.map((projInfo, index) =>
 
           <>           
-            {projInfo.heading && <h2 >{projInfo.heading}</h2>}
-            {(projInfo.subtitle && index === 0) && <span className="subheading">{projInfo.subtitle}</span>}
+            {projInfo.heading && <h2 dangerouslySetInnerHTML={{__html:projInfo.heading}}></h2>}
+            {(projInfo.subtitle && index === 0) && 
+              <span className="subheading" dangerouslySetInnerHTML={{__html:projInfo.subtitle}}></span>}
 
             {projInfo.text && <p dangerouslySetInnerHTML={{__html:projInfo.text}}></p>}
-            {projInfo.middleText && <p>{projInfo.middleText}</p>}
+            {projInfo.middleText && <p dangerouslySetInnerHTML={{__html:projInfo.middleText}}></p>}
 
             {projInfo.projectStats &&
 
@@ -52,7 +53,7 @@ const Projects = () => {
                   projInfo.projectStats.map((prodStat, index) =>
                     <motion.div className={index > 0 ? "time pl-3" : "time"} id="days">
                       {prodStat.stats}
-                      <span>{prodStat.name}</span>
+                      <span dangerouslySetInnerHTML={{__html:prodStat.name}}></span>
                     </motion.div>
                   )
                 }

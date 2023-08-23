@@ -43,9 +43,9 @@ const Footer = () => {
         <Cards className="d_flex_row column_gap_10 align_start">
           {footer && footer.map(card =>
             <Card className="" key={card.title}>
-            <h2 className="footer_color">{card.title}</h2>
+            <h2 className="footer_color" dangerouslySetInnerHTML={{__html:card.title}}></h2>
 
-            {card.description &&  <p className="mb-5 pl-4 line">{card.description}</p> }
+            {card.description &&  <p className="mb-5 pl-4 line" dangerouslySetInnerHTML={{__html:card.description}}></p> }
            
             {card.socialMediaLinks &&
                 <ul  key={card.title} className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
@@ -69,14 +69,14 @@ const Footer = () => {
             {card.phone && 
               <p className="address">
               <span><i className="uil uil-phone"></i></span>
-              <span>{card.phone}</span>
+              <span dangerouslySetInnerHTML={{__html:card.phone}}></span>
             </p> 
             }
 
             {card.email && 
               <p className="address">
               <span><i className="uil uil-phone"></i></span>
-              <span>{card.email}</span>
+              <span dangerouslySetInnerHTML={{__html:card.email}}></span>
             </p> 
             }
 
@@ -85,7 +85,7 @@ const Footer = () => {
                 {card.contactDetails.map(addr =>
                    <li className="address">
                    <span><i className="uil uil-map-marker"></i></span>
-                   <span>{addr} </span>
+                   <span dangerouslySetInnerHTML={{__html:addr}}></span>
                  </li>
                 )}
             </ul>
