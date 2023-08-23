@@ -43,7 +43,7 @@ const OurClients = () => {
 
           <DescriptionOurClients key={serviceItem}>
 
-            {ourService && <h2 className="header_color">{serviceItem.heading}</h2>}
+            {ourService && <h2 dangerouslySetInnerHTML={{__html:serviceItem.heading}} className="header_color"></h2>}
 
             <Cards>
               {serviceItem.cards.map(item => <Card key={item.id} {...item} />)}
@@ -67,8 +67,8 @@ const Card = (props) => {
         </div>
       </div>
       <div className="media-body">
-        <h3 className="heading">{props.cardTitle}</h3>
-        <span>{props.cardSubtitleTitle}</span>
+        <h3 className="heading" dangerouslySetInnerHTML={{__html:props.cardTitle}}></h3>
+        <span dangerouslySetInnerHTML={{__html:props.cardSubtitleTitle}}></span>
       </div>
     </StyledCard>
   )

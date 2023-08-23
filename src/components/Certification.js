@@ -35,16 +35,17 @@ const Certification = () => {
       variants={scrollReveal}
       animate={controls}
       initial="hidden"
+      id="certification"
       ref={element}
       whileInView="visible"
 
     >
        {ourCerification && ourCerification.map(cert => 
           <StyledCertification key={cert.heading}>
-         {cert.heading && <h2 className="header_color">{cert.heading}</h2> }
-          {cert.subtitle && <span className="subheading">{cert.subtitle}</span> }
+         {cert.heading && <h2 className="header_color" dangerouslySetInnerHTML={{__html:cert.heading}}></h2> }
+          {cert.subtitle && <span className="subheading" dangerouslySetInnerHTML={{__html:cert.subtitle}}></span> }
         
-          {cert.text &&  <p>{cert.text }</p> }
+          {cert.text &&  <p dangerouslySetInnerHTML={{__html:cert.text }}></p> }
           
           {cert.certList && 
           <Cards>
@@ -69,9 +70,9 @@ const Card = (props) => {
      <span className="svg_container">
         <motion.img variants={scrollReveal} src={props.img} alt="crop_icon" />
       </span>
-      <h3 className="card_title">{props.name}</h3>
-      <p>
-        {props.description}
+      <h3 className="card_title" dangerouslySetInnerHTML={{__html:props.name}}></h3>
+      <p dangerouslySetInnerHTML={{__html:props.description}}>
+        
       </p>
     </StyledCard>
   );

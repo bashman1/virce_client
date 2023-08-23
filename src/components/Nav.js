@@ -100,7 +100,7 @@ const Nav = () => {
             />
           </li>
           <li>
-            <a href={`/#ourOffering`}>Our Offering </a>
+            <a href={`/#ourOffering`}>Offering </a>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
@@ -108,7 +108,7 @@ const Nav = () => {
             />
           </li>
           <li>
-            <a href="/#curedVanilla">Our Products </a>
+            <a href="/#curedVanilla">Products </a>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
@@ -132,11 +132,19 @@ const Nav = () => {
             />
           </li>
           <li>
-            <a href="/#ourTeam">Our Team </a>
+            <a href="/#ourTeam">Team </a>
             <Line
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
               animate={{ width: hash === `#ourTeam` ? "90%" : "0%" }}
+            />
+          </li>
+          <li>
+            <a href="/#certification">Certification </a>
+            <Line
+              transition={{ duration: 0.75 }}
+              initial={{ width: "0%" }}
+              animate={{ width: hash === `#certification` ? "90%" : "0%" }}
             />
           </li>
 
@@ -291,6 +299,7 @@ const StyledNav = styled.nav`
       transition: all .4s ease-in;
       transform:scale(.9);
       font-weight: bold;
+      white-space: nowrap;
     }
 
     &:hover{
