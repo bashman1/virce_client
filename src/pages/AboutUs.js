@@ -31,6 +31,8 @@ const AboutUs = () => {
   const [sliderImges, setSliderImges] = useState(null);
 
   useEffect(() => {
+
+    // make and API call to return header info
     const getHeader = async () => {
       try {
         if (base_url) {
@@ -42,9 +44,9 @@ const AboutUs = () => {
           if (header) {
             let [{ title, subtitle, sliderImges }] = header;
 
-            setTitle(title);
-            setSubtitle(subtitle);
-            setSliderImges(sliderImges);
+            setTitle(prevTitle => title);
+            setSubtitle(prevsubTitle =>subtitle);
+            setSliderImges(prevSliderImages =>sliderImges);
           }
         }
       } catch (error) {}
@@ -106,21 +108,21 @@ const SlideImages = ({ sliderImges }) => {
     let interval = null;
     if (sliderImges) {
       interval = setInterval(() => {
-        setCurrentImage((currentImage + 1) % sliderImges.length);
+        setCurrentImage(currentImage => (currentImage + 1) % sliderImges.length);
       }, 5000);
     }
 
     return () => clearInterval(interval);
-  }, [currentImage, sliderImges, sliderImges.length]);
+  }, [sliderImges]);
 
   // ================================================== manually slide the images
   const goToNextImage = () => {
-    setCurrentImage((currentImage + 1) % sliderImges.length);
+    setCurrentImage(currentImage => (currentImage + 1) % sliderImges.length);
   };
 
     // ================================================== manually slide prevous images
   const goToPreviousImage = () => {
-    setCurrentImage((currentImage - 1 + sliderImges.length) % sliderImges.length);
+    setCurrentImage(currentImage => (currentImage - 1 + sliderImges.length) % sliderImges.length);
   };
   return (
     <StyledImagesAboutUs>
