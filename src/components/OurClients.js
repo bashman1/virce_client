@@ -24,8 +24,6 @@ const OurClients = () => {
       const { data: { data } } = await axios.post(base_url, { postData: "OUR_SERVICES" })
       setOurService(data);
 
-
-
     }
 
     getOurService()
