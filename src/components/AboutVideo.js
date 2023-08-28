@@ -5,6 +5,7 @@ import { fade } from "../animation";
 import axios from "axios";
 import { base_url } from "../api";
 
+
 const AboutVideo = () => {
   const [aboutVideo, setAboutVideo] = useState(null);
   const [element, controls] = useScroll();
@@ -75,7 +76,7 @@ const VegieLeft = styled.div`
   display: flex;
   flex-direction: column;
 
-  min-height: 100vh;
+  max-height: 98vh;
   width: 70%;
   margin: 0 auto;
 
