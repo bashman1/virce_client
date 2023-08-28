@@ -35,8 +35,8 @@ const OurPartners = () => {
              {ourPartners &&
                 ourPartners.map((partnerInfo) => (
                     <DescriptionTestimonies key={partnerInfo.heading}>
-                         {partnerInfo.heading ?  <h2 className="header_color">{partnerInfo.heading}</h2> : "(Title Not Set)"}
-                         {partnerInfo.subtitle ?  <span>{partnerInfo.subtitle}</span> : "(subtitle Not Set)"}
+                         {partnerInfo.heading ?  <h2 className="header_color" dangerouslySetInnerHTML={{__html:partnerInfo.heading}}></h2> : "(Title Not Set)"}
+                         {partnerInfo.subtitle ?  <span dangerouslySetInnerHTML={{__html:partnerInfo.subtitle}}></span> : "(subtitle Not Set)"}
                         
                         {
                           partnerInfo.patnerList && 
@@ -61,7 +61,7 @@ const Card = (props) => {
             <img alt="icon" src={props.patnerImgSrc} />
         </div>
         <div className="text text-center">           
-            <p className="name bold">{props.patnerName}</p>
+            <p className="name bold" dangerouslySetInnerHTML={{__html:props.patnerName}}></p>
         </div>
     </StyledCard>
     );

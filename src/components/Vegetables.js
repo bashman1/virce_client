@@ -39,7 +39,7 @@ const Vegetables = () => {
         ourCategories.map((categoryInfo) => (
           <DescriptionVegetables>
             {categoryInfo.heading ? (
-              <h2 className="header_color">{categoryInfo.heading}</h2>
+              <h2 className="header_color" dangerouslySetInnerHTML={{__html:categoryInfo.heading}}></h2>
             ) : (
               "(Title Not Set)"
             )}

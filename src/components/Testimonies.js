@@ -36,8 +36,8 @@ const Testimonies = () => {
              {ourPartners &&
                 ourPartners.map((partnerInfo) => (
                     <DescriptionTestimonies>
-                         {partnerInfo.heading ?  <h2 className="header_color">{partnerInfo.heading}</h2> : "(Title Not Set)"}
-                         {partnerInfo.subtitle ?  <span>{partnerInfo.subtitle}</span> : "(subtitle Not Set)"}
+                         {partnerInfo.heading ?  <h2 className="header_color" dangerouslySetInnerHTML={{__html:partnerInfo.heading}}></h2> : "(Title Not Set)"}
+                         {partnerInfo.subtitle ?  <span dangerouslySetInnerHTML={{__html:partnerInfo.subtitle}}></span> : "(subtitle Not Set)"}
                         
                         {
                           partnerInfo.patnerList && 
@@ -62,9 +62,9 @@ const Card = (props) => {
           <img alt="icon" src={props.patnerImgSrc} />
       </div>
       <div className="text text-center">
-          <p className="mb-5 pl-4 line">{props.patnerBio}</p>
-          <p className="name text_bold">{props.patnerName}</p>
-          <span className="position">{props.patnerTitle}</span>
+          <p className="mb-5 pl-4 line" dangerouslySetInnerHTML={{__html:props.patnerBio}}></p>
+          <p className="name text_bold"  dangerouslySetInnerHTML={{__html:props.patnerName}}></p>
+          <span className="position" dangerouslySetInnerHTML={{__html:props.patnerTitle}}></span>
       </div>
   </StyledCard>
     );
